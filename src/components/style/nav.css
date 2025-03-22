@@ -24,7 +24,7 @@
     text-decoration: none;
     color: #000;
 }
-.right-side{
+.right-side,.usrProfileSide{
     color: #5B5B5B;
     display: flex;
     flex-direction: row;
@@ -40,7 +40,6 @@
 }
 .profile-right-side{
     width: 220px;
-    top: 80px;
     position: absolute;
 }
 .profile-right-side>ul{
@@ -48,10 +47,11 @@
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 10px;
 }
 .profile-right-side>ul>li>a{
     text-decoration: none;
+    font-size: 18px;
     color: #000;
 }
 .profile-right-side>ul>li>a:hover{

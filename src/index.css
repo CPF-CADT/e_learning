@@ -1,3 +1,4 @@
+@import "tailwindcss";
 :root {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,4 +11,16 @@
   padding: 0;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+}
+.borderSelected{
+  padding-bottom: 10px;
+  border-bottom: 6px solid #B1B4FF;
+}
+.p-progressbar{
+  height: 17px;
+  margin-bottom: 20px;
+}
+.p-progressbar-value{
+  border-radius: 5px;
+  background: #41BD55;
 }
