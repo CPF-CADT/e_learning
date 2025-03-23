@@ -8,18 +8,13 @@ import DropDown from "./DropDown";
 import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
 import { InputText } from "primereact/inputtext";
-import { Paginator } from 'primereact/paginator';
 export default function MyCourse({ usrname, usrProfilePath }) {
-  const [selectedOption, setSelectedOption] = useState("My Courses"); // Manage the state here
+  const optionsCourse = ['My Courses', 'Favourite Courses'];
+  const [selectedOption, setSelectedOption] = useState(optionsCourse[0]); // Manage the state here
   const [selectedCourseType, setSelectedCourseType] = useState(null);
   const [selectedShortCourse, setSelectedShortCourse] = useState(null);
   const [first, setFirst] = useState(0);
   const [rows, setRows] = useState(10);
-
-  const onPageChange = (event) => {
-      setFirst(event.first);
-      setRows(event.rows);
-  };
   // Options for each dropdown
   const courseTypes = [
     { name: "ALL", code: "ALL" },
@@ -36,6 +31,7 @@ export default function MyCourse({ usrname, usrProfilePath }) {
       <MyCourseHeader
         selectedOption={selectedOption}
         setSelectedOption={setSelectedOption}
+        options={optionsCourse}
       />
       <div className="container max-w-[1280px] mx-auto">
         <nav className="flex justify-between items-center mx-auto">
