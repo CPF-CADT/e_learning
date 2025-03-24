@@ -19,7 +19,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Nav UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
           <Route path='/mycourse' element={<MyCourse usrname={userName} usrProfilePath={userProfile}  />} />
-          <Route path='/AboutUs' element ={<AboutUs/>}/>
+          <Route path='/about-us' element ={<AboutUs/>}/>
           <Route path='/mycourse/video' element={<VideoPlayer videoUrl={'https://youtu.be/CTHhlx25X-U?si=cwpIlQ8OII0qoGQn'}  />} />
           <Route path='/mycourse/selected' element={<CourseView usrname={userName} usrProfilePath={userProfile} />} />
         </Routes>
