@@ -1,6 +1,5 @@
 import React from "react";
 import YouTube from "react-youtube";
-
 const getYouTubeVideoId = (url) => {
   const match = url.match(
     /(?:youtube\.com\/(?:.*v=|embed\/|v\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/

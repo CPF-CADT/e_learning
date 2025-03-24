@@ -3,7 +3,7 @@ import React from "react";
 export default function AboutUs() {
   return (
     <div className="bg-white text-center py-16 px-4">
-      <h3 className="text-gray-600 text-lg">About Us</h3>
+      <h3 className="text-gray-600 text-3xl">About Us</h3>
       <h2 className="text-3xl font-bold text-gray-900 mt-2">
         Unveiling Our Identity, Vision and Values
       </h2>
@@ -19,13 +19,13 @@ export default function AboutUs() {
       </div>
       
       <div className="mt-12 bg-blue-900 text-white py-12 px-6 rounded-xl flex flex-col md:flex-row gap-8 justify-center">
-        <VisionMissionCard 
-          title="Vision" 
-          description="Our vision is to create a future where every student, regardless of their background, has equal access to technology and language education. We strive to break barriers in learning, ensuring that students from rural areas can confidently navigate the digital age and compete on a global stage." 
+        <VisionMissionCard
+          title="Vision"
+          description="Our vision is to create a future where every student, regardless of their background, has equal access to technology and language education. We strive to break barriers in learning, ensuring that students from rural areas can confidently navigate the digital age and compete on a global stage."
         />
-        <VisionMissionCard 
-          title="Mission" 
-          description="Our mission is to bridge the educational gap for students from the countryside by providing accessible, high-quality learning in ICT and English. We aim to empower underprivileged learners with the skills they need to thrive in a digital world, improve their communication abilities, and unlock new opportunities for education and employment." 
+        <VisionMissionCard
+          title="Mission"
+          description="Our mission is to bridge the educational gap for students from the countryside by providing accessible, high-quality learning in ICT and English. We aim to empower underprivileged learners with the skills they need to thrive in a digital world, improve their communication abilities, and unlock new opportunities for education and employment."
         />
       </div>
     </div>
@@ -34,7 +34,7 @@ export default function AboutUs() {
 
 function FeatureCard({ title, icon }) {
   return (
-    <div className="flex items-center gap-2 bg-blue-800 text-black py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-110">
+    <div className="flex items-center gap-2 bg-blue-800 text-white py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-103">
       <span className="text-2xl">{icon}</span>
       <span className="text-lg font-semibold">{title}</span>
     </div>
