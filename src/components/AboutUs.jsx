@@ -3,7 +3,7 @@ import React from "react";
 export default function AboutUs() {
   return (
     <div className="bg-white text-center py-16 px-4">
-      <h3 className="text-gray-600 text-lg">About Us</h3>
+      <h3 className="text-gray-600 text-3xl">About Us</h3>
       <h2 className="text-3xl font-bold text-gray-900 mt-2">
         Unveiling Our Identity, Vision and Values
       </h2>
@@ -34,7 +34,7 @@ export default function AboutUs() {
 
 function FeatureCard({ title, icon }) {
   return (
-    <div className="flex items-center gap-2 bg-blue-800 text-black py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-110">
+    <div className="flex items-center gap-2 bg-blue-800 text-black py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-103">
       <span className="text-2xl">{icon}</span>
       <span className="text-lg font-semibold">{title}</span>
     </div>

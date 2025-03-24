@@ -10,12 +10,14 @@ import "primeflex/primeflex.css"; // Utility classes
 import CourseBoxLearn from './components/CourseBoxLearn';
 import { ProgressBar } from 'primereact/progressbar'; 
 import DropDown from './components/DropDown';
+import './index.css';
 import {Route,Routes} from 'react-router-dom'
 export default function App() {
   let userName = "Cheng Nhajor"
   return (
     <PrimeReactProvider>
       <>  
+    
         <Routes>
           <Route path='/' element={<Nav UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
           <Route path='/mycourse' element={<MyCourse usrname={userName} usrProfilePath={userProfile}  />} />
