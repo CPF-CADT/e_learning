@@ -17,7 +17,7 @@ export default function Nav({ UserName, ProfilePath, isLogin }) {
           <li><a href="#">Home</a></li>
           <li><a href="#">Courses</a></li>
           <li><a href="#">Blog</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="/AboutUs">About Us</a></li>
         </ul>
       </div>
       <div className="right-side" >
