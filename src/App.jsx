@@ -5,7 +5,6 @@ import userProfile from './assets/profile.avif';
 import VideoPlayer from './components/VideoPlayer'
 import CourseView from './components/CourseView';
 import { PrimeReactProvider } from 'primereact/api';
-<<<<<<< HEAD
 import "primereact/resources/themes/lara-light-blue/theme.css"; // Theme
 import "primereact/resources/primereact.min.css"; // Core styles
 import "primeicons/primeicons.css"; // Icons
@@ -14,12 +13,10 @@ import CourseBoxLearn from './components/CourseBoxLearn';
 import { ProgressBar } from 'primereact/progressbar'; 
 import DropDown from './components/DropDown';
 import './index.css';
-=======
 import "primereact/resources/themes/lara-light-blue/theme.css"; 
 import "primereact/resources/primereact.min.css"; 
 import "primeicons/primeicons.css"; 
 import "primeflex/primeflex.css"; 
->>>>>>> 41418d85ff2615578be5a872a9d30ca4f30cf019
 import {Route,Routes} from 'react-router-dom'
 
 export default function App() {
