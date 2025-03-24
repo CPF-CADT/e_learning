@@ -9,7 +9,7 @@ export default function UserProfile({ UserName, ProfilePath, positionTop }) {
     }
 
     return (
-        <div className="usrProfileSide relative">
+        <div className="usrProfileSide relative ">
             <span onClick={dropDown} className='text-black'>
                 {UserName} 
                 <i className={`pi pi-${toggle ? 'chevron-up' : 'chevron-down'} ml-3`}></i>
@@ -22,7 +22,7 @@ export default function UserProfile({ UserName, ProfilePath, positionTop }) {
                 style={{ width: '64px', height: '64px', borderRadius: '50%' }}
             />
             <div
-                className="profile-right-side absolute"
+                className="profile-right-side absolute bg-[#fff] p-5 rounded-xl "
                 style={{
                     top: positionTop,
                     left: '0',
