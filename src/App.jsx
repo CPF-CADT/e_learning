@@ -1,4 +1,5 @@
 import Nav from './components/Nav';
+import AboutUs from './components/AboutUs';
 import MyCourse from './components/MyCourse';
 import userProfile from './assets/profile.avif'; // Fixed the typo
 import { PrimeReactProvider } from 'primereact/api';
@@ -18,8 +19,11 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Nav UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
           <Route path='/mycourse' element={<MyCourse usrname={userName} usrProfilePath={userProfile}  />} />
+          <Route path='/AboutUs' element ={<AboutUs/>}/>
         </Routes>
       </>
     </PrimeReactProvider>
+    
+    
   );
 }
