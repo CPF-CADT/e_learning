@@ -1,25 +1,23 @@
 import UserProfile from "./UserProfile";
 import { ProgressBar } from "primereact/progressbar";
 import "primeicons/primeicons.css";
-import { useState, useEffect } from "react";
+import { useState } from 'react';
 import { Button } from "primereact/button";
 import "./style/course.css";
 import { quizData } from "../data/quizz";
-import QuizzResult from "./QuizzResult";
+import QuizzREsult from "./QuizzResult";
+
 
 export default function Quizz({ usrname, usrProfilePath }) {
+  // const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showResult, setResult] = useState(false);
   const [quiNo, setQuiNo] = useState(1);
-  const [review, setReview] = useState(false);
-  const [totalCorrect, setTotalCorrect] = useState(0);
+  const initialAnswers = Object.keys(quizData).reduce((acc, questionNo) => {
+    acc[questionNo] = null;  // Default value for each question
+    return acc;
+  }, {});
+  const [selectedAnswers, setSelectedAnswers] = useState(initialAnswers);
   const totalQuestions = Object.keys(quizData).length;
-
-  const [selectedAnswers, setSelectedAnswers] = useState(
-    Object.keys(quizData).reduce((acc, questionNo) => {
-      acc[questionNo] = null;
-      return acc;
-    }, {})
-  );
 
   function goLeft() {
     setQuiNo((n) => (n === 1 ? n : n - 1));

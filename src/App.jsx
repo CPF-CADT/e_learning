@@ -27,8 +27,6 @@ export default function App() {
           <Route path='/mycourse/video' element={<VideoPlayer videoUrl={'https://youtu.be/CTHhlx25X-U?si=cwpIlQ8OII0qoGQn'}  />} />
           <Route path='/mycourse/selected' element={<CourseView usrname={userName} usrProfilePath={userProfile} />} />
           <Route path='/mycourse/selected/quizz' element={<Quizz usrname={userName} usrProfilePath={userProfile} />} />
-          {/* <Route path='/user-detail' element={< UserDetail />} /> */}
-
         </Routes>
       </>
     </PrimeReactProvider>
