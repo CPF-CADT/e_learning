@@ -1,0 +1,35 @@
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 255, 115);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden; 
+}
+
+.child {
+    width: 170px;
+    height: 170px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; 
+}
+
+.result-chart {
+    position: absolute;
+    font-weight: bold;
+    color: #000; /* Text color */
+}
