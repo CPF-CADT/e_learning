@@ -5,17 +5,19 @@ import { useState } from 'react';
 import { Button } from "primereact/button";
 import "./style/course.css";
 import { quizData } from "../data/quizz";
-import QuizzREsult from "./QuizzResult";
-
+import QuizzResult from "./QuizzResult";
 
 export default function Quizz({ usrname, usrProfilePath }) {
-  // const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showResult, setResult] = useState(false);
+  const [review, setReview] = useState(false);
   const [quiNo, setQuiNo] = useState(1);
+  const [totalCorrect, setTotalCorrect] = useState(0);
+  
   const initialAnswers = Object.keys(quizData).reduce((acc, questionNo) => {
-    acc[questionNo] = null;  // Default value for each question
+    acc[questionNo] = null;
     return acc;
   }, {});
+
   const [selectedAnswers, setSelectedAnswers] = useState(initialAnswers);
   const totalQuestions = Object.keys(quizData).length;
 
