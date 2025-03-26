@@ -12,8 +12,6 @@ import Quizz from './components/Quizz'
 import { Routes,Route } from 'react-router-dom';
 // import ChartData from './components/ChartData'; 
 import QuizzREsult from './components/QuizzResult';  
-
-
 export default function App() {
   let userName = "Cheng Nhajor"
   return (
