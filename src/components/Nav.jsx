@@ -1,6 +1,7 @@
 import './style/nav.css';
 import imgLogo from '../assets/logo.png';
 import UserProfile from './UserProfile';
+import { Link } from "react-router-dom";
 
 export default function Nav({ UserName, ProfilePath, isLogin }) {
   return (
@@ -14,10 +15,11 @@ export default function Nav({ UserName, ProfilePath, isLogin }) {
       </div>
       <div className="middle-side">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="/mycourse">Home</a></li>
           <li><a href="#">Courses</a></li>
           <li><a href="#">Blog</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><Link to ='/about-us'>About US</Link></li>
+          
         </ul>
       </div>
       <div className="right-side" >
