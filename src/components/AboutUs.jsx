@@ -34,7 +34,7 @@ export default function AboutUs() {
 
 function FeatureCard({ title, icon }) {
   return (
-    <div className="flex items-center gap-2 bg-blue-800 text-white py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-103">
+    <div className="flex items-center gap-2 bg-blue-800 text-black py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-103">
       <span className="text-2xl">{icon}</span>
       <span className="text-lg font-semibold">{title}</span>
     </div>
@@ -45,7 +45,7 @@ function VisionMissionCard({ title, description }) {
   return (
     <div className="bg-blue-800 p-6 rounded-lg max-w-lg text-left transition-transform transform hover:scale-105">
       <span className="bg-white text-blue-800 px-4 py-1 rounded-full font-semibold">{title}</span>
-      <p className="mt-4 text-gray-200">{description}</p>
+      <p className="mt-4 text-black">{description}</p>
     </div>
   );
 }

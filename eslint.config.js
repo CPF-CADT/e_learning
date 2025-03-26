@@ -13,9 +13,30 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
-        sourceType: 'module',
+        sourceType: 
+          module.exports = {
+            theme: {
+              extend: {
+                colors: {
+                  blue: {
+                    50: '#eff6ff',
+                    100: '#dbEafe',
+                    200: '#bfdbfe',
+                    300: '#93c5fd',
+                    400: '#60a5fa',
+                    500: '#3b82f6',
+                    600: '#2563eb', // This is the value for bg-blue-600
+                    700: '#1d4ed8',
+                    800: '#1e40af',
+                    900: '#1e3a8a',
+                  },
+                },
+              },
+            },
+          }
       },
     },
+    
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
