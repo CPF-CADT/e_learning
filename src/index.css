@@ -1,16 +1,15 @@
 @import "tailwindcss";
-:root {
+/* :root {
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-}
+} */
 .borderSelected{
   padding-bottom: 10px;
   border-bottom: 6px solid #B1B4FF;
