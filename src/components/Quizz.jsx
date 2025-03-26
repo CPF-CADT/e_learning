@@ -1,23 +1,25 @@
 import UserProfile from "./UserProfile";
 import { ProgressBar } from "primereact/progressbar";
 import "primeicons/primeicons.css";
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import { Button } from "primereact/button";
 import "./style/course.css";
 import { quizData } from "../data/quizz";
-import QuizzREsult from "./QuizzResult";
-
+import QuizzResult from "./QuizzResult";
 
 export default function Quizz({ usrname, usrProfilePath }) {
-  // const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showResult, setResult] = useState(false);
   const [quiNo, setQuiNo] = useState(1);
-  const initialAnswers = Object.keys(quizData).reduce((acc, questionNo) => {
-    acc[questionNo] = null;  // Default value for each question
-    return acc;
-  }, {});
-  const [selectedAnswers, setSelectedAnswers] = useState(initialAnswers);
+  const [review, setReview] = useState(false);
+  const [totalCorrect, setTotalCorrect] = useState(0);
   const totalQuestions = Object.keys(quizData).length;
+
+  const [selectedAnswers, setSelectedAnswers] = useState(
+    Object.keys(quizData).reduce((acc, questionNo) => {
+      acc[questionNo] = null;
+      return acc;
+    }, {})
+  );
 
   function goLeft() {
     setQuiNo((n) => (n === 1 ? n : n - 1));
@@ -28,23 +30,29 @@ export default function Quizz({ usrname, usrProfilePath }) {
   }
 
   function checkAns() {
-    let check_all = true;
-  
+    let allAnswered = true;
+    let correctCount = 0;
+
     for (const questionNo of Object.keys(selectedAnswers)) {
-      if (selectedAnswers[questionNo]===null) {
+      if (selectedAnswers[questionNo] === null) {
         alert(`Answer for Question ${questionNo} must be selected`);
-        check_all = false;
-        return;
+        allAnswered = false;
+        break;
+      }
+      if (selectedAnswers[questionNo] === quizData[questionNo].correctAnswer) {
+        correctCount++;
       }
     }
 
-    if (check_all) {
-      console.log(selectedAnswers);
+    if (allAnswered) {
+      setTotalCorrect(correctCount);
       setResult(true);
+      setReview(true);
     }
   }
-  function reviewResult(){
-    console.log('review')
+
+  function reviewResult() {
+    setReview(false);
   }
 
   return (
@@ -64,58 +72,65 @@ export default function Quizz({ usrname, usrProfilePath }) {
           <h2>Quizz Title</h2>
           <h4>Module Number</h4>
         </div>
-        <div className="card mt-auto w-[22%] ">
-          <ProgressBar value={(quiNo/totalQuestions)*100} />
+        <div className="card mt-auto w-[22%]">
+          <ProgressBar value={(quiNo / totalQuestions) * 100} />
         </div>
         <div>
           <button>Review</button>
           <button>Mark As Review</button>
         </div>
         <div>
-          <i className="pi pi-clock"></i>   
+          <i className="pi pi-clock"></i>
           <span>TIME (HH:MM:SS)</span>
         </div>
       </div>
-      <div className="quizz-content w-[75%] mx-auto bg-gray-100 mt-10 px-5 py-2 rounded-2xl flex flex-col gap-y-3 ">
-        <QuestionContent
-          quizz_data={quizData[quiNo]}
-          selectedAnswers={selectedAnswers}
-          setSelectedAnswers={setSelectedAnswers}
-          showResult={showResult}
-          questionNo={quiNo}
-        />
-        <div className="mx-auto">
-        {
-          quiNo === totalQuestions ?
-          <Button
-            style={{ width: "120px", height: "40px" }}
-            label="Submit"
-            severity="success"
-            raised
-            onClick={checkAns}
-        /> : null
-        
-        } 
-        </div>
-        <div className="recult Card">
-          <QuizzREsult usrname={'Jonh Son'} result={9} maxQa={10} duration={'30min'} review={reviewResult} />
-        </div>
-        <div className="ml-auto flex flex-row gap-x-5 mb-3">
-          <Button
-            style={{ width: "40px", height: "30px" }}
-            icon="pi pi-chevron-left"
-            rounded
-            aria-label="Previous"
-            onClick={goLeft}
+      <div className="quizz-content w-[75%] mx-auto bg-gray-100 mt-10 px-5 py-2 rounded-2xl flex flex-col gap-y-3">
+        {!review ? (
+          <>
+            <QuestionContent
+              quizz_data={quizData[quiNo]}
+              selectedAnswers={selectedAnswers}
+              setSelectedAnswers={setSelectedAnswers}
+              showResult={showResult}
+              questionNo={quiNo}
+            />
+            <div className="mx-auto">
+              {quiNo === totalQuestions && (
+                <Button
+                  style={{ width: "120px", height: "40px" }}
+                  label={showResult ? "Review" : "Submit"}
+                  severity="success"
+                  raised
+                  onClick={checkAns}
+                />
+              )}
+            </div>
+            <div className="ml-auto flex flex-row gap-x-5 mb-3">
+              <Button
+                style={{ width: "40px", height: "30px" }}
+                icon="pi pi-chevron-left"
+                rounded
+                aria-label="Previous"
+                onClick={goLeft}
+              />
+              <Button
+                style={{ width: "40px", height: "30px" }}
+                icon="pi pi-chevron-right"
+                rounded
+                aria-label="Next"
+                onClick={goRight}
+              />
+            </div>
+          </>
+        ) : (
+          <QuizzResult
+            usrname={usrname}
+            result={totalCorrect}
+            maxQa={totalQuestions}
+            duration={'30min'}
+            review={reviewResult}
           />
-          <Button
-            style={{ width: "40px", height: "30px" }}
-            icon="pi pi-chevron-right"
-            rounded
-            aria-label="Next"
-            onClick={goRight}
-          />
-        </div>
+        )}
       </div>
     </div>
   );
@@ -130,53 +145,23 @@ function Question({ questno, quest }) {
   );
 }
 
-function classStyleResult(selectAns, correctAnswer, showResult, ansNo) {
-  if (showResult) {
-    if (selectAns === ansNo) {
-      if (selectAns === correctAnswer) {
-        return "correct-answer";
-      } else {
-        return "wrong-answer";
-      }
-    } else if (ansNo === correctAnswer) {
-      return "correct-answer";
-    }
-  }
-  return "";
-}
-
-function Answer({
-  ansNo,
-  answer,
-  isSelected,
-  onClick,
-  selectAns,
-  correctAnswer,
-  showResult,
-}) {
+function Answer({ ansNo, answer, isSelected, onClick, selectAns, correctAnswer, showResult }) {
   return (
     <div
-      className={`bg-white py-4 px-3 rounded-xl border-1 border-black flex flex-row items-center justify-between hover:cursor-pointer 
-                ${isSelected ? "bg-blue-200" : ""}  
-                ${classStyleResult(
-                  selectAns,
-                  correctAnswer,
-                  showResult,
-                  ansNo
-                )}`}
-      onClick={showResult ? null : onClick}
+      className={`bg-white py-4 px-3 rounded-xl border-1 border-black flex flex-row items-center justify-between hover:cursor-pointer ${
+        showResult && selectAns === ansNo
+          ? selectAns === correctAnswer
+            ? "correct-answer"
+            : "wrong-answer"
+          : ""
+      }`}
+      onClick={!showResult ? onClick : undefined}
       style={{ borderLeft: isSelected ? "8px solid #0388fc" : "" }}
     >
       <p>
         <span>{ansNo}</span> . {answer}
       </p>
-      <i
-        className="pi pi-circle rounded-full"
-        style={{
-          fontSize: "1.2rem",
-          backgroundColor: isSelected ? "#0388fc" : "",
-        }}
-      ></i>
+      <i className="pi pi-circle rounded-full" style={{ fontSize: "1.2rem", backgroundColor: isSelected ? "#0388fc" : "" }}></i>
     </div>
   );
 }
