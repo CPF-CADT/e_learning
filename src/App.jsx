@@ -8,6 +8,7 @@ import { PrimeReactProvider } from 'primereact/api';
 import "primereact/resources/themes/lara-light-blue/theme.css"; 
 import "primereact/resources/primereact.min.css"; 
 import "primeicons/primeicons.css"; 
+// import UserDetail from './components/UserDetail'
 import Quizz from './components/Quizz'
 import { Routes,Route } from 'react-router-dom';
 // import ChartData from './components/ChartData'; 

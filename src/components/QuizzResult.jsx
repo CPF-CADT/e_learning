@@ -12,7 +12,7 @@ export default function QuizzREsult({usrname,result,maxQa,duration,review}){
                 </div> 
                 <CircularChart value={(result/maxQa)*100} />
             </div>
-            <div className="mx-auto bg-blue-500  ">
+            <div className="mx-auto items-center justify-center flex mt-5  ">
                 <Button
                         style={{ width: "120px", height: "40px"}}
                         label="Review"

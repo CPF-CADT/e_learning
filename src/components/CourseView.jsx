@@ -5,10 +5,29 @@ import VideoPlayer from "./VideoPlayer";
 import CourseCard from "./CourseCard";
 import profileImg from '../assets/profile.avif'
 import { Rating } from "primereact/rating";
+import MarkdownRenderer from './MarkdownRenderer'
 export default function CourseView({ usrname, usrProfilePath }) {
   const options = ["Video", "Resource"];
   const [selectedOption, setSelectedOption] = useState(options[0]);
+  let markdownText = `
 
+  # Introduction to CPU (Central Processing Unit)
+  
+  
+  ## What is a CPU?
+  
+  The **Central Processing Unit (CPU)** is the "brain" of the computer. It processes instructions and performs calculations to run applications and the operating system.
+  
+  
+  ## Lesson Objectives
+  
+  By the end of this lesson, you should be able to:
+  
+  - Understand the role of the CPU in a computer system.
+  
+  - Identify the key components of a CPU.
+  
+  `;
   return (
     <>
       <MyCourseHeader
@@ -18,7 +37,7 @@ export default function CourseView({ usrname, usrProfilePath }) {
       />
       <div className="course_view_container mx-auto container max-w-[1280px]">
         <nav className="flex justify-between items-center mx-auto container max-w-[1280px]">
-          <i className="text-4xl pi pi-bars"></i>
+          <i style={{fontSize:'1.7rem'}} className="pi pi-bars hover:cursor-pointer"></i>
           <UserProfile
             UserName={usrname} // Matching prop name to the one passed in the Route
             ProfilePath={usrProfilePath} // Matching prop name to the one passed in the Route
@@ -43,20 +62,9 @@ export default function CourseView({ usrname, usrProfilePath }) {
               setHeigh={"640"}
             />
           </div>
-          <div className="my-5" >
-            <h3>Learn About Basic ICT</h3> {/** Lesson Title */}
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-              inventore dicta in. Voluptatem voluptatibus pariatur quas nisi
-              culpa est neque harum. Iure, esse illo! Iure eligendi nulla
-              repellat at unde.
-            </p>
-          </div>
-          <div className="rating">
-            This is rating pages
-            <Rating value={5} readOnly cancel={false} />
-          </div>
-          <CourseCard teacher_profile_path={profileImg} />
+          <div className="my-5 px-20" >
+            <MarkdownRenderer markdownText={markdownText} />
+            </div>
         </div>
       </div>
     </>
