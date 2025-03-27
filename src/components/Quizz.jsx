@@ -170,7 +170,6 @@ function QuestionContent({ quizz_data, selectedAnswers, setSelectedAnswers, show
   const selectAnswer = (ans) => {
     setSelectedAnswers((prev) => ({ ...prev, [questionNo]: ans }));
   };
-
   return (
     <div className="quizz-content w-[75%] mx-auto bg-gray-100 mt-10 px-5 py-2 rounded-2xl flex flex-col gap-y-3">
       <Question questno={questionNo} quest={quizz_data.question} />
