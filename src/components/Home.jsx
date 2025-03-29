@@ -1,9 +1,12 @@
 import React from "react";
 import Nav from "./Nav";
 import "./style/home.css"; 
-import { PrimeReactProvider } from 'primereact/api';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
-
+ <FontAwesomeIcon icon="fa-solid fa-palette" />
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaBook } from "react-icons/fa";
+import { FaEarthAfrica } from "react-icons/fa6";
+import { BsAirplane } from "react-icons/bs";
 
 export default function Home({ UserName, ProfilePath, isLogin }) {
   return (
@@ -139,6 +142,94 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
         </p>
       </div>
     </div>
+    <div className="explore-course-section">
+  <div className="explore-course-content">
+    <h2 className="explore-course-title">Explore Course</h2>
+    <p className="explore-course-description">
+      Ut sed eros finibus, placerat orci id, dapibus.
+    </p>
+  </div>
+    <div className="explore-course-link">
+    <div className="explore-course-icon-wrapper">
+    <span className="explore-course-icon"><FaBook /></span>
+    <span className="explore-course-icon-text">Lorem Ipsum</span>
+  </div>
+      <a href="#" className="explore-course-see-all">
+        SEE ALL <span className="arrow-icon">➤</span>
+      </a>
+    </div>
+    <div className="card-container">
+  <div className="side-cards">
+    <div className="side-card orange">Ut Sed Ecc</div>
+    <div className="side-card pink">Curabitur Eget</div>
+  </div>
+  
+  <div className="main-card">
+    <div className="image-placeholder"></div>
+    <div className="price-section">
+      <h2 className="title">ICT</h2>
+    </div>
+    <div className="btn_enroll">
+      <p className="price">$250</p>
+      <button className="enroll-btn">Enroll</button>
+      </div>
+  </div>
+</div>
+    <div className="explore-course-link">
+    <div className="explore-course-icon-wrapper">
+    <span className="explore-course-icon"><FaEarthAfrica /></span>
+    <span className="explore-course-icon-text">Lorem Ipsum</span>
+  </div>
+      <a href="#" className="explore-course-see-all">
+        SEE ALL <span className="arrow-icon">➤</span>
+      </a>
+    </div>
+    <div className="card-container">
+    <div className="main-card">
+    <div className="image-placeholder"></div>
+    <div className="price-section">
+      <h2 className="title">ICT</h2>
+    </div>
+    <div className="btn_enroll">
+      <p className="price">$250</p>
+      <button className="enroll-btn">Enroll</button>
+      </div>
+  </div>
+  <div className="side-cards sidecard-second">
+    <div className="side-card orange">Ut Sed Ecc</div>
+    <div className="side-card pink">Curabitur Eget</div>
+  </div>
+  
+  
+</div>
+    <div className="explore-course-link">
+    <div className="explore-course-icon-wrapper">
+    <span className="explore-course-icon"><BsAirplane /></span>
+    <span className="explore-course-icon-text">Lorem Ipsum</span>
+  </div>
+      <a href="#" className="explore-course-see-all">
+        SEE ALL <span className="arrow-icon">➤</span>
+      </a>
+    </div>
+    <div className="card-container">
+  <div className="side-cards">
+    <div className="side-card orange">Ut Sed Ecc</div>
+    <div className="side-card pink">Curabitur Eget</div>
+  </div>
+  
+  <div className="main-card">
+    <div className="image-placeholder"></div>
+    <div className="price-section">
+      <h2 className="title">ICT</h2>
+    </div>
+    <div className="btn_enroll">
+      <p className="price">$250</p>
+      <button className="enroll-btn">Enroll</button>
+      </div>
+  </div>
+</div>
+  </div>
+      
     </div>
   );
 }
