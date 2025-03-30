@@ -4,6 +4,8 @@ import userProfile from "../assets/profile.avif";
 import "./style/blog.css";
 import { BackgroundBlogCard } from "./ReadBlogDisplay"
 import { IMAGE_READING_BLOG } from "./style/BlogImge/BlogImage";
+import { IMAGE_READING_BLOG2 } from "./style/BlogImge/BlogImage";
+import { RelatedBlogIMG } from "./RelatedBlogIMG";
 
 export default function Blog() {
   let userName = "Cheng Nhajor";
@@ -28,7 +30,7 @@ export default function Blog() {
           </div>
           <div className="image-placeholder">hi</div>
         </div>
-        <div className="flex ml-45 mt-5 ">
+        <div className="flex ml-64 mt-5 ">
           <h4 className="read-blog">Reading blog list</h4>
           
         </div>
@@ -43,12 +45,22 @@ export default function Blog() {
         </div>
         <div className="hero-section mt-20 flex flex-col">
           <span className="flex flex-row items-center justify-between w-full px-4">
-            <h2 className="read-blog ml-8">Related Blog</h2> {/* Changed ml-35 to ml-8 */}
+            <h2 className="read-blog ml-46">Related Blog</h2> {/* Changed ml-35 to ml-8 */}
             <h4 className="text-xl cursor-pointer hover:underline  seeMore">See all</h4>
           </span>
           <div>jo</div>
          
         </div>
+        <div className="flex justify-evenly gap-4 mt-5">
+          {IMAGE_READING_BLOG2.map((blog) => (
+            <RelatedBlogIMG
+              key={blog.id}
+              image={blog.image} // Ensure this path is correct
+              title={blog.title}
+              description={blog.description}
+            />
+          ))}
+          </div>
 
        
         

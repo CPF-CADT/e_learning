@@ -28,7 +28,7 @@ export function BackgroundBlogCard({ image, title }) {
                 <Typography
                     variant="h2"
                     color="white"
-                    className="text-lg text-black font-black leading-[1.5] border border-white p-2 absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center  shadow-lg bg-white/50 w-[70%] rounded-lg"
+                    className="text-lg text-black font-black leading-[1.5]  p-2 absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center  shadow-lg bg-white/50 w-[70%] rounded-lg"
                 >
                     {title}
                 </Typography>
