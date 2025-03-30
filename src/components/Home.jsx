@@ -2,20 +2,107 @@ import React from "react";
 import Nav from "./Nav";
 import "./style/home.css"; 
 import "primereact/resources/themes/lara-light-cyan/theme.css";
- <FontAwesomeIcon icon="fa-solid fa-palette" />
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaBook } from "react-icons/fa";
 import { FaEarthAfrica } from "react-icons/fa6";
 import { BsAirplane } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { FaStar } from 'react-icons/fa'; // Example icon at the top-right
+
+const testimonials = [
+  {
+    name: "Jenny Wilson",
+    role: "UI-UX Designer",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+  },
+  {
+    name: "Guy Hawkins",
+    role: "UI-UX Designer",
+    image: "https://randomuser.me/api/portraits/men/45.jpg",
+    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+  },
+  {
+    name: "Sarah Brown",
+    role: "Product Manager",
+    image: "https://randomuser.me/api/portraits/women/46.jpg",
+    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+  },
+  {
+    name: "Sarah Brown",
+    role: "Product Manager",
+    image: "https://randomuser.me/api/portraits/women/46.jpg",
+    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+  },
+  {
+    name: "Guy Hawkins",
+    role: "UI-UX Designer",
+    image: "https://randomuser.me/api/portraits/men/45.jpg",
+    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+  },
+];
+
+const TestimonialCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length); // Move by 1 item
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length); // Move by 1 item
+  };
+
+  return (
+    <div className="testimonial-container">
+      <button className="arrow left" onClick={prevSlide}>
+        <ChevronLeft />
+      </button>
+
+      <div className="testimonial-card">
+        {testimonials.slice(currentIndex, currentIndex + 2).map((testimonial, index) => (
+          <div key={index} className="testimonial-card-item">
+            
+            <div className="icon-container">
+              <FaStar className="icon-top-right" />
+            </div>
+            <div className="testimonial-card-content">
+              <img src={testimonial.image} alt="profile" className="testimonial-image" />
+              <div className="testimonial-info">
+                <h3>{testimonial.name}</h3>
+                <p className="testimonial-role">{testimonial.role}</p>
+              </div>
+            </div>
+            <p className="testimonial-quote">{testimonial.quote}</p>
+          </div>
+        ))}
+      </div>
+
+      <button className="arrow right" onClick={nextSlide}>
+        <ChevronRight />
+      </button>
+
+      <div className="dots">
+        {testimonials.map((_, index) => (
+          <span
+            key={index}
+            className={index === currentIndex ? "dot active" : "dot"}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
 const RunningText = () => {
   const text = "Assessments, Quizzes, Tests";
   const [displayedText, setDisplayedText] = useState("");
   const [index, setIndex] = useState(0);
-  const [forward, setForward] = useState(true); // State to track forward or backward direction
-
+  const [forward, setForward] = useState(true); 
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (forward) {
@@ -23,14 +110,14 @@ const RunningText = () => {
           setDisplayedText((prev) => prev + text[index]);
           setIndex((prevIndex) => prevIndex + 1);
         } else {
-          setForward(false); // Switch to backward when the end is reached
+          setForward(false); 
         }
       } else {
         if (index > 0) {
           setDisplayedText((prev) => prev.slice(0, -1));
           setIndex((prevIndex) => prevIndex - 1);
         } else {
-          setForward(true); // Switch to forward when the start is reached
+          setForward(true); 
         }
       }
     }, 100);
@@ -315,9 +402,13 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
   </div>
   <div className="control_accesment">
     <button className="btn_accessment"><span id="text_btn">Write your accessment</span></button>
-    <span className="arrow"><FaArrowRight /></span>
+    <span className="arroww"><FaArrowRight /></span>
   </div>
-      
+     <div className="stu_feedback">
+      <h1>Student <span className="feedback">Feedback</span></h1>
+      <p id="Para_feedback" >Various versions have evolved over the years, sometimes by accident</p>
+    <TestimonialCarousel />
+     </div>
     </div>
   );
 }

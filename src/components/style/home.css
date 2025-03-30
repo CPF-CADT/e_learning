@@ -23,13 +23,12 @@
   left: 0;
   width: 100%;
   height: 100px; 
-  background-color: #fff;
+  background:linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.8));
   border-top-left-radius: 60% 120px; 
   border-top-right-radius: 50% 120px;
   border-bottom-left-radius: 90% 120px; 
   border-bottom-right-radius: 70% 120px;
 }
-
 
 .hero-content {
   max-width: 600px;
@@ -1048,7 +1047,7 @@
   position: relative;
 }
 
-/* Button Styles */
+
 .btn_accessment {
   position: relative;
   padding: 12px 15px;
@@ -1069,21 +1068,21 @@
   margin-left: 10px;
 }
 
-/* Hover Effect for Button */
+
 .btn_accessment:hover {
-  background: linear-gradient(45deg, mediumseagreen, seagreen);
+  background: linear-gradient(40deg, mediumseagreen, seagreen);
   transform: translateX(5px);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Click Effect */
+
 .btn_accessment:active {
-  transform: scale(0.98);
+  transform: scale(0.80);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Arrow Next to Button */
-.arrow {
+
+.arroww {
   position: relative;
   width: 50px;
   height: 50px;
@@ -1094,18 +1093,183 @@
   justify-content: center;
   background: rgb(73, 187, 189,100);
   transition: all 0.3s ease-in-out;
-  margin-left: -40px; /* Moves closer to button */
+  margin-left: -40px; 
   z-index: 1;
 }
 
-/* Hover Animation */
-.btn_accessment:hover + .arrow {
+
+.btn_accessment:hover + .arroww {
   transform: scale(1.1);
   background: seagreen;
   border-color: white;
-  margin-left: -35px; /* Adjusts arrow position on hover */
+  margin-left: -35px;
 }
 
+
+/* Container for the carousel */
+.testimonial-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 100px;
+  width: 100%;
+}
+
+.stu-feedback {
+  max-width: 1440px;
+  display: flex;
+  position: relative;
+}
+
+/* Testimonial card layout in a row */
+.testimonial-card {
+  display: flex;  
+  gap: 20px;      
+  transition: transform 0.3s ease;
+}
+
+/* Individual testimonial card */
+.testimonial-card-item {
+  flex: 1; 
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  position: relative;  /* Make the card a relative container for absolute positioning */
+  transition: transform 0.3s ease;
+  min-width: 350px;
+  display: flex; /* Flex to align image and info horizontally */
+  flex-direction: column;  /* Arrange image, role, name, and quote vertically */
+  gap: 15px;   
+}
+
+
+.testimonial-card-content {
+  display: flex; 
+  align-items: center;
+  gap: 15px; 
+}
+
+.testimonial-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-info {
+  display: flex;
+  flex-direction: column; /* Name and role in a column */
+  justify-content: center;
+}
+
+.testimonial-card-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.testimonial-role {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Quote styling at the bottom of the card */
+.testimonial-quote {
+  font-style: italic;
+  color: #555;
+  margin-top: 15px;
+}
+
+.icon-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.icon-top-right {
+  font-size: 24px;
+  color: #00bcd4;
+}
+
+.testimonial-container .arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 1;
+}
+
+.testimonial-container .left {
+  left: 20px;
+}
+
+.testimonial-container .right {
+  right: 20px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 10px; 
+  left: 0;
+  gap: 10px;
+  z-index: 15;
+}
+
+
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid #fff; 
+}
+
+
+.dot.active {
+  background-color: #00bcd4;
+}
+
+
+.stu-feedback{
+  align-items: center;
+}
+
+.stu_feedback > h1{
+ text-align: center;
+ margin-top: 30px;
+ font-size: 30px ;
+ font-weight: 500;
+}
+.feedback{
+  color:cyan;
+}
+.stu-feedback > p{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 30px ;
+  font-weight: 500;
+}
+#Para_feedback{
+  text-align: center;
+}
 
 
 
@@ -1301,11 +1465,29 @@
     height: 45px;
     margin-left: -30px;
   }
+  .testimonial-card {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .testimonial-card-item {
+    min-width: auto;  /* Remove the fixed width to allow cards to adjust */
+  }
+
+  .testimonial-container .arrows {
+    padding: 8px;  /* Adjust arrow size on tablets */
+  }
+
+  .testimonial-card-item h3 {
+    font-size: 1rem;  /* Smaller text for tablets */
+  }
+
+  .testimonial-role {
+    font-size: 0.9rem;  /* Smaller text for tablets */
+  }
+
   }
   
-
-
-
 
 
   @media (max-width: 600px) {
@@ -1314,17 +1496,28 @@
       text-align: center;
       padding: 15px 10px;
       min-height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   
     .hero-content {
       max-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   
     .hero-headline {
-      font-size: 24px; /* Smaller text for smaller screens */
+      font-size: 24px;
       margin: 0 auto;
       text-align: center;
       padding-left: 0;
+    }
+  
+    .hero-highlight {
+      font-size: 16px;
+      margin-right: 20px;
     }
   
     .hero-subheadline {
@@ -1340,7 +1533,7 @@
       margin: 0;
     }
   
-    .hero-primary-button, 
+    .hero-primary-button,
     .hero-secondary-button {
       width: 100%;
       max-width: 220px;
@@ -1352,6 +1545,9 @@
       flex-direction: column;
       padding: 8px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   
     .hero-avatar {
@@ -1393,17 +1589,23 @@
     /* Cards */
     .card-container {
       padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .about_ASDC{
+  
+    .about_ASDC {
       justify-content: center;
       font-size: 15px;
       line-height: 1.5;
-
+      text-align: center;
     }
-    .about_ASDC >p{
-      margin-left: 20px;
+  
+    .about_ASDC > p {
+      margin-left: 0; /* Center text */
     }
-    #Para_asdc{
+  
+    #Para_asdc {
       font-size: 12px;
     }
   
@@ -1413,6 +1615,9 @@
       padding: 10px;
       flex-direction: column;
       height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   
     .side-cards {
@@ -1450,31 +1655,35 @@
       flex-direction: column;
       gap: 12px;
       align-items: center;
+      width: 90%;
     }
   
     .text-session h1 {
       margin-left: 8px;
-      font-size: 22px; /* Smaller heading for small screens */
+      font-size: 22px;
     }
   
     .text-session p {
       margin-left: 5px;
-      text-align: center;
+      font-size: 12px;
+      
     }
   
     .card_survey {
-      width: 95%; /* Increase width for small screens */
+      width: 90%;
       margin-top: 15px;
+      display: flex;
+      justify-content: center;
     }
   
     .rate {
-      flex-direction: column; /* Stack the rating elements vertically */
+      flex-direction: column;
       gap: 4px;
       align-items: center;
     }
   
     .star {
-      font-size: 16px; /* Smaller star size for small devices */
+      font-size: 16px;
     }
   
     #review {
@@ -1482,26 +1691,75 @@
       font-size: 12px;
     }
   
-    .accessment-wrapper {
+    .control_accesment {
       flex-direction: row;
-      gap: 5px;
+      width: 100%;
+      padding: 15px;
+      margin-left: 0;
+      justify-content: center;
+      align-items: center;
     }
   
     .btn_accessment {
-      max-width: 220px;
-      font-size: 12px;
-      padding: 6px;
+      width: 100%;
+      max-width: 300px;
+      font-size: 14px;
     }
-  #text_btn{
-    margin-right: 10px;
-  }
+  
     .arrow {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  
+    .testimonial-card-item {
+      padding: 10px;
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .testimonial-card {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .testimonial-image {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .testimonial-card-item h3 {
+      font-size: 1rem;
+    }
+  
+    .testimonial-role {
+      font-size: 0.9rem;
+    }
+  
+    .testimonial-quote {
+      font-size: 0.9rem;
+    }
+  
+    .dots {
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .testimonial-container .arrows {
+      padding: 8px;
+      font-size: 18px;
     }
   }
+  
 
 
+ 
 
 
 
