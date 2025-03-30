@@ -7,6 +7,64 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaBook } from "react-icons/fa";
 import { FaEarthAfrica } from "react-icons/fa6";
 import { BsAirplane } from "react-icons/bs";
+import { useState, useEffect } from "react";
+import { FaArrowRight } from "react-icons/fa";
+
+const RunningText = () => {
+  const text = "Assessments, Quizzes, Tests";
+  const [displayedText, setDisplayedText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [forward, setForward] = useState(true); // State to track forward or backward direction
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (forward) {
+        if (index < text.length) {
+          setDisplayedText((prev) => prev + text[index]);
+          setIndex((prevIndex) => prevIndex + 1);
+        } else {
+          setForward(false); // Switch to backward when the end is reached
+        }
+      } else {
+        if (index > 0) {
+          setDisplayedText((prev) => prev.slice(0, -1));
+          setIndex((prevIndex) => prevIndex - 1);
+        } else {
+          setForward(true); // Switch to forward when the start is reached
+        }
+      }
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [index, forward, text]);
+
+  return <span className="highlight">{displayedText}</span>;
+};
+const HeroContent = () => {
+  const text = "Studying Online is now much easier";
+  const [displayedText, setDisplayedText] = useState("");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        setDisplayedText((prev) => prev + text[index]);
+        setIndex(index + 1);
+      } else {
+        
+        setDisplayedText("");
+        setIndex(0);
+      }
+    }, 300);
+
+    return () => clearInterval(interval); 
+  }, [index, text]);
+
+  return <span className="hero-highlight">{displayedText}</span>;
+};
+
+
+
 
 export default function Home({ UserName, ProfilePath, isLogin }) {
   return (
@@ -19,8 +77,9 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
         <div className="Main">
 
         <div className="hero-content">
-          <h1 className="hero-headline">
-           <span className="hero-highlight"> Studying </span> Online is now much easier
+          <h1 className="hero-headline" >
+          <HeroContent /> 
+           <span className="hero-highlight"> </span> 
           </h1>
           <p className="hero-subheadline">
             TOTC is an interesting platform that will teach you in more an interactive way
@@ -134,7 +193,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
       </div>
       <div className="info-section">
         <h2>
-          Assessments, <span className="highlight">Quizzes, </span> Tests
+           <span className="highlight" ><RunningText/> </span> 
         </h2>
         <p>
           Easily launch live assignments, quizzes, and tests. Student results
@@ -228,6 +287,35 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
       </div>
   </div>
 </div>
+  </div>
+  <div className="question_session">
+    <div className="text-session">
+    <h1>What They Say?</h1>
+    <p>
+    ASDC has got more than 100k positive ratings from our users around the world. 
+    </p>
+    <p>
+    Some of the students and teachers were greatly helped by the Skilline.
+    </p>
+    <p>
+    Are you too? Please give your assessment
+    </p>
+    </div>
+    <div className="card_survey">
+      <div className="line"></div>
+      <p>
+      "Thank you so much for your help. It's exactly what I've been looking for. You won't regret it. It really saves me time and effort. 
+      </p>
+      <div className="rate">
+        <p>Nak</p>
+        <span className="star">⭐⭐⭐⭐⭐</span>
+      </div>
+      <p id="review">12 reviews at Yolp</p>
+    </div>
+  </div>
+  <div className="control_accesment">
+    <button className="btn_accessment"><span id="text_btn">Write your accessment</span></button>
+    <span className="arrow"><FaArrowRight /></span>
   </div>
       
     </div>

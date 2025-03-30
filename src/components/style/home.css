@@ -10,6 +10,10 @@
   overflow: hidden;
   
 }
+.Main{
+  max-width: 1440px;
+  
+}
 
 
 .hero-container::after {
@@ -18,10 +22,12 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 120px; 
+  height: 100px; 
   background-color: #fff;
-  border-top-left-radius: 50% 120px; 
+  border-top-left-radius: 60% 120px; 
   border-top-right-radius: 50% 120px;
+  border-bottom-left-radius: 90% 120px; 
+  border-bottom-right-radius: 70% 120px;
 }
 
 
@@ -43,14 +49,11 @@
   left: 200px;
   
 }
-.Main{
-  max-width: 1440px;
-  
-}
 
-.hero-highlight {
-  color: #f97316; 
-}
+
+/* .hero-highlight {
+  color: ; 
+} */
 .hero-subheadline {
   position: relative;
   font-size: 18px; 
@@ -68,10 +71,10 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  max-width: 800px; /* Adjusts the max width */
+  max-width: 800px; 
   margin: auto;
   padding: 20px;
-  flex-wrap: wrap; /* Allows wrapping for small screens */
+  flex-wrap: wrap; 
   position: relative;
 }
 
@@ -83,28 +86,54 @@
   align-items: center;
   margin-left: 280px;
   gap: 16px;
+  animation: fadeIn 1s ease-in-out; /* Add a fade-in effect */
 }
 
-
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .hero-primary-button {
-  background-color: #f97316;
+  background-color: #f97316; /* Orange color */
   color: #fff;
-  border: none;
+  border: 2px solid #f97316; /* Border to match background */
   border-radius: 30px;
-  padding: 12px 20px;
-  font-size: 16px;
+  padding: 12px 30px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  min-width: 160px;
+  position: relative;
   text-align: center;
+  transition: all 0.4s ease;
+  min-width: 160px;
+  outline: none;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero-primary-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  color: #f97316; /* Change text color on hover */
+  border-color: #f97316; /* Maintain border color */
+  transform: translateY(-4px); /* Subtle lift on hover */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Slightly more prominent shadow */
+}
+
+.hero-primary-button:active {
+  background-color: #f97316;
+  color: #fff; 
+  transform: translateY(0px); /* Reset position */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reset shadow */
+}
+
+.hero-primary-button span {
+  position: relative;
+  z-index: 1; /* Ensure text stays above any possible background effects */
 }
 
 .hero-secondary-button {
@@ -123,25 +152,38 @@
   align-items: center;
   transition: background-color 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.3s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .hero-secondary-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-color: #f97316;
+  transform: scale(1.1); /* Subtle scale effect on hover */
+}
+
+.hero-secondary-button:active {
+  transform: scale(0.95); /* Slight shrink effect on button click */
 }
 
 .pi-pi-arrow-circle-up {
   font-size: 20px;
   padding: 0;
+  transition: transform 0.3s;
+}
+
+.hero-secondary-button:hover .pi-pi-arrow-circle-up {
+  transform: rotate(45deg); 
 }
 
 #text_heroSec {
   font-size: 16px;
   font-weight: 200;
   color: #fff;
- 
-  
+  transition: color 0.3s ease-in-out;
+}
 
+#text_heroSec:hover {
+  color: #f97316; /* Change color on hover */
 }
 
 .hero-secondary-button:hover {
@@ -299,6 +341,7 @@
 }
 
 .Our_Success{
+  
   padding: 40px 20px;
   text-align: center;
   line-height: 2;
@@ -326,7 +369,9 @@
 .card_num > h6 {
   font-size: 82px;
   font-weight: 300;
-  color: #00C4B4;
+  background: linear-gradient(to right, #136CB5 0%, #49BBBD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 10px; 
 }
 
@@ -377,13 +422,15 @@
   gap: 20px;
   flex-wrap: wrap; 
   padding: 20px;
-
 }
 
 .image-container {
   position: relative;
-  width: 500px; 
-  height: 200px;
+  width: 100%; /* Makes it responsive */
+  max-width: 500px; /* Max width for larger screens */
+  height: auto; /* Auto adjusts the height based on the width */
+  aspect-ratio: 2.5 / 1; /* Maintains a fixed aspect ratio of 2.5:1 */
+  /* This keeps the height responsive and proportional to the width */
 }
 
 .image-container img {
@@ -454,6 +501,7 @@
   z-index: -1; /* Ensures the circle is behind the card */
 }
 
+/* Add a fade-in effect to the quiz-section */
 .quiz-section {
   position: relative;
   background: white;
@@ -461,60 +509,106 @@
   padding: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   width: 380px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards; /* Fade in animation */
 }
 
+/* Keyframes for fade-in animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth transition when hovering over the quiz card */
 .quiz-card {
   position: relative;
   border-radius: 16px;
   background: #f9f9ff;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+.quiz-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for the question heading with a smooth color change on hover */
 .quiz-card h2 {
   font-size: 20px;
-  color: rgb(85, 87, 141,1);
+  color: rgb(85, 87, 141, 1);
   margin-bottom: 10px;
   font-weight: bold;
   padding: 20px;
+  transition: color 0.3s ease;
 }
 
+.quiz-card h2:hover {
+  color: #4a4a7b;
+}
 
+/* Question badge with a subtle hover effect */
 .question-badge {
   background: #b6b6f5;
   color: white;
   padding: 5px 10px;
   border-radius: 20px;
   font-size: 14px;
-  padding: 5px 10px;
   margin-bottom: 10px;
   display: inline-block;
+  transition: background 0.3s ease;
 }
 
+.question-badge:hover {
+  background: #a4a4e1;
+}
+
+/* Smooth transition for quiz image */
 .quiz-image {
   width: 100%;
   border-radius: 10px;
   margin-top: 10px;
-  
+  transition: transform 0.3s ease;
 }
 
+.quiz-image:hover {
+  transform: scale(1.05);
+}
 
+/* Feedback animation and smooth transition */
 .answer-feedback {
   position: relative;
   background: #eaffea;
   padding: 20px;
   border-radius: 10px;
-  color:rgba(0, 203, 184, 1);
+  color: rgba(0, 203, 184, 1);
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: 5px;
   margin-top: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: slideIn 0.5s forwards;
   bottom: 50px;
-  left: 50px;
+  left: 20px;
+}
 
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.icon{
+
+.icon {
+  position: relative;
   font-size: 20px;
-  color:rgba(0, 203, 184, 1);
+  color: rgba(0, 203, 184, 1);
 }
+
 
 .action-buttons {
   position: absolute;
@@ -522,7 +616,18 @@
   right: -20px;
   display: flex;
   gap: 10px;
+  opacity: 0;
+  transform: translateX(20px);
+  animation: slideInButtons 0.5s forwards 0.3s;
 }
+
+@keyframes slideInButtons {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 
 .circle-button {
   position: relative;
@@ -534,18 +639,34 @@
   justify-content: center;
   font-size: 18px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.correct {
-  top: 20px;
-  background: #e6fff2;
-  color:rgba(0, 203, 184, 1);
+.circle-button:hover {
+  transform: scale(1.1);
 }
+
+
+.correct {
+  background: #e6fff2;
+  color: rgba(0, 203, 184, 1);
+}
+
+.correct:hover {
+  background: #b3ffdb;
+}
+
 
 .wrong {
   background: white;
   color: red;
 }
+
+.wrong:hover {
+  background: #ffe6e6;
+  color: #b30000;
+}
+
 
 .info-section {
   max-width: 600px;
@@ -683,6 +804,7 @@
   
 }
 
+/* Side Cards Container */
 .side-cards {
   display: flex;
   flex-direction: row;
@@ -692,18 +814,29 @@
   max-width: 250px; /* Increased max-width */
 }
 
+
 .side-card {
   writing-mode: vertical-rl;
   transform: rotate(160deg);
-  padding: 20px; /* Increased padding */
+  padding: 20px; 
   border-radius: 10px;
   color: white;
   font-weight: bold;
   text-align: center;
-  width: 100px; /* Increased width */
-  font-size: 20px; /* Increased font size */
-  letter-spacing: 1px; /* Added letter spacing */
+  width: 100px; 
+  font-size: 20px; 
+  letter-spacing: 1px; 
+  background-color: #3498db; 
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Animation and hover effect */
+.side-card:hover {
+  transform: rotate(180deg); 
+  background-color: #2ecc71;
+  color: #ffffff; 
+}
+
 
 .orange {
   background-color: #ff7f2a;
@@ -716,26 +849,32 @@
 .main-card {
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   justify-content: space-evenly;
   text-align: left;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   gap: 20px;
   width: 600px;
   height: 280px;
   margin-left: 100px;
- 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+/* Smooth and professional hover effect */
+.main-card:hover {
+  transform: translateY(-8px) scale(1.03); /* Subtle scale effect */
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+/* Image Placeholder */
 .image-placeholder {
   width: 150px;
   height: 250px;
   background-color: #ff9999;
   border-radius: 10px;
 }
-
 .title {
   font-size: 24px;
   font-weight: bold;
@@ -760,15 +899,34 @@
   margin-top: 15px;
 }
 
+/* Button Enhancements */
 .enroll-btn {
-  border: 1px solid black;
-  padding: 5px 30px;
-  background: white;
+  border: none;
+  padding: 10px 30px;
+  background: linear-gradient(45deg, #3498db, #2ecc71);
+  color: white;
+  font-weight: bold;
   cursor: pointer;
   align-self: center;
   margin-top: 150px;
   width: 300px;
-  
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Advanced Hover Animation */
+.enroll-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #2ecc71, #3498db);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.enroll-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 .sidecard-second{
   writing-mode: vertical-rl;
@@ -781,10 +939,171 @@
   font-size: 16px;
   margin-left: 120px;
   flex-direction: row;
+}
+.question_session {
+  display: flex;
+  flex-direction: row; 
+  gap: 20px; 
+  max-width: 1440px;
+  margin:auto;
+  justify-content: space-around;
+}
+
+.text-session {
+  flex-direction: column; 
+  gap: 10px;  
+  line-height: 2;
+}
+.text-session > h1{
+  font-size: 46px;
+  color: blue;
+  font-weight: 400px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+
+.card_survey {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f9f9f9; 
+  padding: 10px;
+  border-radius: 8px;
+  width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  line-height: 2;
+  margin-top: 30px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px); 
+  animation: fadeInUp 0.6s ease-out forwards; 
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+
+.card_survey:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.line {
+  height: 5px; 
+  background-color: orange;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  border-radius: 5px; 
+}
+
+.card_survey p {
+  margin-top: 30px; 
+}
+
+
+.rate {
+  display: flex;
+  align-items: center; 
+  gap: 10px; 
+  justify-content: space-between;
+}
+
+.star {
+  font-size: 20px;
+  margin-top: 20px; 
+}
+.card_survey >  p{
+  font-size: 14px;
 
 }
-.side-card{
+#review{
 
+  align-self: end;
+  margin-left:350px;
+  font-size: 12px;
+}
+
+
+.control_accesment {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex-direction: row;
+  margin-left: 250px;
+  width: 1000px;
+  position: relative;
+}
+
+/* Button Styles */
+.btn_accessment {
+  position: relative;
+  padding: 12px 15px;
+  width: 350px;
+  border: none;
+  border-radius: 30px;
+  background:whitesmoke;
+  color: rgb(73, 187, 189,100);
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+/* Hover Effect for Button */
+.btn_accessment:hover {
+  background: linear-gradient(45deg, mediumseagreen, seagreen);
+  transform: translateX(5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Click Effect */
+.btn_accessment:active {
+  transform: scale(0.98);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Arrow Next to Button */
+.arrow {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid seagreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(73, 187, 189,100);
+  transition: all 0.3s ease-in-out;
+  margin-left: -40px; /* Moves closer to button */
+  z-index: 1;
+}
+
+/* Hover Animation */
+.btn_accessment:hover + .arrow {
+  transform: scale(1.1);
+  background: seagreen;
+  border-color: white;
+  margin-left: -35px; /* Adjusts arrow position on hover */
 }
 
 
@@ -795,24 +1114,40 @@
 
 
 
-/* Responsive Design */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* For tablets (max-width: 1024px) */
 @media (max-width: 1024px) {
   .hero-container {
-    padding: 30px 15px;
+    padding: 20px 15px;
   }
 
   .hero-headline {
     font-size: 36px;
     left: 0;
     margin-left: 20px;
+    left: 40px;
   }
 
   .hero-subheadline {
     font-size: 16px;
     left: 0;
     margin-left: 20px;
+    left: 40px;
   }
 
   .hero-button-group {
@@ -827,136 +1162,344 @@
   }
 
   .hero-notification {
-    margin: 20px;
+    margin: -0;
     padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    
   }
+ 
+  
 
   @media (max-width: 1024px) {
-    .hero-notification-1 {
-      left: 50%;
-      transform: translateX(-50%);
-      margin-top: 80px; /* Adjust spacing */
-    }
-  
-    .hero-notification-2 {
-      left: 70%;
-      padding: 15px 50px;
-      transform: translateX(-50%);
-      margin-top: 100px;
-    }
-  
-    .hero-notification-3 {
-      left: 50%;
-      transform: translateX(-50%);
-      margin-top: 120px;
-    }
-  
-    .hero-notification-4 {
-      left: 50%;
-      transform: translateX(-50%);
-      margin-top: 140px;
-    }
+    .hero-notification-1, 
+  .hero-notification-2, 
+  .hero-notification-3, 
+  .hero-notification-4 {
+    position: absolute;
+    
+    transform: translateX(-50%);
+    margin-top: 80px; /* Adjust spacing for the first notification */ /* Ensures notifications take up less space and are responsive */
+    padding: 12px 20px; /* Adjust padding for smaller devices */
+    font-size: 14px; /* Reduce font size for readability */
   }
-  
+  .hero-notification-1{
+    margin-top: 80px;
+   
+  }
+  .hero-notification-2 {
+    margin-top: 200px; 
+    width: 200px;/* More spacing for the second notification */
+  }
 
+  .hero-notification-3 {
+    margin-top: 60px; 
+   
+    
+  }
+
+  .hero-notification-4 {
+    margin-top: 150px; 
+    
+  }
+
+  /* Adjustments for the Number Section */
   .Number {
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .image-container {
-    width: 90%;
-    height: auto;
-  }
-}
-
-/* For mobile devices (max-width: 768px) */
-@media (max-width: 768px) {
-  .hero-container {
-    text-align: center;
-    padding: 20px 10px;
-    min-height: auto;
-  }
-
-  .hero-content {
-    max-width: 100%;
-  }
-
-  .hero-headline {
-    font-size: 28px;
-    margin: 0 auto;
-    text-align: center;
-    padding-left: 0;
-  }
-
-  .hero-subheadline {
-    font-size: 14px;
-    margin: 10px auto;
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .hero-button-group {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin: 0;
-  }
-
-  .hero-button-container {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-
-  .hero-primary-button, 
-  .hero-secondary-button {
-    width: 100%;
-    max-width: 250px;
-  }
-
-  .hero-user-notification {
-    width: 90%;
-    flex-direction: column;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .hero-avatar {
-    margin-bottom: 10px;
-  }
-
-  .Number {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .image-container {
-    width: 100%;
-    height: auto;
-  }
-
-  .home-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .quiz-section {
-    width: 100%;
-  }
-
-  .explore-course-section {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .explore-course-link {
-    flex-direction: column;
     gap: 15px;
+    justify-content: center;
+    display: flex; /* Ensure it wraps correctly */
   }
-}
+
+  
+    .image-container {
+      width: 90%;
+      height: auto;
+    }
+    .card-container {
+      flex-direction: column;
+      padding: 15px;
+    }
+  
+    .main-card {
+      width: 100%;
+      margin-left: 0;
+      gap: 10px;
+    }
+  
+    .side-cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .side-card {
+      width: 60px;
+      font-size: 14px;
+    }
+  
+    .image-placeholder {
+      width: 60%;
+      height: 150px;
+    }
+  
+    .price-section {
+      gap: 15px;
+    }
+  
+    .enroll-btn {
+      width: 100%;
+    }
+  
+    .sidecard-second {
+      font-size: 12px;
+    }
+  
+  }
+  .question_session {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .text-session > h1 {
+    font-size: 40px; /* Adjusted heading size for tablet */
+  }
+  
+  .card_survey {
+    width: 80%; /* Make the card take up 80% of the screen */
+    margin-top: 20px;
+  }
+  
+  .rate {
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .star {
+    font-size: 18px; /* Adjusted star size for better tablet view */
+  }
+  
+  #review {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .control_accesment {
+    justify-content: center;
+    max-width: 90%;
+  }
+
+  .btn_accessment {
+    width: 300px;
+    font-size: 16px;
+  }
+
+  .arrow {
+    width: 45px;
+    height: 45px;
+    margin-left: -30px;
+  }
+  }
+  
+
+
+
+
+
+  @media (max-width: 600px) {
+    /* Hero Section */
+    .hero-container {
+      text-align: center;
+      padding: 15px 10px;
+      min-height: auto;
+    }
+  
+    .hero-content {
+      max-width: 100%;
+    }
+  
+    .hero-headline {
+      font-size: 24px; /* Smaller text for smaller screens */
+      margin: 0 auto;
+      text-align: center;
+      padding-left: 0;
+    }
+  
+    .hero-subheadline {
+      font-size: 13px;
+      margin: 8px auto;
+      text-align: center;
+    }
+  
+    .hero-button-group {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+    }
+  
+    .hero-primary-button, 
+    .hero-secondary-button {
+      width: 100%;
+      max-width: 220px;
+    }
+  
+    /* User Notification */
+    .hero-user-notification {
+      width: 95%;
+      flex-direction: column;
+      padding: 8px;
+      text-align: center;
+    }
+  
+    .hero-avatar {
+      margin-bottom: 8px;
+    }
+  
+    /* Number Section */
+    .Number {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    /* Image Resizing */
+    .image-container {
+      width: 100%;
+      height: auto;
+    }
+  
+    .home-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .quiz-section {
+      width: 100%;
+    }
+  
+    .explore-course-section {
+      padding: 15px;
+      text-align: center;
+    }
+  
+    .explore-course-link {
+      flex-direction: column;
+      gap: 12px;
+    }
+  
+    /* Cards */
+    .card-container {
+      padding: 8px;
+    }
+    .about_ASDC{
+      justify-content: center;
+      font-size: 15px;
+      line-height: 1.5;
+
+    }
+    .about_ASDC >p{
+      margin-left: 20px;
+    }
+    #Para_asdc{
+      font-size: 12px;
+    }
+  
+    .main-card {
+      width: 100%;
+      margin-left: 0;
+      padding: 10px;
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .side-cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      display: none;
+    }
+  
+    .side-card {
+      font-size: 12px;
+      width: 45px;
+    }
+  
+    .image-placeholder {
+      width: 100%;
+      height: 120px;
+    }
+  
+    .title {
+      font-size: 16px;
+    }
+  
+    .price {
+      font-size: 12px;
+    }
+  
+    .enroll-btn {
+      padding: 5px 12px;
+      font-size: 13px;
+    }
+  
+    /* Question Section */
+    .question_session {
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+  
+    .text-session h1 {
+      margin-left: 8px;
+      font-size: 22px; /* Smaller heading for small screens */
+    }
+  
+    .text-session p {
+      margin-left: 5px;
+      text-align: center;
+    }
+  
+    .card_survey {
+      width: 95%; /* Increase width for small screens */
+      margin-top: 15px;
+    }
+  
+    .rate {
+      flex-direction: column; /* Stack the rating elements vertically */
+      gap: 4px;
+      align-items: center;
+    }
+  
+    .star {
+      font-size: 16px; /* Smaller star size for small devices */
+    }
+  
+    #review {
+      margin-left: 0;
+      font-size: 12px;
+    }
+  
+    .accessment-wrapper {
+      flex-direction: row;
+      gap: 5px;
+    }
+  
+    .btn_accessment {
+      max-width: 220px;
+      font-size: 12px;
+      padding: 6px;
+    }
+  #text_btn{
+    margin-right: 10px;
+  }
+    .arrow {
+      width: 30px;
+      height: 30px;
+    }
+  }
 
 
 
