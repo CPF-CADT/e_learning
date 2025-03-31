@@ -5,7 +5,7 @@ export default function ShowPrice({ price, discountPercent }) {
         <div className='font-bold'>
             {discountPercent > 0 ? (
                 <div>
-                    <span className='text-gray-300 line-through mr-3'>{price} $ </span>
+                    <span className='text-gray-700 line-through mr-3'>{price} $ </span>
                     <span className='text-[#49BBBD]' >{price-(price * (discountPercent/100))} $ </span>
                 </div>
             ) : (

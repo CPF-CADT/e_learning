@@ -10,17 +10,17 @@ export default function UserProfile({ UserName, ProfilePath, positionTop }) {
 
     return (
         <div className="usrProfileSide relative ">
-            <span onClick={dropDown} className='text-black'>
+            <span onClick={dropDown} className='text-black flex flex-row items-center hover:cursor-pointer '>
                 {UserName} 
                 <i className={`pi pi-${toggle ? 'chevron-up' : 'chevron-down'} ml-3`}></i>
+                <img
+                    className="user-profile"
+                    src={ProfilePath}
+                    alt="user profile"
+                    style={{ width: '64px', height: '64px', borderRadius: '50%' }}
+                />
             </span>
 
-            <img
-                className="user-profile"
-                src={ProfilePath}
-                alt="user profile"
-                style={{ width: '64px', height: '64px', borderRadius: '50%' }}
-            />
             <div
                 className="profile-right-side absolute bg-[#fff] p-5 rounded-xl "
                 style={{
@@ -32,7 +32,7 @@ export default function UserProfile({ UserName, ProfilePath, positionTop }) {
             >
                 <ul>
                     <li>
-                        <a href="#">Profile <i className="pi pi-user"></i> </a>
+                        <a href="/user-detail">Profile <i className="pi pi-user"></i> </a>
                     </li>
                     <li>
                         <a href="#">Course <i className="pi pi-th-large"></i> </a>

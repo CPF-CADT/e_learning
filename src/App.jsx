@@ -9,18 +9,18 @@ import { PrimeReactProvider } from 'primereact/api';
 import "primereact/resources/themes/lara-light-blue/theme.css"; 
 import "primereact/resources/primereact.min.css"; 
 import "primeicons/primeicons.css"; 
-// import UserDetail from './components/UserDetail'
+import UserDetail from './components/UserDetail'
 import Quizz from './components/Quizz'
 import { Routes,Route } from 'react-router-dom';
 // import ChartData from './components/ChartData'; 
 import Home from './components/Home';
 import QuizzREsult from './components/QuizzResult';  
-export default function App() {
+import CourseDetail from './components/CourseDetail';
+export default function App() { 
   let userName = "Cheng Nhajor"
   return (
     <PrimeReactProvider>
       <>  
-    
         <Routes>
 
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
@@ -31,6 +31,8 @@ export default function App() {
           <Route path='/mycourse/video' element={<VideoPlayer videoUrl={'https://youtu.be/CTHhlx25X-U?si=cwpIlQ8OII0qoGQn'}  />} />
           <Route path='/mycourse/selected' element={<CourseView usrname={userName} usrProfilePath={userProfile} />} />
           <Route path='/mycourse/selected/quizz' element={<Quizz usrname={userName} usrProfilePath={userProfile} />} />
+          <Route path='/user-detail' element = {<UserDetail />} />
+          <Route path='/course-detail' element={<CourseDetail userName={userName} userProfile={userProfile} />} />
         </Routes>
       </>
     </PrimeReactProvider>
