@@ -1,0 +1,19 @@
+.p-progressbar{
+    height: 20px;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+  }
+  .p-progressbar-value{
+    border-radius: 5px;
+    background: #41BD55;
+  }
+  .correct-answer {
+    background-color: #d4edda;  
+    border-color: #28a745;      
+    color: #155724;            
+  }
+  .wrong-answer {
+    background-color: #f8d7da;  
+    border-color: #dc3545;      
+    color: #721c24;           
+  }

@@ -1,5 +1,5 @@
 import { ProgressBar } from 'primereact/progressbar';
-
+import './style/course.css'
 export default function CourseBoxLearn({ courseTitle, courseHook, progress }) {
     return (
         <div className="w-[280px] h-[240px] bg-white shadow-md rounded-sm flex flex-col hover:cursor-pointer">
