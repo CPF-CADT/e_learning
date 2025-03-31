@@ -13,7 +13,8 @@ import Quizz from './components/Quizz'
 import { Routes,Route } from 'react-router-dom';
 // import ChartData from './components/ChartData'; 
 import QuizzREsult from './components/QuizzResult';  
-export default function App() {
+import CourseDetail from './components/CourseDetail';
+export default function App() { 
   let userName = "Cheng Nhajor"
   return (
     <PrimeReactProvider>
@@ -27,6 +28,7 @@ export default function App() {
           <Route path='/mycourse/selected' element={<CourseView usrname={userName} usrProfilePath={userProfile} />} />
           <Route path='/mycourse/selected/quizz' element={<Quizz usrname={userName} usrProfilePath={userProfile} />} />
           <Route path='/user-detail' element = {<UserDetail />} />
+          <Route path='/course-detail' element={<CourseDetail userName={userName} userProfile={userProfile} />} />
         </Routes>
       </>
     </PrimeReactProvider>

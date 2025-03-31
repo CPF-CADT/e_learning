@@ -1,13 +1,10 @@
-// MarkdownRenderer.js
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-const MarkdownRenderer = ({ markdownText }) => {
+export default function MarkdownRenderer({ markdownText }){
     return (
         <div>
             <ReactMarkdown>{markdownText}</ReactMarkdown>
-        </div>
+        </div>  
     );
-};
-
-export default MarkdownRenderer;
+}

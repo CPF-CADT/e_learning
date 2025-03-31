@@ -1,29 +1,49 @@
 import ShowPrice from "./ShowPrice";
-export default function CourseCard({teacher_profile_path}) {
+
+export default function CourseCard({ teacher_profile_path }) {
   return (
-    <div className="course-card w-[325px] h-[445px] p-3 border-black rounded-xl shadow-2xl hover:cursor-pointer  ">
-      {/* <img src="" alt="" /> */}
-      <div className=" h-[180px] bg-amber-300">Image</div>
-      <div className="flex flex-row justify-between my-3 ">
+    <div className="course-card w-[280px] h-[420px] p-3 border-black rounded-xl shadow-lg hover:cursor-pointer">
+      {/* Image Section */}
+      <div className="h-[150px] bg-amber-300">Image</div>
+      
+      {/* Course Info Section */}
+      <div className="flex flex-row justify-between my-2">
         <span>
-          <i className="pi pi-th-large mr-2"></i>Design
+          <i className="pi pi-th-large mr-1"></i>Design
         </span>
         <span className="ml-auto">
-          <i className="pi pi-clock mr-2"></i>3 Month
+          <i className="pi pi-clock mr-1"></i>3 Month
         </span>
       </div>
-      <div >
-        <h3 className="font-bold" >Course Title</h3>
-        <p className="overflow-hidden  mt-2 ">
-          Course Discription Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Magnam, et soluta dolores harum omnis amet. Dolorem aspernatur,
+      
+      {/* Course Description Section */}
+      <div>
+        <h3 className="font-bold text-sm">Course Title</h3>
+        <p className="overflow-hidden mt-1 text-xs">
+          Course Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, et soluta dolores harum omnis amet. Dolorem aspernatur.
         </p>
       </div>
+      
+      {/* Teacher Info Section */}
       <div className="flex flex-row justify-between mt-2 items-center">
         <div className="flex flex-row items-center gap-1">
-          <img src={teacher_profile_path} alt="Profile" style={{ width: '44px', height: '44px', borderRadius: '50%' }}  />
-          <span>Teacher</span>
+          <img
+            src={teacher_profile_path}
+            alt="Profile"
+            style={{ width: '35px', height: '35px', borderRadius: '50%' }}
+          />
+          <span className="text-xs">Teacher</span>
         </div>
+      </div>
+      
+      {/* Action Section */}
+      <div className="flex justify-between items-center mt-3">
+        <button
+          style={{ height: '35px', width: '150px' }}
+          className="rounded-2xl bg-blue-500 text-[#fff] hover:cursor-pointer hover:bg-blue-800 text-xs"
+        >
+          <i className="pi pi-shopping-cart"></i> ADD TO CART
+        </button>
         <ShowPrice price={100} discountPercent={20} />
       </div>
     </div>
