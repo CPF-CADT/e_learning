@@ -1,0 +1,70 @@
+.blog-container {
+  background-color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.spacer {
+  height: 2.5rem;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2.5rem;
+  font-size: 2.25rem;
+  font-weight: 600;
+  background-color: #f0f9ff;
+}
+
+
+.text-content {
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: #010b9c;
+}
+
+.hero-subtitle {
+  color: #697992;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  max-width: 50%;
+}
+
+.cta-button {
+  background-color: #010b9c;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 1rem;
+  min-width: 25%;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #0463df;
+}
+
+
+
+.read-blog {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000000;
+  margin-top: 2rem;
+  
+}
+.hero-section .read-blog {
+  margin-top: 0; /* Remove the top margin for alignment */
+}
+.seeMore{
+  color: rgb(5, 216, 146);
+}
