@@ -12,7 +12,9 @@
 }
 .Main{
   max-width: 1440px;
-  
+}
+.home{
+  background-color: whitesmoke;
 }
 
 
@@ -46,6 +48,9 @@
   font-family: "Arial", sans-serif; 
   margin-left: 80px;
   left: 200px;
+  background: linear-gradient(to right, #00FFFF 0%, #8A2BE2 100%); /* Cyan to Purple */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   
 }
 
@@ -98,9 +103,9 @@
 }
 
 .hero-primary-button {
-  background-color: #f97316; /* Orange color */
+  background-color: rgba(249, 115, 22, 0.6); /* Transparent orange */
   color: #fff;
-  border: 2px solid #f97316; /* Border to match background */
+  border: 2px solid #f97316;
   border-radius: 30px;
   padding: 12px 30px;
   font-size: 14px;
@@ -113,28 +118,30 @@
   outline: none;
   display: inline-block;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px); /* Blurring the background */
 }
 
 .hero-primary-button:hover {
-  background-color: transparent;
-  color: #f97316; /* Change text color on hover */
-  border-color: #f97316; /* Maintain border color */
-  transform: translateY(-4px); /* Subtle lift on hover */
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Slightly more prominent shadow */
+  background-color: rgba(249, 115, 22, 0.8); /* Less transparent on hover */
+  color: #f97316;
+  border-color: #f97316;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px); /* More blur on hover */
 }
 
 .hero-primary-button:active {
   background-color: #f97316;
-  color: #fff; 
-  transform: translateY(0px); /* Reset position */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reset shadow */
+  color: #fff;
+  transform: translateY(0px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px); /* Reset blur after click */
 }
 
 .hero-primary-button span {
   position: relative;
-  z-index: 1; /* Ensure text stays above any possible background effects */
+  z-index: 1;
 }
-
 .hero-secondary-button {
   background-color: transparent;
   color: #fff;
@@ -176,13 +183,14 @@
 
 #text_heroSec {
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 400;
   color: #fff;
   transition: color 0.3s ease-in-out;
 }
 
 #text_heroSec:hover {
   color: #f97316; /* Change color on hover */
+  font-weight: 400;
 }
 
 .hero-secondary-button:hover {
@@ -873,9 +881,21 @@
   height: 250px;
   background-color: #ff9999;
   border-radius: 10px;
+  overflow: hidden; /* Ensures the image does not overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure the image resizes properly */
+.quiz-image {
+  width: 100%; /* Make it fill the placeholder */
+  height: 100%;
+  object-fit: cover; /* Ensures it fills the space without distortion */
+  border-radius: 10px; /* Matches the parent container */
 }
 .title {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   margin: 0;
 }
@@ -902,7 +922,7 @@
 .enroll-btn {
   border: none;
   padding: 10px 30px;
-  background: linear-gradient(45deg, #3498db, #2ecc71);
+  background: linear-gradient(to right, #FFB6C1 0%, #ADD8E6 100%);
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -955,7 +975,7 @@
 }
 .text-session > h1{
   font-size: 46px;
-  color: blue;
+  color: #1e3a8a;
   font-weight: 400px;
   padding: 10px;
   font-weight: bold;
@@ -1224,7 +1244,7 @@
   align-items: center;
   position: absolute;
   width: 100%;
-  bottom: 10px; 
+  bottom: 10px;
   left: 0;
   gap: 10px;
   z-index: 15;
@@ -1255,11 +1275,11 @@
 .stu_feedback > h1{
  text-align: center;
  margin-top: 30px;
- font-size: 30px ;
+ font-size: 32px ;
  font-weight: 500;
 }
 .feedback{
-  color:cyan;
+  color:rgb(58, 161, 161);
 }
 .stu-feedback > p{
   text-align: center;
@@ -1269,8 +1289,157 @@
 }
 #Para_feedback{
   text-align: center;
+  
+}
+/* Container Layout */
+.Last_News{
+  max-width: 1440px;
+  margin: auto;
+  align-items: flex-start;
+  margin-top: 120px;
+  line-height: 2;
+}
+.Last_News > h1{
+font-size: 32px;
+text-align: center;
+color:#1e3a8a;
+font-weight: 600;
+line-height: 2;
+
+}
+.Last_News > p{
+  font-size: 18px;
+  text-align: center;
+  line-height: 2;
+}
+/* Main News Section */
+.news-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px; 
 }
 
+.news-section {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of cards */
+  gap: 20px;
+  justify-content: center; /* Centers cards */
+  margin-top: 40px;
+  width: 100%;
+}
+
+/* News Cards */
+.card-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.news-card {
+  flex: 1 0 32%; /* Default: 3 cards per row on desktop */
+  min-width: 250px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 350px;
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: left;
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.news-card-category {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  width: fit-content;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+/* Hover Animation */
+.news-card-category:hover {
+  background-color: #0056b3; /* Change background color */
+  transform: scale(1.1); /* Slightly increase size */
+  letter-spacing: 1px; /* Add letter spacing on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+.news-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.news-card-description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.news-card-link {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.news-card-link:hover {
+  color: #ff6b00;
+  text-decoration: underline;
+}
+
+/* Pagination Arrows */
+.pagination-arrows {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-arrow {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.pagination-arrow:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-arrow:hover:not(:disabled) {
+  color: #0056b3;
+}
 
 
 
@@ -1297,8 +1466,10 @@
 /* For tablets (max-width: 1024px) */
 @media (max-width: 1024px) {
   .hero-container {
-    padding: 20px 15px;
+  
+    padding: 50px 15px;
   }
+  
 
   .hero-headline {
     font-size: 36px;
@@ -1331,49 +1502,54 @@
     border-radius: 8px;
     font-size: 16px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    
+    display:none;
   }
  
   
 
   @media (max-width: 1024px) {
-    .hero-notification-1, 
+  .hero-notification-1, 
   .hero-notification-2, 
   .hero-notification-3, 
   .hero-notification-4 {
     position: absolute;
     
     transform: translateX(-50%);
-    margin-top: 80px; /* Adjust spacing for the first notification */ /* Ensures notifications take up less space and are responsive */
-    padding: 12px 20px; /* Adjust padding for smaller devices */
-    font-size: 14px; /* Reduce font size for readability */
+    margin-top: 80px; 
+    padding: 12px 20px; 
+    font-size: 14px; 
   }
   .hero-notification-1{
     margin-top: 80px;
    
   }
   .hero-notification-2 {
-    margin-top: 200px; 
-    width: 200px;/* More spacing for the second notification */
+    margin-top: 260px;
+    margin-right: 20px; 
+    right: 160px;
+    width: 200px;
+    display: inline;
   }
 
   .hero-notification-3 {
-    margin-top: 60px; 
+    margin-top: 60px;
+ 
    
     
   }
 
   .hero-notification-4 {
-    margin-top: 150px; 
+    margin-top: 130px; 
+    display: inline;
+  
     
   }
 
-  /* Adjustments for the Number Section */
   .Number {
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
-    display: flex; /* Ensure it wraps correctly */
+    display: flex; 
   }
 
   
@@ -1382,42 +1558,47 @@
       height: auto;
     }
     .card-container {
-      flex-direction: column;
-      padding: 15px;
+      flex-direction: row; 
+      align-items: center;  
+      justify-content: center; 
     }
   
     .main-card {
-      width: 100%;
-      margin-left: 0;
-      gap: 10px;
-    }
-  
-    .side-cards {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-  
-    .side-card {
-      width: 60px;
-      font-size: 14px;
-    }
-  
-    .image-placeholder {
-      width: 60%;
-      height: 150px;
-    }
-  
-    .price-section {
+      width: 90%;  
+      max-width: 600px;  
+      margin: 0 auto;
+      flex-direction: row;  
       gap: 15px;
     }
   
-    .enroll-btn {
-      width: 100%;
+    .side-cards {
+      display: flex;  
+      flex-direction: row;  
+      gap: 10px; 
+      justify-content: center; 
+      align-items: center;  
+      margin-right: 0; 
     }
+  
+    .side-card {
+      font-size: 16px; 
+      width: 70px;  
+      padding: 15px; 
+    }
+  
+    .image-placeholder {
+      width: 120px;
+      height: 220px; 
+    }
+  
+    .enroll-btn {
+      width: 250px;
+    }
+  
   
     .sidecard-second {
       font-size: 12px;
+      left: 50px;
     }
   
   }
@@ -1428,11 +1609,11 @@
   }
   
   .text-session > h1 {
-    font-size: 40px; /* Adjusted heading size for tablet */
+    font-size: 40px; 
   }
   
   .card_survey {
-    width: 80%; /* Make the card take up 80% of the screen */
+    width: 80%; 
     margin-top: 20px;
   }
   
@@ -1442,7 +1623,7 @@
   }
   
   .star {
-    font-size: 18px; /* Adjusted star size for better tablet view */
+    font-size: 18px; 
   }
   
   #review {
@@ -1452,11 +1633,11 @@
 
   .control_accesment {
     justify-content: center;
-    max-width: 90%;
+    max-width: 80%;
   }
 
   .btn_accessment {
-    width: 300px;
+    width: 280px;
     font-size: 16px;
   }
 
@@ -1471,20 +1652,31 @@
   }
 
   .testimonial-card-item {
-    min-width: auto;  /* Remove the fixed width to allow cards to adjust */
+    min-width: auto;  
   }
 
   .testimonial-container .arrows {
-    padding: 8px;  /* Adjust arrow size on tablets */
+    padding: 8px;  
   }
 
   .testimonial-card-item h3 {
-    font-size: 1rem;  /* Smaller text for tablets */
+    font-size: 1rem;  
   }
 
   .testimonial-role {
-    font-size: 0.9rem;  /* Smaller text for tablets */
+    font-size: 0.9rem; 
   }
+  .card-wrapper{
+    margin-left: 10px;
+  }
+  .news-card {
+    flex: 0 0 10%; 
+  }
+
+  .pagination-arrows {
+    padding: 10px;
+  }
+
 
   }
   
@@ -1493,61 +1685,87 @@
   @media (max-width: 600px) {
     /* Hero Section */
     .hero-container {
-      text-align: center;
-      padding: 15px 10px;
-      min-height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 5px;
+      text-align: left;
     }
   
-    .hero-content {
-      max-width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .hero-headline {
-      font-size: 24px;
-      margin: 0 auto;
-      text-align: center;
-      padding-left: 0;
-    }
-  
-    .hero-highlight {
-      font-size: 16px;
-      margin-right: 20px;
+    .hero-headline{
+      font-size: 26px; /* Adjust text size for mobile */
+      color:rgb(73, 187, 189,100);
+      width: 70%;
+      margin-top: 20px;
     }
   
     .hero-subheadline {
-      font-size: 13px;
-      margin: 8px auto;
-      text-align: center;
+      font-size: 16px;
+      width: 80%;
+      margin-top: 10px;
     }
   
+    /* Make hero-content display inline on mobile */
+    .hero-content {
+      
+      flex-direction: row;
+      justify-content: flex-start;  /* Align the text to the left */
+      align-items: center; /* Vertically align the items */
+      gap: 5px; /* Space between the two elements */
+    }
     .hero-button-group {
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      margin: 0;
-    }
-  
-    .hero-primary-button,
-    .hero-secondary-button {
-      width: 100%;
-      max-width: 220px;
-    }
-  
-    /* User Notification */
-    .hero-user-notification {
-      width: 95%;
-      flex-direction: column;
-      padding: 8px;
-      text-align: center;
       display: flex;
-      justify-content: center;
+      flex-direction: column; 
+      justify-content: center; /* Center them */
+      gap: 15px;
+      margin-top: 15px;
+      position: relative;
+      right: 0; /* Ensure centering */
+      padding: 10px;
+      border-radius: 40px;
+    
+    }
+  
+   
+    .hero-secondary-button {
+      width: 60px; /* Smaller size */
+      height: 30px; /* Adjust height */
+      font-size: 10px; /* Smaller text */
+      padding: 10px;
+      text-align: center;
+      border-radius: 20px;
+    }
+    #text_herepSec{
+      font-size: 0.9rem;
+    }
+    #text_heroSec:hover {
+      color: #f97316; /* Change color on hover */
+    }
+   
+    .hero-notification-4 {
+      top: 320px;
+      right: 0;
+      left: 20px;
+      transform: translateX(-50%); 
+      margin-right: 0;
+      padding: 20px; 
+      width: 90%; 
+      max-width: 320px; 
+    }
+  
+    .hero-user-notification {
+      width: 100%; 
+      max-width: 280px; 
+      padding: 10px; 
+      margin: 20px auto;
+      font-size: 14px; 
+      display: flex;
       align-items: center;
+    }
+    
+    .hero-notification-2{
+      display: none;
+    }
+  
+    .hero-icon {
+      font-size: 16px; /* Slightly smaller icon */
     }
   
     .hero-avatar {
@@ -1586,7 +1804,7 @@
       gap: 12px;
     }
   
-    /* Cards */
+
     .card-container {
       padding: 8px;
       display: flex;
@@ -1638,15 +1856,16 @@
     }
   
     .title {
-      font-size: 16px;
+      font-size: 20px;
     }
   
     .price {
-      font-size: 12px;
+      font-size: 16px;
+      margin-right: 36px;
     }
   
     .enroll-btn {
-      padding: 5px 12px;
+      padding: 10px 20px;
       font-size: 13px;
     }
   
@@ -1664,7 +1883,7 @@
     }
   
     .text-session p {
-      margin-left: 5px;
+      margin-left: 13px;
       font-size: 12px;
       
     }
@@ -1754,6 +1973,32 @@
     .testimonial-container .arrows {
       padding: 8px;
       font-size: 18px;
+    }
+    .news-card {
+      flex: 0 0 100%;
+    }
+  
+ 
+    .news-section {
+      gap: 10px;
+      margin-top: 60px; 
+    }
+  
+    .pagination-arrows {
+      padding: 10px;
+      flex-direction: row; 
+    }
+  
+    .pagination-arrow {
+      font-size: 25px; 
+    }
+    .Last_News > h1{
+      font-size: 28px;
+    }
+    .Last_News > p{
+      font-size: 0.8rem;
+      text-align: center;
+
     }
   }
   

@@ -9,7 +9,88 @@ import { useState, useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { FaStar } from 'react-icons/fa'; // Example icon at the top-right
+import { FaStar } from 'react-icons/fa'; 
+
+
+
+
+
+
+
+const NewsSection = () => {
+  const newsData = [
+    { category: "News", title: "Class adds $30M for a Zoom-friendly edtech solution", description: "Class integrates exclusively...", image: "https://i.pinimg.com/736x/54/8a/fd/548afd19360c2fde8aa1dd5a4a3ec06e.jpg" },
+    { category: "Press Release", title: "Class Technologies Inc. Closes $30M Series A", description: "Class Technologies Inc., the company...", image: "https://i.pinimg.com/736x/01/53/02/01530282fce3e6358ae95ed8f7cf7586.jpg" },
+    { category: "News", title: "Zoom’s investors betting millions on better Zoom for schools", description: "Zoom was never created to be...", image: "https://i.pinimg.com/736x/38/0d/ca/380dcafca2cd0338ee6e9567f933da84.jpg" },
+    { category: "News", title: "Blackboard CEO Raises $16M for Zoom Classrooms", description: "Investors have reaped financial returns...", image: "https://i.pinimg.com/736x/37/b7/65/37b7658f12e3a8724b446bc508acc6b1.jpg" },
+    { category: "EdTech", title: "New AI Tools Revolutionizing Online Learning", description: "AI-driven solutions are transforming...", image: "https://i.pinimg.com/736x/f4/52/66/f45266a88e94850e6e331757db5109b1.jpg" },
+    { category: "Technology", title: "Virtual Classrooms Gain Traction", description: "More schools are transitioning...", image: "https://i.pinimg.com/736x/94/72/0b/94720b3e243d630f1fa290cce0a8c2d5.jpg" }
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerPage, setCardsPerPage] = useState(4);
+
+  // Detect screen size changes
+  useEffect(() => {
+    const updateCardsPerPage = () => {
+      if (window.innerWidth <= 480) {
+        setCardsPerPage(1); // Mobile: Show 1 card
+      } else if (window.innerWidth <= 728){
+        setCardsPerPage(2); // Tablet: Show 2 cards
+      } else {
+        setCardsPerPage(3); // Desktop: Show 3 cards
+      }
+    };
+
+    updateCardsPerPage();
+    window.addEventListener("resize", updateCardsPerPage);
+    return () => window.removeEventListener("resize", updateCardsPerPage);
+  }, []);
+
+  const totalPages = Math.ceil(newsData.length / cardsPerPage);
+  const visibleCards = newsData.slice(currentIndex * cardsPerPage, currentIndex * cardsPerPage + cardsPerPage);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalPages);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalPages) % totalPages);
+  };
+
+  return (
+    <div className="news-section-container">
+      <div className="news-section">
+        <div className="card-wrapper">
+          {visibleCards.map((news, index) => (
+            <div className="news-card" key={index}>
+              <img src={news.image} alt={news.title} />
+              <div className="news-card-content">
+                <span className="news-card-category">{news.category}</span>
+                <h3 className="news-card-title">{news.title}</h3>
+                <p className="news-card-description">{news.description}</p>
+                <a href="/" className="news-card-link">Read More</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Pagination Arrows */}
+      <div className="pagination-arrows">
+        <button className="pagination-arrow" onClick={prevSlide} disabled={currentIndex === 0}>
+          &#8592;
+        </button>
+        <button className="pagination-arrow" onClick={nextSlide} disabled={currentIndex === totalPages - 1}>
+          &#8594;
+        </button>
+      </div>
+    </div>
+  );
+};
+
+
+
 
 const testimonials = [
   {
@@ -57,14 +138,9 @@ const TestimonialCarousel = () => {
 
   return (
     <div className="testimonial-container">
-      <button className="arrow left" onClick={prevSlide}>
-        <ChevronLeft />
-      </button>
-
       <div className="testimonial-card">
         {testimonials.slice(currentIndex, currentIndex + 2).map((testimonial, index) => (
           <div key={index} className="testimonial-card-item">
-            
             <div className="icon-container">
               <FaStar className="icon-top-right" />
             </div>
@@ -80,10 +156,7 @@ const TestimonialCarousel = () => {
         ))}
       </div>
 
-      <button className="arrow right" onClick={nextSlide}>
-        <ChevronRight />
-      </button>
-
+      {/* Dot Navigation */}
       <div className="dots">
         {testimonials.map((_, index) => (
           <span
@@ -155,9 +228,9 @@ const HeroContent = () => {
 
 export default function Home({ UserName, ProfilePath, isLogin }) {
   return (
-    <div>
+    <div className="home">
       
-      <Nav UserName={UserName} ProfilePath={ProfilePath} isLogin={isLogin} />
+      {/* <Nav UserName={UserName} ProfilePath={ProfilePath} isLogin={isLogin} /> */}
 
      
       <div className="hero-container">
@@ -173,6 +246,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
           </p>
           <div className="hero-button-group">
             <button className="hero-primary-button"><h5>Join for Free</h5></button>
+        
             <button className="hero-secondary-button">
               <span className="pi-pi-arrow-circle-up">▶</span>
             </button>
@@ -311,7 +385,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
   </div>
   
   <div className="main-card">
-    <div className="image-placeholder"></div>
+    <div className="image-placeholder"> <img src="https://i.pinimg.com/736x/bd/58/b0/bd58b080c3a622179b6d279bf1ff8c61.jpg" alt="" /></div>
     <div className="price-section">
       <h2 className="title">ICT</h2>
     </div>
@@ -332,7 +406,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
     </div>
     <div className="card-container">
     <div className="main-card">
-    <div className="image-placeholder"></div>
+    <div className="image-placeholder"><img src="https://i.pinimg.com/736x/2c/76/47/2c76471c69e18decf1afe9ef2c0cab96.jpg" alt="" /></div>
     <div className="price-section">
       <h2 className="title">ICT</h2>
     </div>
@@ -364,7 +438,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
   </div>
   
   <div className="main-card">
-    <div className="image-placeholder"></div>
+    <div className="image-placeholder"><img src="https://i.pinimg.com/736x/1a/63/81/1a6381933bbb6bc51630c82206e1e745.jpg" alt="" /></div>
     <div className="price-section">
       <h2 className="title">ICT</h2>
     </div>
@@ -409,6 +483,11 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
       <p id="Para_feedback" >Various versions have evolved over the years, sometimes by accident</p>
     <TestimonialCarousel />
      </div>
+    <div className="Last_News">
+      <h1>Lastest News and Resources</h1>
+      <p>See the developments that have occurred to TOTC in the world</p>
+      <NewsSection/>
+    </div>
     </div>
   );
 }
