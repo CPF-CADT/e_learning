@@ -12,11 +12,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FaStar } from 'react-icons/fa'; 
 
 
-
-
-
-
-
 const NewsSection = () => {
   const newsData = [
     { category: "News", title: "Class adds $30M for a Zoom-friendly edtech solution", description: "Class integrates exclusively...", image: "https://i.pinimg.com/736x/54/8a/fd/548afd19360c2fde8aa1dd5a4a3ec06e.jpg" },
