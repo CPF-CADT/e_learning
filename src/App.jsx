@@ -14,6 +14,7 @@ import { Routes,Route } from 'react-router-dom';
 import Home from './components/Home';
 import QuizzREsult from './components/QuizzResult';  
 import CourseDetail from './components/CourseDetail';
+import Course from './components/Course';
 export default function App() { 
   let userName = "Cheng Nhajor"
   return (
