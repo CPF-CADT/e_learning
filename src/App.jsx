@@ -1,7 +1,5 @@
 import Blog from './components/Blog';
-import Nav from './components/Nav';
 import AboutUs from './components/AboutUs';
-import MyCourse from './components/MyCourse';
 import userProfile from './assets/profile.avif'; 
 import VideoPlayer from './components/VideoPlayer'
 import CourseView from './components/CourseView';
@@ -22,7 +20,6 @@ export default function App() {
     <PrimeReactProvider>
       <>  
         <Routes>
-
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
           <Route path='/about-us' element ={<AboutUs/>}/>
           <Route path='/result' element ={<QuizzREsult usrname={'Jonh Son'} result={9} maxQa={10} duration={'30min'} />}/>

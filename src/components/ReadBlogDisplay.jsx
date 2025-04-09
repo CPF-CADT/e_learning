@@ -1,9 +1,9 @@
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    Typography,
-} from "@material-tailwind/react";
+// import {
+//     Card,
+//     CardHeader,
+//     CardBody,
+//     Typography,
+// } from "@material-tailwind/react";
 
 export function BackgroundBlogCard({ image, title }) {
     return (
