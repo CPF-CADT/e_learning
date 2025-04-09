@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
 import userProfile from "../assets/profile.avif";
-import "./style/blog.css";
+import "./style/Blog.css";
 import { BackgroundBlogCard } from "./ReadBlogDisplay"
 import { IMAGE_READING_BLOG } from "./style/BlogImge/BlogImage";
 import { IMAGE_READING_BLOG2 } from "./style/BlogImge/BlogImage";
