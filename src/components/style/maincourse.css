@@ -1,0 +1,167 @@
+.main-container {
+    padding: 20px;
+    max-width: 1440px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .arrow-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.2s;
+  }
+  
+  .arrow-btn:hover {
+    background-color: #eee;
+    border-radius: 50%;
+  }
+
+  .lesson-row{
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .lesson-card {
+    width: 350px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    gap:20px;
+  }
+  
+  .lesson-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+  }
+  
+  .lesson-content {
+    padding: 12px;
+  }
+  
+  .lesson-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  
+  .lesson-teacher {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  
+  .teacher-avatar {
+    width: 18px;
+    height: 18px;
+    background-color: gray;
+    border-radius: 50%;
+  }
+  
+  .lesson-progress-bar {
+    background-color: #eee;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  
+  .progress-filled {
+    height: 100%;
+    background-color: #3b82f6;
+  }
+  
+  .lesson-count {
+    font-size: 12px;
+    color: gray;
+    text-align: right;
+  }
+  
+  
+  /* 🔹 Mobile Styles (up to 768px) */
+@media screen and (max-width: 768px) {
+    .main-container {
+      padding: 10px;
+    }
+  
+    .lesson-row {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .carousel-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .carousel-track {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .arrow-btn {
+      display: none; /* Hide arrows on mobile */
+    }
+  
+    .course-card {
+      width: 90% !important;
+    }
+  
+    .lesson-card {
+      width: 90% !important;
+    }
+  }
+  
+  /* 🔸 Tablet Styles (769px to 1024px) */
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .lesson-row {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+  
+    .carousel-track {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+  
+    .course-card {
+      width: 45% !important;
+    }
+  
+    .lesson-card {
+      width: 45% !important;
+    }
+  }
+  

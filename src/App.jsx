@@ -21,6 +21,7 @@ export default function App() {
     <PrimeReactProvider>
       <>  
         <Routes>
+         <Route path="/" element={<Course />} />
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
           <Route path='/about-us' element ={<AboutUs/>}/>
           <Route path='/result' element ={<QuizzREsult usrname={'Jonh Son'} result={9} maxQa={10} duration={'30min'} />}/>
