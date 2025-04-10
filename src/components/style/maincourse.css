@@ -1,167 +1,373 @@
+/* Main container */
 .main-container {
-    padding: 20px;
-    max-width: 1440px;
-    justify-content: center;
-    margin: 0 auto;
-  }
-  
-  .title {
-    margin-bottom: 20px;
-  }
-  
-  .carousel-container {
-    display: flex;
+  padding: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* Title styles */
+.title {
+  margin-bottom: 20px;
+  font-size: 2.5rem;  /* Larger font for large screens */
+  font-weight: bold;
+}
+
+/* Carousel Controls */
+.carousel-container {
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.3s ease-in-out;
+  flex-wrap: wrap;
+}
+
+/* Course Card Styles */
+.course-card {
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+  width: 260px;
+  height: 400px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.course-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  border-color: #3b82f6;
+}
+
+/* Course Card Text */
+.course-card h3 {
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.course-card p {
+  font-size: 0.75rem;
+  color: #4b5563;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 36px;
+}
+
+.course-card img {
+  border-radius: 8px;
+}
+
+.course-card button {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.course-card button:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+/* Arrow Buttons */
+.btn_control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0; /* No space between them */
+  margin-top: 20px;
+}
+
+.arrow-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0; /* Very small padding */
+  margin: 0; /* No margin */
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.arrow-btn:hover {
+  border-radius: 50%;
+  transform: scale(1.1);
+}
+
+/* Lesson Row */
+.lesson-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 0 30px;
+}
+
+.welcome-section .title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #3b82f6;
+  margin: 0;
+  flex: 1;
+  min-width: 240px;
+}
+
+.search-input {
+  padding: 16px;
+  width: 100%;
+  max-width: 480px;
+  font-size: 1.125rem;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  transition: border-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 20px;
+  margin: 20px 0;
+}
+
+
+.category-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-image {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 10px;
+  border-radius: 4px;
+}
+
+.category-image.ict {
+  background-color: #b2f1f3;
+}
+
+.category-image.english {
+  background-color: #dcd2a7;
+}
+
+.category-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.category-desc {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.lesson-card {
+  flex: 1 1 calc(33.333% - 20px);
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  max-width: 100%;
+  min-width: 300px;
+  position: relative;
+}
+
+.lesson-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  border-color: #3b82f6;
+}
+
+.lesson-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.lesson-content {
+  padding: 16px;
+  color: #333;
+}
+
+.lesson-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.lesson-teacher {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.teacher-avatar {
+  width: 18px;
+  height: 18px;
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.lesson-progress-bar {
+  background-color: #eee;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-filled {
+  height: 100%;
+  background-color: #3b82f6;
+}
+
+.lesson-count {
+  font-size: 12px;
+  color: gray;
+  text-align: right;
+}
+
+/* 📱 Mobile Styles (≤768px): 1 card, full width */
+@media screen and (max-width: 768px) {
+  .lesson-row {
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .carousel-track {
-    display: flex;
     gap: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .arrow-btn {
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    transition: background-color 0.2s;
-  }
-  
-  .arrow-btn:hover {
-    background-color: #eee;
-    border-radius: 50%;
   }
 
-  .lesson-row{
+  .lesson-card {
+    flex: 1 1 100%;
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .carousel-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel-track {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .course-card {
+    width: 100%;
+    max-width: 100%;
+  }
+   .welcome-section {
+    flex-direction: column;
+    align-items: center;
+    }
+  .search-input {
+    width: 100%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+
+ 
+
+  .main-container > .title {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+}
+
+/* Tablet (768px to 1024px): 3 cards per row */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .lesson-card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+  .carousel-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .carousel-track {
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+
+  .course-card {
+    width: calc(33.333% - 20px);
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
+
+/* Desktop (1025px and up): 5 cards */
+@media screen and (min-width: 1025px) {
+  .carousel-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .carousel-track {
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+
+  .course-card {
+    width: calc(20% - 20px);
+  }
+
+  .btn_control {
     display: flex;
-    max-width: 1440px;
-    margin: 0 auto;
     justify-content: center;
   }
-  .lesson-card {
-    width: 350px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    background: white;
-    display: flex;
-    flex-direction: column;
-    font-family: sans-serif;
-    gap:20px;
+}
+
+/* Very Small Devices */
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
   }
-  
-  .lesson-image {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
+
+  .search-input {
+    font-size: 1rem;
   }
-  
-  .lesson-content {
-    padding: 12px;
-  }
-  
-  .lesson-title {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-  
-  .lesson-teacher {
-    display: flex;
-    align-items: center;
-    font-size: 13px;
-    gap: 6px;
-    margin-bottom: 8px;
-  }
-  
-  .teacher-avatar {
-    width: 18px;
-    height: 18px;
-    background-color: gray;
-    border-radius: 50%;
-  }
-  
-  .lesson-progress-bar {
-    background-color: #eee;
-    height: 6px;
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 6px;
-  }
-  
-  .progress-filled {
-    height: 100%;
-    background-color: #3b82f6;
-  }
-  
-  .lesson-count {
-    font-size: 12px;
-    color: gray;
-    text-align: right;
-  }
-  
-  
-  /* 🔹 Mobile Styles (up to 768px) */
-@media screen and (max-width: 768px) {
-    .main-container {
-      padding: 10px;
-    }
-  
-    .lesson-row {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-  
-    .carousel-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .carousel-track {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-  
-    .arrow-btn {
-      display: none; /* Hide arrows on mobile */
-    }
-  
-    .course-card {
-      width: 90% !important;
-    }
-  
-    .lesson-card {
-      width: 90% !important;
-    }
-  }
-  
-  /* 🔸 Tablet Styles (769px to 1024px) */
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-    .lesson-row {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-  
-    .carousel-track {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-  
-    .course-card {
-      width: 45% !important;
-    }
-  
-    .lesson-card {
-      width: 45% !important;
-    }
-  }
-  
+}

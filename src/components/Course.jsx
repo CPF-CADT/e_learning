@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CourseCard from "./CourseCard";
 import LessonCard from "./LessonCard";
 import "./style/maincourse.css";
+import Nav from "./Nav";
 
 const dummyProfiles = [
   "https://i.pravatar.cc/35?img=1",
@@ -17,7 +18,7 @@ const lessonData = [
     title: "Information and Communication Technologies",
     teacher: "Heng",
     image: "https://i.pinimg.com/736x/22/6b/05/226b056f7fa30bfaf8ad2b0b3a14e903.jpg",
-    progress: 70,
+    progress: 60,
     currentLesson: 5,
     totalLessons: 7,
   },
@@ -26,14 +27,14 @@ const lessonData = [
     teacher: "Heng",
     image: "https://i.pinimg.com/736x/2c/76/47/2c76471c69e18decf1afe9ef2c0cab96.jpg",
     progress: 70,
-    currentLesson: 5,
+    currentLesson: 1,
     totalLessons: 7,
   },
   {
     title: "Information and Communication Technologies",
     teacher: "Heng",
     image: "https://i.pinimg.com/736x/1a/63/81/1a6381933bbb6bc51630c82206e1e745.jpg",
-    progress: 70,
+    progress: 20,
     currentLesson: 5,
     totalLessons: 7,
   },
@@ -99,12 +100,84 @@ const courseData = [
     category: "Programming",
     price: 90,
     discountPercent: 10,
-  }
+  },
 ];
 
-export default function Course() {
+export default function Course({ UserName, ProfilePath, isLogin }) {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  return (
+    <>
+      {/* <Nav UserName={UserName} ProfilePath={ProfilePath} isLogin={isLogin} /> */}
+      <div className="main-container">
+        <div className="welcome-section">
+          <h2 className="title">Welcome back, ready for your next lesson?</h2>
+          <div className="search-cart-container">
+            <input
+              type="text"
+              placeholder="Search lessons or courses..."
+              value={searchQuery}
+              onChange={handleSearch}
+              className="search-input"
+            />
+          </div>
+        </div>
+
+        <div className="lesson-row">
+          {lessonData
+            .filter((lesson) =>
+              lesson.title.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            .map((lesson, index) => (
+              <div key={index} className="lesson-card-container">
+                <LessonCard {...lesson} />
+              </div>
+            ))}
+        </div>
+
+        {/* ===== New Category Section ===== */}
+        <h2 className="title">Choices favourite course from top category</h2>
+        <div className="category-grid">
+          {["ICT", "English", "English", "English", "ICT", "English", "English", "English"].map((category, index) => (
+            <div key={index} className="category-card">
+              <div className={`category-image ${category.toLowerCase()}`}></div>
+              <h3 className="category-title">{category}</h3>
+              <p className="category-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="title">Explore More Courses</h2>
+        <CourseCarousel courseData={courseData} />
+      </div>
+    </>
+  );
+}
+
+function CourseCarousel({ courseData }) {
   const [startIndex, setStartIndex] = useState(0);
-  const visibleCards = 4;
+  const [visibleCards, setVisibleCards] = useState(5);
+
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 768) {
+        setVisibleCards(1);
+      } else if (screenWidth <= 1024) {
+        setVisibleCards(3);
+      } else {
+        setVisibleCards(5);
+      }
+    };
+
+    updateVisibleCards();
+    window.addEventListener("resize", updateVisibleCards);
+    return () => window.removeEventListener("resize", updateVisibleCards);
+  }, []);
 
   const next = () => {
     if (startIndex + visibleCards < courseData.length) {
@@ -119,34 +192,24 @@ export default function Course() {
   };
 
   return (
-    <div className="main-container">
-      {/* 🔷 Top Section - Welcome Back Cards */}
-      <h2 className="title">Welcome back, ready for your next lesson?</h2>
-      <div className="lesson-row">
-        {lessonData.map((lesson, index) => (
-          <LessonCard key={index} {...lesson} />
+    <div className="carousel-container">
+      <div className="carousel-track">
+        {courseData.slice(startIndex, startIndex + visibleCards).map((course, index) => (
+          <CourseCard
+            key={index}
+            image={course.courseImage}
+            title={course.courseTitle}
+            description={course.courseDescription}
+            teacher_profile_path={course.teacherProfilePath}
+            duration={course.courseDuration}
+            category={course.category}
+            price={course.price}
+            discountPercent={course.discountPercent}
+          />
         ))}
       </div>
-
-      {/* 🔶 Bottom Section - Carousel with Arrows */}
-      <h2 className="title">Explore More Courses</h2>
-      <div className="carousel-container">
+      <div className="btn_control">
         <button onClick={prev} className="arrow-btn">←</button>
-        <div className="carousel-track">
-          {courseData.slice(startIndex, startIndex + visibleCards).map((course, index) => (
-            <CourseCard
-              key={index}
-              image={course.courseImage}
-              title={course.courseTitle}
-              description={course.courseDescription}
-              teacher_profile_path={course.teacherProfilePath}
-              duration={course.courseDuration}
-              category={course.category}
-              price={course.price}
-              discountPercent={course.discountPercent}
-            />
-          ))}
-        </div>
         <button onClick={next} className="arrow-btn">→</button>
       </div>
     </div>

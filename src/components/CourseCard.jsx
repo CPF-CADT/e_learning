@@ -1,4 +1,5 @@
 import ShowPrice from "./ShowPrice";
+import "./style/maincourse.css";
 
 export default function CourseCard({
   image,
@@ -11,7 +12,7 @@ export default function CourseCard({
   discountPercent,
 }) {
   return (
-    <div className="course-card w-[280px] h-[420px] p-3 border border-black rounded-xl shadow-lg hover:cursor-pointer">
+    <div className="course-card w-[260px] h-[400px] p-3 border border-black rounded-xl shadow-lg hover:cursor-pointer">
       {/* Image Section */}
       <div className="h-[150px] w-full overflow-hidden rounded-md">
         <img
@@ -33,8 +34,8 @@ export default function CourseCard({
 
       {/* Course Description Section */}
       <div>
-        <h3 className="font-bold text-sm">{title}</h3>
-        <p className="overflow-hidden mt-1 text-xs text-gray-700">
+        <h3 className="font-bold text-sm leading-tight h-[38px] overflow-hidden">{title}</h3>
+        <p className="mt-1 text-xs text-gray-700 overflow-hidden h-[36px] line-clamp-2">
           {description}
         </p>
       </div>
