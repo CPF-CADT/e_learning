@@ -1,4 +1,5 @@
 import imgLogo from '../assets/w-logo.png';
+import { Link } from "react-router-dom";
 
 export default function MyCourseHeader({ selectedOption, setSelectedOption,options }) {
     
@@ -10,11 +11,14 @@ export default function MyCourseHeader({ selectedOption, setSelectedOption,optio
         <>
             <header className='bg-[#252641] h-[110px] flex justify-center '>
                 <div className="max-w-[1280px] w-full flex flex-col justify-between h-full">
-                    <img
-                        src={imgLogo}
-                        alt="Logo"
-                        style={{ width: '250px', height: '75px' }}
-                    />
+                    <Link to='/'>
+                        <img
+                            className='hover:cursor-pointer'
+                            src={imgLogo}
+                            alt="Logo"
+                            style={{ width: '250px', height: '75px' }}
+                        />
+                    </Link>
                     <div className="text-white font-bold flex flex-row gap-x-8 mt-auto">
                         {options.map((option) => (
                             <span

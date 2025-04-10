@@ -8,15 +8,15 @@
   height: 2.5rem;
 }
 
-.hero-section {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2.5rem;
-  font-size: 2.25rem;
-  font-weight: 600;
-  background-color: #f0f9ff;
-}
+  .hero-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.5rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+    background-color: #f0f9ff;
+  }
 
 
 .text-content {
