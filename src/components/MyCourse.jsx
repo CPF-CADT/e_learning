@@ -10,11 +10,11 @@ import { InputIcon } from "primereact/inputicon";
 import { InputText } from "primereact/inputtext";
 export default function MyCourse({ usrname, usrProfilePath }) {
   const optionsCourse = ['My Courses', 'Favourite Courses'];
-  const [selectedOption, setSelectedOption] = useState(optionsCourse[0]); // Manage the state here
+  const [selectedOption, setSelectedOption] = useState(optionsCourse[0]); 
   const [selectedCourseType, setSelectedCourseType] = useState(null);
   const [selectedShortCourse, setSelectedShortCourse] = useState(null);
-  const [first, setFirst] = useState(0);
-  const [rows, setRows] = useState(10);
+  // const [first, setFirst] = useState(0);
+  // const [rows, setRows] = useState(10);
   // Options for each dropdown
   const courseTypes = [
     { name: "ALL", code: "ALL" },
