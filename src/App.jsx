@@ -15,13 +15,14 @@ import QuizzREsult from './components/QuizzResult';
 import CourseDetail from './components/CourseDetail';
 import MyCourse from './components/MyCourse';
 import CourseClick from './components/CourseClick';
+import Course from './components/Course';
 export default function App() { 
   let userName = "Cheng Nhajor"
   return (
     <PrimeReactProvider>
       <>  
         <Routes>
-         <Route path="/" element={<Course />} />
+         <Route path="/" element={<Course  />} />
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
           <Route path='/about-us' element ={<AboutUs/>}/>
           <Route path='/result' element ={<QuizzREsult usrname={'Jonh Son'} result={9} maxQa={10} duration={'30min'} />}/>
