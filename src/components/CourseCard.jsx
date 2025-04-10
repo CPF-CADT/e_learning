@@ -2,7 +2,7 @@ import ShowPrice from "./ShowPrice";
 
 export default function CourseCard({ teacher_profile_path }) {
   return (
-    <div className="course-card w-[280px] h-[420px] p-3 border-black rounded-xl shadow-lg hover:cursor-pointer">
+    <div className="course-card w-[280px] h-[380px] p-3 border-black rounded-xl shadow-lg hover:cursor-pointer">
       {/* Image Section */}
       <div className="h-[150px] bg-amber-300">Image</div>
       
@@ -38,12 +38,6 @@ export default function CourseCard({ teacher_profile_path }) {
       
       {/* Action Section */}
       <div className="flex justify-between items-center mt-3">
-        <button
-          style={{ height: '35px', width: '150px' }}
-          className="rounded-2xl bg-blue-500 text-[#fff] hover:cursor-pointer hover:bg-blue-800 text-xs"
-        >
-          <i className="pi pi-shopping-cart"></i> ADD TO CART
-        </button>
         <ShowPrice price={100} discountPercent={20} />
       </div>
     </div>

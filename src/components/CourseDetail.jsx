@@ -1,35 +1,15 @@
 import Nav from "./Nav";
 import { Rating } from "primereact/rating";
 import ShowPrice from "./ShowPrice";
-import remarkGfm from "remark-gfm";
-import ReactMarkdown from "react-markdown";
 import CourseCard from "./CourseCard";
+import SubmitReview from "./SubmitReview";
 export default function CourseDetail({ userName, userProfile }) {
-  const courseContent = `
-  ## Course Highlights
-  - Learn to build **real-world applications** using Spring Boot.
-  - Gain expertise in **Spring Boot, Spring Data, Spring Security, and Spring Cloud**.
-  - Work on **hands-on projects** like e-commerce and user management systems.
-  ## Course Highlights
-  - Learn to build **real-world applications** using Spring Boot.
-  - Gain expertise in **Spring Boot, Spring Data, Spring Security, and Spring Cloud**.
-  - Work on **hands-on projects** like e-commerce and user management systems.
-  ## Course Highlights
-  - Learn to build **real-world applications** using Spring Boot.
-  - Gain expertise in **Spring Boot, Spring Data, Spring Security, and Spring Cloud**.
-  - Work on **hands-on projects** like e-commerce and user management systems.
-  ## Course Highlights
-  - Learn to build **real-world applications** using Spring Boot.
-  - Gain expertise in **Spring Boot, Spring Data, Spring Security, and Spring Cloud**.
-  - Work on **hands-on projects** like e-commerce and user management systems.  
-`;
-
   return (
     <>
       <Nav UserName={userName} ProfilePath={userProfile} isLogin={true} />
-      <div className="container max-w-[1280px] mx-auto mt-3 flex flex-row ">
-        <div className="px-20 w-full flex flex-row mt-3 justify-center">
-          <div className="w-[60%] shadow-2xl rounded-2xl p-5">
+      <div className="container max-w-[1280px] mx-auto mt-3 flex flex-row">
+        <div className="px-20 w-full flex flex-row mt-3 justify-center ">
+          <div className="w-[60%] shadow-2xl rounded-2xl p-5  bg-blue-100 ">
             <div className="pt-8">
               <h2 className="font-bold text-2xl">Course Ttitle</h2>
               <p className="text-[1rem] text-[#000]">
@@ -40,10 +20,7 @@ export default function CourseDetail({ userName, userProfile }) {
                 framework.
               </p>
             </div>
-            <h3 className="mt-5 mb-5 font-bold text-xl text-gray-500">
-              Detail
-            </h3>
-            <div className="flex flex-row gap-x-10 items-center">
+            <div className="flex flex-row gap-x-10 items-center mt-10">
               <span className="bg-[#5B5B5B] text-[#fff] px-4 py-1 rounded-xl">
                 Best Seller
               </span>
@@ -89,17 +66,21 @@ export default function CourseDetail({ userName, userProfile }) {
         </div>
       </div>
       <div className="container max-w-[1280px] mx-auto mt-3 px-5">
-        <div className="markdown-container my-10">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {courseContent}
-          </ReactMarkdown>
-        </div>
-        <div className="w-[600px] h-[25 0px] overflow-scroll ">
-          <h3>Feed Back</h3>
-          <FeedBackComponent />
-          <FeedBackComponent />
-          <FeedBackComponent />
-          <FeedBackComponent />
+        <div className="flex flex-row justify-between mt-10">
+          <div className="w-[700px] h-[455px] overflow-scroll bg-blue-50 p-5">
+              <h3>Feed Back</h3>
+              <FeedBackComponent />
+              <FeedBackComponent />
+              <FeedBackComponent />
+              <FeedBackComponent />
+              <FeedBackComponent />
+              <FeedBackComponent />
+              <FeedBackComponent />
+          </div>
+          <div className="" >
+            <h3 className="text-xl mb-5">Submit Your Review</h3>
+            <SubmitReview />
+          </div>
         </div>
         <h3 className="text-2xl font-bold my-5" >Top Education offer and deal are list here</h3>
         <div className="relate course flex flex-row gap-x-5">
