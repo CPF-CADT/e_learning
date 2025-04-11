@@ -278,19 +278,20 @@ function CourseCarousel({ courseData }) {
   return (
     <div className="carousel-container">
       <div className="carousel-track">
-        {courseData.slice(startIndex, startIndex + visibleCards).map((course, index) => (
-          <CourseCard
-            key={index}
-            image={course.courseImage}
-            title={course.courseTitle}
-            description={course.courseDescription}
-            teacher_profile_path={course.teacherProfilePath}
-            duration={course.courseDuration}
-            category={course.category}
-            price={course.price}
-            discountPercent={course.discountPercent}
-          />
-        ))}
+      {courseData.slice(startIndex, Math.min(startIndex + visibleCards, courseData.length)).map((course, index) => (
+  <CourseCard
+    key={index}
+    image={course.courseImage}
+    title={course.courseTitle}
+    description={course.courseDescription}
+    teacher_profile_path={course.teacherProfilePath}
+    duration={course.courseDuration}
+    category={course.category}
+    price={course.price}
+    discountPercent={course.discountPercent}
+  />
+))}
+
       </div>
 
       {/* Dots */}
