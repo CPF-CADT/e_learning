@@ -1,6 +1,5 @@
 import { useState } from "react";
 import MyCourseHeader from "./MyCourseHeader";
-import UserProfile from "./UserProfile";
 import DetailDashBoard from "./DetailDashBorard";
 import CourseBoxLearn from "./CourseBoxLearn";
 import courseData from "../data/courseLeened";
