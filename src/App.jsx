@@ -9,23 +9,28 @@ import "primeicons/primeicons.css";
 import UserDetail from './components/UserDetail'
 import Quizz from './components/Quizz'
 import { Routes,Route } from 'react-router-dom';
-// import ChartData from './components/ChartData'; 
 import Home from './components/Home';
 import QuizzREsult from './components/QuizzResult';  
 import CourseDetail from './components/CourseDetail';
 import MyCourse from './components/MyCourse';
 import CourseClick from './components/CourseClick';
+import Course from './components/Course';
+import Nav from './components/Nav';
+import myCart from './data/myCart'
+import ShoppingCart from './components/ShoppingCart';
 export default function App() { 
   let userName = "Cheng Nhajor"
   return (
     <PrimeReactProvider>
       <>  
+        <Nav UserName={userName} ProfilePath={userProfile} isLogin={true} myCart={myCart} />
         <Routes>
-         <Route path="/" element={<Course />} />
+          <Route path="/course" element={<Course />} />
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
           <Route path='/about-us' element ={<AboutUs/>}/>
           <Route path='/result' element ={<QuizzREsult usrname={'Jonh Son'} result={9} maxQa={10} duration={'30min'} />}/>
-          <Route path='/Blog' element={<Blog />}  />
+          <Route path='/blog' element={<Blog />}  />
+          <Route path='/cart' element={< ShoppingCart myCart={myCart} />} />
           <Route path='/mycourse' element={<MyCourse usrname={'Panha'} usrProfilePath={userProfile}/>} />
           <Route path='/mycourse/selected' element={<CourseClick />} />          
           <Route path='/mycourse/selected/video' element={<CourseView usrname={userName} usrProfilePath={userProfile} />} />
