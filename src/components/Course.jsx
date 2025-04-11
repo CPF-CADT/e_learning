@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import CourseCard from "./CourseCard";
 import LessonCard from "./LessonCard";
 import "./style/maincourse.css";
-
-
 import courseData from "../data/courseData";
 const dummyProfiles = [
   "https://i.pravatar.cc/35?img=1",
@@ -156,6 +154,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
        
 
         {/* ===== New Category Section ===== */}
+        <h2 className="title text-2xl font-bold text-blue-500 mb-2.5 p-5">Choices favourite course from top category</h2>
         <div>
         <CourseCarouselWithArrows courseData={courseData} />
 
@@ -172,7 +171,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
         </div>
         <div className="btn_seemore">
 
-        <h2 className="title">Recommended For You</h2>
+        <h2 className="title text-2xl font-bold text-blue-500 mb-2.5 p-5">Recommended For You</h2>
         <a href="#" className="explore-course-see-all">
         SEE MORE<span className="arrow-icon">➤</span>
       </a>
@@ -180,7 +179,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
         <CourseCarousel courseData={courseData} />
         {/* === Personal Development Courses Section === */}
           {/* === Personal Development Section === */}
-<h2 className="title">Get Choice Of Your Course</h2>
+<h2 className="title text-2xl font-bold text-blue-500 mb-2.5 p-5">Get Choice Of Your Course</h2>
   <div className="personal-development-grid">
   {personalDevelopmentCourses.map((course, index) => (
     <CourseCard
@@ -197,7 +196,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
   ))}
   </div>
   <div className="online_course">
-    <h2 id="name_course">Online coaching lessons for remote learning.</h2>
+    <h2 id="name_course" >Online coaching lessons for remote learning.</h2>
     <p id="desc-course">
     Lorem ipsum dolor sit amet, c, sed do eiusmod tempos Lorem ipsum dolor sitamet, 
     consectetur adipiscing elit, sed do eiusmod tempor sed do eiusmod tempos Lorem ipsum dolor sitamet,
@@ -207,7 +206,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
   
   
 
-    <h2 id="update_course">The course in personal development</h2>
+    <h2 id="update_course" className="text-2xl font-bold text-blue-500 mb-2.5 p-5">The course in personal development</h2>
   <div className="explore-course-grid">
     {exploreCourses.map((course, index) => (
       <CourseCard

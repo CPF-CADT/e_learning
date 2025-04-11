@@ -7,7 +7,7 @@ import DropDown from "./DropDown";
 import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
 import { InputText } from "primereact/inputtext";
-export default function MyCourse({ usrname, usrProfilePath }) {
+export default function MyCourse() {
   const optionsCourse = ['My Courses', 'Favourite Courses'];
   const [selectedOption, setSelectedOption] = useState(optionsCourse[0]); 
   const [selectedCourseType, setSelectedCourseType] = useState(null);

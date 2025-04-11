@@ -2,9 +2,6 @@ import { useState } from "react";
 import MyCourseHeader from "./MyCourseHeader";
 import UserProfile from "./UserProfile";
 import VideoPlayer from "./VideoPlayer";
-import CourseCard from "./CourseCard";
-import profileImg from '../assets/profile.avif'
-import { Rating } from "primereact/rating";
 import MarkdownRenderer from './MarkdownRenderer'
 export default function CourseView({ usrname, usrProfilePath }) {
   const options = ["Video", "Resource"];

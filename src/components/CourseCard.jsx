@@ -1,6 +1,4 @@
 import ShowPrice from "./ShowPrice";
-import "./style/maincourse.css";
-
 export default function CourseCard({
   image,
   title,
@@ -55,7 +53,7 @@ export default function CourseCard({
       {/* Action Section */}
       <div className="flex justify-between items-center mt-3">
         <button
-          className="h-[35px] w-[150px] rounded-2xl bg-blue-500 text-white hover:bg-blue-800 text-xs"
+          className="h-[35px] w-[150px] rounded-lg bg-blue-500 text-white hover:bg-blue-800 text-[0.7rem]"
         >
           <i className="pi pi-shopping-cart"></i> ADD TO CART
         </button>
