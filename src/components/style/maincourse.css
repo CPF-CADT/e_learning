@@ -140,7 +140,7 @@
 /* Arrow Buttons */
 .btn_control {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 0; /* No space between them */
   margin-top: 20px;

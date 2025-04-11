@@ -21,6 +21,7 @@ import ShoppingCart from './components/ShoppingCart';
 import { useState } from 'react';
 import Login from './components/Login';
 import SignUp from './components/Signup';
+import AuthWelcome from './components/AuthWelcome';
 
 export default function App() { 
   let userName = "Cheng Nhajor"
@@ -30,6 +31,7 @@ export default function App() {
       <>  
         <Nav UserName={userName} ProfilePath={userProfile} isLogin={true} myCart={numCart} />
         <Routes>
+          <Route path='/auth' element={<AuthWelcome />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
