@@ -14,13 +14,14 @@ import { FaStar } from 'react-icons/fa';
 
 const NewsSection = () => {
   const newsData = [
-    { category: "News", title: "Class adds $30M for a Zoom-friendly edtech solution", description: "Class integrates exclusively...", image: "https://i.pinimg.com/736x/54/8a/fd/548afd19360c2fde8aa1dd5a4a3ec06e.jpg" },
-    { category: "Press Release", title: "Class Technologies Inc. Closes $30M Series A", description: "Class Technologies Inc., the company...", image: "https://i.pinimg.com/736x/01/53/02/01530282fce3e6358ae95ed8f7cf7586.jpg" },
-    { category: "News", title: "Zoom’s investors betting millions on better Zoom for schools", description: "Zoom was never created to be...", image: "https://i.pinimg.com/736x/38/0d/ca/380dcafca2cd0338ee6e9567f933da84.jpg" },
-    { category: "News", title: "Blackboard CEO Raises $16M for Zoom Classrooms", description: "Investors have reaped financial returns...", image: "https://i.pinimg.com/736x/37/b7/65/37b7658f12e3a8724b446bc508acc6b1.jpg" },
-    { category: "EdTech", title: "New AI Tools Revolutionizing Online Learning", description: "AI-driven solutions are transforming...", image: "https://i.pinimg.com/736x/f4/52/66/f45266a88e94850e6e331757db5109b1.jpg" },
-    { category: "Technology", title: "Virtual Classrooms Gain Traction", description: "More schools are transitioning...", image: "https://i.pinimg.com/736x/94/72/0b/94720b3e243d630f1fa290cce0a8c2d5.jpg" }
+    { category: "ICT", title: "AI Tools Enhancing Language Learning in Digital Education", description: "AI-powered solutions are revolutionizing language education...", image: "https://i.pinimg.com/736x/c9/2a/83/c92a83dd3ccb3d1319cc12f34343e782.jpg" },
+    { category: "English", title: "Interactive Platforms Improving English Teaching Methods", description: "The integration of interactive tools is improving teaching methods for English...", image: "https://i.pinimg.com/736x/e0/aa/ce/e0aace4e8ac951195fbbd1a97b0c1d87.jpg" },
+    { category: "ICT", title: "Online Learning Platforms Revolutionizing ICT Education", description: "With online tools, ICT education is becoming more accessible and personalized...", image: "https://i.pinimg.com/736x/f1/29/54/f129546f0bec415b2e974454a28c0861.jpg" },
+    { category: "English", title: "AI for English Language Learners: Benefits and Challenges", description: "AI has the potential to assist learners of English, but there are challenges to overcome...", image: "https://i.pinimg.com/736x/4c/76/85/4c768549feee70218569a417c8ac15e3.jpg" },
+    { category: "ICT", title: "The Role of Virtual Classrooms in ICT Education", description: "Virtual classrooms are transforming how ICT education is delivered and received...", image: "https://i.pinimg.com/736x/51/35/6b/51356b12b0d185f951fd6e7332261183.jpg" },
+    { category: "English", title: "Using Technology to Enhance English Writing Skills", description: "New tools are helping students improve their writing abilities in English through digital platforms...", image: "https://i.pinimg.com/736x/a4/78/a3/a478a3124c5d7649a6e46808e432db5d.jpg" }
   ];
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(4);
@@ -90,35 +91,102 @@ const NewsSection = () => {
 const testimonials = [
   {
     name: "Jenny Wilson",
-    role: "UI-UX Designer",
+    role: "English Language Instructor",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
-    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+    quote: "The beauty of language is in its ability to connect cultures and minds."
   },
   {
     name: "Guy Hawkins",
-    role: "UI-UX Designer",
+    role: "ICT Instructor",
     image: "https://randomuser.me/api/portraits/men/45.jpg",
-    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+    quote: "Technology is the future, and understanding it is key to success in today’s world."
   },
   {
     name: "Sarah Brown",
-    role: "Product Manager",
+    role: "English Literature Expert",
     image: "https://randomuser.me/api/portraits/women/46.jpg",
-    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+    quote: "Literature is not just reading, it’s about understanding the world through different perspectives."
   },
   {
-    name: "Sarah Brown",
-    role: "Product Manager",
-    image: "https://randomuser.me/api/portraits/women/46.jpg",
-    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+    name: "John Smith",
+    role: "ICT Specialist",
+    image: "https://randomuser.me/api/portraits/men/47.jpg",
+    quote: "Mastering ICT opens up limitless opportunities in the ever-evolving digital world."
   },
   {
-    name: "Guy Hawkins",
-    role: "UI-UX Designer",
-    image: "https://randomuser.me/api/portraits/men/45.jpg",
-    quote: "Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra."
+    name: "Maria Johnson",
+    role: "English Grammar Specialist",
+    image: "https://randomuser.me/api/portraits/women/48.jpg",
+    quote: "Mastering grammar is essential for clear communication and expressing ideas effectively."
   },
+  {
+    name: "David Green",
+    role: "English Conversation Coach",
+    image: "https://randomuser.me/api/portraits/men/49.jpg",
+    quote: "Engaging in conversations enhances fluency and helps build confidence in speaking English."
+  },
+  {
+    name: "Emily Davis",
+    role: "ICT Project Manager",
+    image: "https://randomuser.me/api/portraits/women/50.jpg",
+    quote: "Effective project management in ICT involves constant learning and adaptation to new technologies."
+  },
+  {
+    name: "James Walker",
+    role: "English Phonetics Expert",
+    image: "https://randomuser.me/api/portraits/men/51.jpg",
+    quote: "Understanding phonetics helps students perfect their pronunciation and speaking skills."
+  },
+  {
+    name: "Olivia Taylor",
+    role: "Web Development Instructor",
+    image: "https://randomuser.me/api/portraits/women/52.jpg",
+    quote: "Web development is an exciting journey that enables you to create things people interact with daily."
+  },
+  {
+    name: "Lucas Martin",
+    role: "ICT Security Expert",
+    image: "https://randomuser.me/api/portraits/men/53.jpg",
+    quote: "In the digital age, understanding cybersecurity is vital for protecting personal and organizational data."
+  },
+  {
+    name: "Rachel Miller",
+    role: "English Composition Teacher",
+    image: "https://randomuser.me/api/portraits/women/54.jpg",
+    quote: "Writing is the gateway to self-expression, and mastering composition opens up new possibilities in communication."
+  },
+  {
+    name: "Benjamin Lee",
+    role: "ICT Data Analyst",
+    image: "https://randomuser.me/api/portraits/men/55.jpg",
+    quote: "Data analysis helps turn raw information into actionable insights, shaping decisions and strategies."
+  },
+  {
+    name: "Sophia Perez",
+    role: "English for Business Instructor",
+    image: "https://randomuser.me/api/portraits/women/56.jpg",
+    quote: "Business English is crucial for communicating effectively in the global workplace."
+  },
+  {
+    name: "Michael Scott",
+    role: "ICT Network Engineer",
+    image: "https://randomuser.me/api/portraits/men/57.jpg",
+    quote: "Networking is the backbone of modern communication, enabling connectivity and collaboration."
+  },
+  {
+    name: "Isabella White",
+    role: "English Language Researcher",
+    image: "https://randomuser.me/api/portraits/women/58.jpg",
+    quote: "The study of language and its structure opens doors to endless academic and career opportunities."
+  },
+  {
+    name: "Ethan Harris",
+    role: "ICT Cloud Solutions Architect",
+    image: "https://randomuser.me/api/portraits/men/59.jpg",
+    quote: "Cloud computing is revolutionizing industries by providing scalable and flexible solutions for businesses."
+  }
 ];
+
 
 const TestimonialCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -261,7 +329,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
           <div className="hero-user-info">
             
             <div>
-            <div className="hero-avatar"><img src="https://i.pinimg.com/736x/1d/13/c7/1d13c7f72f9c45c7c7e09d1c38046f9b.jpg" alt="" /></div>
+            <div className="hero-avatar"><img src="https://i.pinimg.com/736x/43/0e/32/430e322a865a76f6f2e11fbde1eb4ba3.jpg" alt="" /></div>
               <p className="hero-user-text">User Experience Class</p>
               <p className="hero-time-text">Today at 12:00 PM</p>
             </div>
@@ -308,7 +376,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
         <div className="image_intro">
         <div className="image-container">
           <img 
-            src="https://i.pinimg.com/736x/54/2b/18/542b18860b9a98fdd7df4613775f9975.jpg" 
+            src="https://i.pinimg.com/originals/d7/57/3b/d7573b3e236d935c3f87f3d5668a4695.gif" 
             alt="ICT" 
           />
           <h1 className="overlay-text">Information and Communication Technologies</h1>
@@ -316,7 +384,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
         
         <div className="image-container">
           <img 
-            src="https://i.pinimg.com/736x/15/a6/ea/15a6eab44d478976f71969f5c951dbfd.jpg" 
+            src="https://i.pinimg.com/originals/dc/dd/e7/dcdde7c22e482a95110477497d8d918b.gif" 
             alt="English" 
           />
           <h1 className="overlay-text">English</h1>
@@ -376,7 +444,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
   </div>
   
   <div className="main-card">
-    <div className="image-placeholder"> <img src="https://i.pinimg.com/736x/bd/58/b0/bd58b080c3a622179b6d279bf1ff8c61.jpg" alt="" /></div>
+    <div className="image-placeholder"> <img src="https://i.pinimg.com/736x/3d/25/7a/3d257af74a01de85d65369c8528ac815.jpg" alt="" /></div>
     <div className="price-section">
       <h2 className="title">ICT</h2>
     </div>
@@ -397,7 +465,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
     </div>
     <div className="card-container">
     <div className="main-card">
-    <div className="image-placeholder"><img src="https://i.pinimg.com/736x/2c/76/47/2c76471c69e18decf1afe9ef2c0cab96.jpg" alt="" /></div>
+    <div className="image-placeholder"><img src="https://i.pinimg.com/736x/77/17/20/771720f7a6ac45cc12cd3427c8341bcd.jpg" alt="" /></div>
     <div className="price-section">
       <h2 className="title">ICT</h2>
     </div>
@@ -429,7 +497,7 @@ export default function Home({ UserName, ProfilePath, isLogin }) {
   </div>
   
   <div className="main-card">
-    <div className="image-placeholder"><img src="https://i.pinimg.com/736x/1a/63/81/1a6381933bbb6bc51630c82206e1e745.jpg" alt="" /></div>
+    <div className="image-placeholder"><img src="https://i.pinimg.com/736x/01/50/61/01506120e1aaa0d30a5cc0f75543b089.jpg" alt="" /></div>
     <div className="price-section">
       <h2 className="title">ICT</h2>
     </div>

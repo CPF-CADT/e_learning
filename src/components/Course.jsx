@@ -12,12 +12,31 @@ const dummyProfiles = [
   "https://i.pravatar.cc/35?img=4",
   "https://i.pravatar.cc/35?img=5",
   "https://i.pravatar.cc/35?img=6",
-]
+  "https://i.pravatar.cc/35?img=7",
+  "https://i.pravatar.cc/35?img=8",
+  "https://i.pravatar.cc/35?img=9",
+  "https://i.pravatar.cc/35?img=10",
+  "https://i.pravatar.cc/35?img=11",
+  "https://i.pravatar.cc/35?img=12",
+  "https://i.pravatar.cc/35?img=13",
+  "https://i.pravatar.cc/35?img=14",
+  "https://i.pravatar.cc/35?img=15",
+  "https://i.pravatar.cc/35?img=16",
+  "https://i.pravatar.cc/35?img=17",
+  "https://i.pravatar.cc/35?img=18",
+  "https://i.pravatar.cc/35?img=19",
+  "https://i.pravatar.cc/35?img=20",
+  "https://i.pravatar.cc/35?img=21",
+  "https://i.pravatar.cc/35?img=22",
+  "https://i.pravatar.cc/35?img=23",
+  "https://i.pravatar.cc/35?img=24",
+];
+
 const exploreCourses = [
   {
     courseTitle: "Digital Marketing",
     courseDescription: "Learn SEO, social media, and online branding from scratch.",
-    courseImage: "https://i.pinimg.com/736x/11/17/15/1117155552b6004f5f83ec869f606632.jpg",
+    courseImage: "https://i.pinimg.com/736x/82/f9/28/82f928131092f8924f487935680893d7.jpg",
     teacherProfilePath: "https://i.pravatar.cc/35?img=10",
     courseDuration: "2 Months",
     category: "Marketing",
@@ -27,7 +46,7 @@ const exploreCourses = [
   {
     courseTitle: "UI/UX Design",
     courseDescription: "Master design thinking and build user-friendly interfaces.",
-    courseImage: "https://i.pinimg.com/736x/b4/a4/5d/b4a45d36b77279604009ab67e3c5ae31.jpg",
+    courseImage: "https://i.pinimg.com/736x/46/0e/f3/460ef3c3fa05eae192e32d056fc5339d.jpg",
     teacherProfilePath: "https://i.pravatar.cc/35?img=11",
     courseDuration: "3 Months",
     category: "Design",
@@ -35,9 +54,9 @@ const exploreCourses = [
     discountPercent: 20,
   },
   {
-    courseTitle: "Business Communication",
+    courseTitle: "Business Communication-Intermidiate",
     courseDescription: "Improve professional speaking, writing, and presentation skills.",
-    courseImage: "https://i.pinimg.com/736x/ad/34/41/ad34412722868bea06ccd6643d53420a.jpg",
+    courseImage: "https://i.pinimg.com/736x/c7/ec/6d/c7ec6dc0d3d415391f87a138c440452e.jpg",
     teacherProfilePath: "https://i.pravatar.cc/35?img=12",
     courseDuration: "1.5 Months",
     category: "Business",
@@ -48,63 +67,64 @@ const exploreCourses = [
 
 const personalDevelopmentCourses = [
   {
-    courseTitle: "English",
-    courseDescription: "Learn grammar, speaking, and reading from scratch with personalized content.",
-    courseImage: "https://i.pinimg.com/736x/1a/63/81/1a6381933bbb6bc51630c82206e1e745.jpg",
-    teacherProfilePath: dummyProfiles[0],
+    courseTitle: "English Level 5: Academic English for University",
+    courseDescription: "Learn to write essays, reports, and research papers with academic vocabulary and structure.",
+    courseImage: "https://i.pinimg.com/736x/d4/88/9b/d4889b1b8d6e65a6a0f22d925958f030.jpg",
+    teacherProfilePath: dummyProfiles[6],
     courseDuration: "3 Months",
-    category: "Language",
-    price: 100,
+    category: "English",
+    price: 110,
     discountPercent: 20,
   },
   {
-    courseTitle: "Information Communication Technologies",
-    courseDescription: "A beginner-friendly ICT course covering digital skills and technology use.",
-    courseImage: "https://i.pinimg.com/736x/22/6b/05/226b056f7fa30bfaf8ad2b0b3a14e903.jpg",
-    teacherProfilePath: dummyProfiles[1],
-    courseDuration: "4 Months",
-    category: "Technology",
-    price: 110,
+    courseTitle: "ICT Level 3: Introduction to Networking",
+    courseDescription: "Understand how computer networks work, including IP addressing, routers, and switches.",
+    courseImage: "https://i.pinimg.com/originals/a3/6c/0e/a36c0e58e081afd3f5802ecd63e2fc6b.gif",
+    teacherProfilePath: dummyProfiles[7],
+    courseDuration: "3 Months",
+    category: "ICT",
+    price: 115,
     discountPercent: 15,
   },
   {
-    courseTitle: "English",
-    courseDescription: "Master conversational English with vocabulary, pronunciation, and more.",
-    courseImage: "https://i.pinimg.com/736x/2c/76/47/2c76471c69e18decf1afe9ef2c0cab96.jpg",
-    teacherProfilePath: dummyProfiles[2],
-    courseDuration: "3 Months",
-    category: "Language",
-    price: 90,
-    discountPercent: 10,
+    courseTitle: "ICT Level 4: Cybersecurity Basics",
+    courseDescription: "Learn how to stay safe online, secure systems, and understand threats like phishing and malware.",
+    courseImage: "https://i.pinimg.com/736x/6d/9a/ce/6d9aced532d110a8215b944ff041b017.jpg",
+    teacherProfilePath: dummyProfiles[8],
+    courseDuration: "2 Months",
+    category: "ICT",
+    price: 95,
+    discountPercent: 12,
   },
 ];
 
 const lessonData = [
   {
-    title: "Information and Communication Technologies",
-    teacher: "Heng",
-    image: "https://i.pinimg.com/736x/22/6b/05/226b056f7fa30bfaf8ad2b0b3a14e903.jpg",
-    progress: 60,
-    currentLesson: 5,
-    totalLessons: 7,
+    title: "English Level 5: Academic English for University",
+    teacher: "Chanthy",
+    image: "https://i.pinimg.com/originals/be/58/45/be5845d217aacf00a1683e1e292a5e8c.gif",
+    progress: 80,
+    currentLesson: 4,
+    totalLessons: 10,
   },
   {
-    title: "Information and Communication Technologies",
-    teacher: "Heng",
-    image: "https://i.pinimg.com/736x/2c/76/47/2c76471c69e18decf1afe9ef2c0cab96.jpg",
-    progress: 70,
-    currentLesson: 1,
-    totalLessons: 7,
+    title: "ICT Level 3: Introduction to Networking",
+    teacher: "Pisey",
+    image: "https://i.pinimg.com/originals/75/95/2d/75952ddbecd4743baf83236395b20541.gif",
+    progress: 45,
+    currentLesson: 3,
+    totalLessons: 8,
   },
   {
-    title: "Information and Communication Technologies",
-    teacher: "Heng",
-    image: "https://i.pinimg.com/736x/1a/63/81/1a6381933bbb6bc51630c82206e1e745.jpg",
-    progress: 20,
-    currentLesson: 5,
-    totalLessons: 7,
+    title: "ICT Level 4: Cybersecurity Basics",
+    teacher: "Rith",
+    image: "https://i.pinimg.com/originals/9c/18/fd/9c18fdf528054ff9ff7ddfae62ee107a.gif",
+    progress: 25,
+    currentLesson: 2,
+    totalLessons: 6,
   },
 ];
+
 
 export default function Course({ UserName, ProfilePath, isLogin }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -121,7 +141,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
           <div className="search-cart-container">
             <input
               type="text"
-              placeholder="Search lessons or courses..."
+              placeholder="Search Courses Here..."
               value={searchQuery}
               onChange={handleSearch}
               className="search-input"
@@ -233,16 +253,26 @@ function CourseCarousel({ courseData }) {
     return () => window.removeEventListener("resize", updateVisibleCards);
   }, []);
 
-  const next = () => {
-    if (startIndex + visibleCards < courseData.length) {
-      setStartIndex(startIndex + 1);
+  const totalPages = Math.ceil(courseData.length / visibleCards);
+  const currentPage = Math.floor(startIndex / visibleCards);
+
+  const goToPage = (pageIndex) => {
+    // Loop to beginning if out of bounds
+    if (pageIndex >= totalPages) {
+      setStartIndex(0);
+    } else if (pageIndex < 0) {
+      setStartIndex((totalPages - 1) * visibleCards);
+    } else {
+      setStartIndex(pageIndex * visibleCards);
     }
   };
 
-  const prev = () => {
-    if (startIndex > 0) {
-      setStartIndex(startIndex - 1);
-    }
+  const nextPage = () => {
+    goToPage(currentPage + 1);
+  };
+
+  const prevPage = () => {
+    goToPage(currentPage - 1);
   };
 
   return (
@@ -262,9 +292,16 @@ function CourseCarousel({ courseData }) {
           />
         ))}
       </div>
-      <div className="btn_control">
-        <button onClick={prev} className="arrow-btn">←</button>
-        <button onClick={next} className="arrow-btn">→</button>
+
+      {/* Dots */}
+      <div className="dot-navigation">
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === currentPage ? "active" : ""}`}
+            onClick={() => goToPage(index)}
+          ></span>
+        ))}
       </div>
     </div>
   );

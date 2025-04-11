@@ -6,14 +6,13 @@
   justify-content: center;
 }
 
-/* Title styles */
+
 .title {
   margin-bottom: 20px;
-  font-size: 2.5rem;  /* Larger font for large screens */
+  font-size: 2.5rem;  
   font-weight: bold;
 }
 
-/* Carousel Controls */
 .carousel-container {
   align-items: center;
   justify-content: center;
@@ -28,7 +27,7 @@
   overflow: hidden;
 }
 
-/* Course Card Styles */
+
 .course-card {
   flex-shrink: 0;
   transition: opacity 0.3s ease;
@@ -80,6 +79,30 @@
   background-color: #2563eb;
   transform: scale(1.05);
 }
+.dot-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #999;
+}
+
+.dot.active {
+  background-color: #333;
+}
+
 
 /* Arrow Buttons */
 .btn_control {
@@ -220,7 +243,7 @@ h2 {
   font-family: sans-serif;
   transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
   max-width: 100%;
-  min-width: 300px;
+  min-width: 400px;
   position: relative;
 }
 
@@ -386,6 +409,8 @@ h2 {
   }
   .lesson-row {
     flex-direction: column;
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 20px;
   }
@@ -408,6 +433,7 @@ h2 {
   .carousel-container {
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
   }
 
   .carousel-track {
@@ -438,8 +464,8 @@ h2 {
   }
   .explore-course-grid .course-card {
     flex: 1 1 100%;
-    max-width: 100%; /* Make each course card take full width */
-    width: 100%;  /* Full width for each card */
+    max-width: 100%; 
+    width: 100%; 
   }
   #update_course {
     font-size: 2rem;
@@ -455,42 +481,67 @@ h2 {
   }
   .personal-development-grid {
     display: flex;
-    flex-direction: column;  /* Change to column layout */
-    gap: 20px; /* Add gap between the cards */
-    align-items: center; /* Center the cards */
+    flex-direction: column;  
+    gap: 20px; 
+    align-items: center; 
   }
 
   .personal-development-grid .course-card {
     flex: 1 1 100%;
-    max-width: 100%; /* Make each course card take full width */
-    width: 100%;  /* Full width for each card */
+    max-width: 100%; 
+    width: 100%;  
   }
   #name_course {
-    font-size: 1.5rem; /* Slightly smaller font size for mobile */
+    font-size: 1.5rem; 
   }
 
   #btn_startnow {
     width: 50%; 
-    padding: 15px; /* Adjust padding for mobile */
-    font-size: 1.1rem; /* Smaller font size on mobile */
+    padding: 15px; 
+    font-size: 1.1rem; 
   }
 
   #desc-course {
-    font-size: 1rem; /* Slightly smaller font size for description */
+    font-size: 1rem; 
   }
 }
 
-/* Tablet (768px to 1024px): 3 cards per row */
+
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .lesson-row {
     display: flex;
-    
-    gap: 20px;
+    justify-content: space-between;
+    gap: 16px; 
+    flex-wrap: nowrap; 
+    overflow-x: auto;
   }
-  
+
   .lesson-card {
-    flex: 1 1 calc(33.333% - 20px); /* 3 cards per row with proper spacing */
-    max-width: calc(33.333% - 20px);  /* Make sure the width is 3 cards */
+    flex: 1 1 calc(33.333% - 16px); 
+    max-width: calc(33.333% - 16px); 
+    width: 100%; 
+    box-sizing: border-box; 
+    font-size: 0.875rem;
+  }
+
+  .lesson-image {
+    height: 120px; 
+  }
+
+  .lesson-title {
+    font-size: 14px; 
+  }
+
+  .lesson-teacher {
+    font-size: 12px; 
+  }
+
+  .lesson-content {
+    padding: 12px; 
+  }
+
+  .lesson-progress-bar {
+    height: 4px; 
   }
   .carousel-container {
     flex-direction: row;
@@ -521,22 +572,22 @@ h2 {
     max-width: calc(50% - 2rem);
   }
   #name_course {
-    font-size: 1.6rem; /* Adjust font size for tablets */
+    font-size: 1.6rem; 
   }
 
   #btn_startnow {
-    width: 200px; /* Slightly larger button on tablets */
-    font-size: 1.15rem; /* Adjust font size for tablets */
+    width: 200px; 
+    font-size: 1.15rem; 
   }
 
   #desc-course {
-    font-size: 1.1rem; /* Adjust description font size */
+    font-size: 1.1rem; 
   }
   
   
 }
 
-/* Desktop (1025px and up): 5 cards */
+
 @media screen and (min-width: 1025px) {
   .carousel-container {
     flex-direction: row;

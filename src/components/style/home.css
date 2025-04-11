@@ -426,8 +426,7 @@
 .image_intro {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap; 
+  gap: 20px; 
   padding: 20px;
 }
 
@@ -877,7 +876,7 @@
 
 /* Image Placeholder */
 .image-placeholder {
-  width: 150px;
+  width: 1000px;
   height: 250px;
   background-color: #ff9999;
   border-radius: 10px;
@@ -1777,11 +1776,18 @@ line-height: 2;
       flex-direction: column;
       gap: 15px;
     }
+    .image_intro {
+      display: inline;
+      width: 100%;
+      height: auto;
+      margin-left: 0;
+    }
   
     /* Image Resizing */
     .image-container {
       width: 100%;
       height: auto;
+      flex-wrap: wrap;
     }
   
     .home-container {
