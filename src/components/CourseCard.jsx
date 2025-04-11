@@ -1,4 +1,5 @@
 import ShowPrice from "./ShowPrice";
+import "./style/maincourse.css";
 
 export default function CourseCard({
   image,
@@ -33,8 +34,8 @@ export default function CourseCard({
 
       {/* Course Description Section */}
       <div>
-        <h3 className="font-bold text-sm">{title}</h3>
-        <p className="overflow-hidden mt-1 text-xs text-gray-700">
+        <h3 className="font-bold text-sm leading-tight h-[38px] overflow-hidden">{title}</h3>
+        <p className="mt-1 text-xs text-gray-700 overflow-hidden h-[36px] line-clamp-2">
           {description}
         </p>
       </div>

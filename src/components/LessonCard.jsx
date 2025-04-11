@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./style/maincourse.css";
 export default function LessonCard({ title, teacher, image, progress, currentLesson, totalLessons }) {
   return (
     <div className="lesson-card">

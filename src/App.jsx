@@ -25,7 +25,7 @@ export default function App() {
       <>  
         <Nav UserName={userName} ProfilePath={userProfile} isLogin={true} myCart={myCart} />
         <Routes>
-          <Route path="/course" element={<Course />} />
+         <Route path="/" element={<Course  />} />
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
           <Route path='/about-us' element ={<AboutUs/>}/>
           <Route path='/result' element ={<QuizzREsult usrname={'Jonh Son'} result={9} maxQa={10} duration={'30min'} />}/>
