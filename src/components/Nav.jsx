@@ -40,7 +40,7 @@ export default function Nav({ UserName, ProfilePath, isLogin,myCart }) {
           }} 
           >
           <Link to='/cart'>
-            <CartCard itemCount={myCart.length} />
+            <CartCard itemCount={myCart} />
           </Link>
           <UserProfile 
             UserName={UserName} 

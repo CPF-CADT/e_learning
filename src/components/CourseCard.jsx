@@ -49,7 +49,6 @@ export default function CourseCard({
           <span className="text-xs">Teacher</span>
         </div>
       </div>
-
       {/* Action Section */}
       <div className="flex justify-between items-center mt-3">
         <button

@@ -18,19 +18,21 @@ import Course from './components/Course';
 import Nav from './components/Nav';
 import myCart from './data/myCart'
 import ShoppingCart from './components/ShoppingCart';
+import { useState } from 'react';
 export default function App() { 
   let userName = "Cheng Nhajor"
+  const[numCart,setNumCart] = useState(myCart.length);
   return (
     <PrimeReactProvider>
       <>  
-        <Nav UserName={userName} ProfilePath={userProfile} isLogin={true} myCart={myCart} />
+        <Nav UserName={userName} ProfilePath={userProfile} isLogin={true} myCart={numCart} />
         <Routes>
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
            <Route path="/course" element={<Course  />} />
           <Route path='/about-us' element ={<AboutUs/>}/>
           <Route path='/result' element ={<QuizzREsult usrname={'Jonh Son'} result={9} maxQa={10} duration={'30min'} />}/>
           {/* <Route path='/blog' element={<Blog />}  /> */}
-          <Route path='/cart' element={< ShoppingCart myCart={myCart} />} />
+          <Route path='/cart' element={< ShoppingCart myCart={myCart} setNumCart={setNumCart} />} />
           <Route path='/mycourse' element={<MyCourse usrname={'Panha'} usrProfilePath={userProfile}/>} />
           <Route path='/mycourse/selected' element={<CourseClick />} />          
           <Route path='/mycourse/selected/video' element={<CourseView usrname={userName} usrProfilePath={userProfile} />} />
