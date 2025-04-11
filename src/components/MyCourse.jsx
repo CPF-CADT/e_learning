@@ -2,12 +2,11 @@ import { useState } from "react";
 import MyCourseHeader from "./MyCourseHeader";
 import DetailDashBoard from "./DetailDashBorard";
 import CourseBoxLearn from "./CourseBoxLearn";
-import courseData from "../data/courseLeened";
 import DropDown from "./DropDown";
 import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
 import { InputText } from "primereact/inputtext";
-export default function MyCourse() {
+export default function MyCourse({courseData}) {
   const optionsCourse = ['My Courses', 'Favourite Courses'];
   const [selectedOption, setSelectedOption] = useState(optionsCourse[0]); 
   const [selectedCourseType, setSelectedCourseType] = useState(null);
@@ -74,6 +73,8 @@ export default function MyCourse() {
                       courseTitle={course.courseTitle}
                       courseHook={course.courseHook}
                       progress={course.progress}
+                      cimg={course.cimg}
+                      sfavourite={course.favourite}
                     />
                   );
                 } else {
@@ -85,6 +86,8 @@ export default function MyCourse() {
                         courseTitle={course.courseTitle}
                         courseHook={course.courseHook}
                         progress={course.progress}
+                        cimg={course.cimg}
+                        sfavourite={course.favourite}
                       />
                     );
                   }

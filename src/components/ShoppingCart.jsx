@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import CourseCartSell from "./CourseCartSell";
 
-export default function ShoppingCart({ myCart,setNumCart }) {
+export default function ShoppingCart({ cart,setCart,setNumCart }) {
   // Create local state for the cart to handle removals
-  const [cart, setCart] = useState(myCart);
 
   // Remove an item from the cart by its index
   const removeItem = (indexToRemove) => {
@@ -13,7 +12,7 @@ export default function ShoppingCart({ myCart,setNumCart }) {
   };
 
   // Calculate total price from the cart items
-  const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+  const totalPrice = cart.reduce((acc, item) => acc + item.price*(1-item.discountPercent/100), 0);
 
   return (
     <div className="max-w-[1270px] mx-auto">

@@ -124,7 +124,7 @@ const lessonData = [
 ];
 
 
-export default function Course({ UserName, ProfilePath, isLogin }) {
+export default function Course({setCart}) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (e) => {
@@ -156,7 +156,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
         {/* ===== New Category Section ===== */}
         <h2 className="title text-2xl font-bold text-blue-500 mb-2.5 p-5">Choices favourite course from top category</h2>
         <div>
-        <CourseCarouselWithArrows courseData={courseData} />
+        <CourseCarouselWithArrows courseData={courseData} setCart={setCart} />
 
         </div>
         <h2 className="title">Choices favourite course from top category</h2>
@@ -176,7 +176,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
         SEE MORE<span className="arrow-icon">➤</span>
       </a>
         </div>
-        <CourseCarousel courseData={courseData} />
+        <CourseCarousel courseData={courseData} setCart={setCart} />
         {/* === Personal Development Courses Section === */}
           {/* === Personal Development Section === */}
 <h2 className="title text-2xl font-bold text-blue-500 mb-2.5 p-5">Get Choice Of Your Course</h2>
@@ -185,6 +185,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
     <CourseCard
       key={index}
       image={course.courseImage}
+      rate={course.star}
       title={course.courseTitle}
       description={course.courseDescription}
       teacher_profile_path={course.teacherProfilePath}
@@ -192,6 +193,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
       category={course.category}
       price={course.price}
       discountPercent={course.discountPercent}
+      setCart={setCart}
     />
   ))}
   </div>
@@ -212,6 +214,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
       <CourseCard
         key={index}
         image={course.courseImage}
+        rate={course.star}
         title={course.courseTitle}
         description={course.courseDescription}
         teacher_profile_path={course.teacherProfilePath}
@@ -219,6 +222,8 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
         category={course.category}
         price={course.price}
         discountPercent={course.discountPercent}
+        setCart={setCart}
+
       />
     ))}
   </div>
@@ -228,7 +233,7 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
   );
 }
 
-function CourseCarousel({ courseData }) {
+function CourseCarousel({ courseData,setCart }) {
   const [startIndex, setStartIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(5);
 
@@ -278,6 +283,7 @@ function CourseCarousel({ courseData }) {
   <CourseCard
     key={index}
     image={course.courseImage}
+    rate={course.star}
     title={course.courseTitle}
     description={course.courseDescription}
     teacher_profile_path={course.teacherProfilePath}
@@ -285,6 +291,8 @@ function CourseCarousel({ courseData }) {
     category={course.category}
     price={course.price}
     discountPercent={course.discountPercent}
+    setCart={setCart}
+
   />
 ))}
 
@@ -303,7 +311,7 @@ function CourseCarousel({ courseData }) {
     </div>
   );
 }
-function CourseCarouselWithArrows({ courseData }) {
+function CourseCarouselWithArrows({ courseData,setCart }) {
   const [startIndex, setStartIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(5);
 
@@ -354,12 +362,14 @@ function CourseCarouselWithArrows({ courseData }) {
             key={index}
             image={course.courseImage}
             title={course.courseTitle}
+            rate={course.star}
             description={course.courseDescription}
             teacher_profile_path={course.teacherProfilePath}
             duration={course.courseDuration}
             category={course.category}
             price={course.price}
             discountPercent={course.discountPercent}
+            setCart={setCart}
           />
         ))}
       </div>

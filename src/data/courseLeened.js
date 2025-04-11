@@ -1,32 +1,9 @@
 const courses = [
     {
-      courseTitle: "Intro to Web Development",
-      courseHook: "Learn HTML, CSS, and JavaScript to build stunning websites.",
+      cimg:'https://i.pinimg.com/736x/8a/98/de/8a98de530520a6cc9251ba77234832ec.jpg',
+      courseTitle: "English Grammar - Level 1",
+      courseHook: "Learn basic sentence structure, nouns, and verbs for beginner English learners.",
       progress: 40,
-      favourite: true,
-    },
-    {
-      courseTitle: "Networking Fundamentals",
-      courseHook: "Master the basics of computer networks and protocols.",
-      progress: 65,
-      favourite: false,
-    },
-    {
-      courseTitle: "Java OOP Mastery",
-      courseHook: "Deep dive into object-oriented programming with Java.",
-      progress: 85,
-      favourite: true,
-    },
-    {
-      courseTitle: "Arduino Robotics",
-      courseHook: "Build and program robots using Arduino and sensors.",
-      progress: 20,
-      favourite: false,
-    },
-    {
-      courseTitle: "Data Structures & Algorithms",
-      courseHook: "Enhance problem-solving with efficient algorithms in Java.",
-      progress: 55,
       favourite: true,
     },
   ];

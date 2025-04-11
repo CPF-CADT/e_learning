@@ -1,6 +1,6 @@
 import userProfile from '../assets/profile.avif'
 import CourseBoxLearn from './CourseBoxLearn';
-export default function UserDetail() {
+export default function UserDetail({myCourse}) {
     const bio = 'I am a Front End developer that can use React JS';
     return (
         <div>
@@ -42,12 +42,21 @@ export default function UserDetail() {
                         <h2  className='text-xl font-bold' > Lastest Activity </h2>
                         <div className='bg-gray-300 w-full h-[2px]'></div>
                         <div className='p-2'>
-                            <UserLog profile={userProfile} message={"You Have Enroll 2 couse" } time={"Just Now"} />
-                            <div className='flex flex-row gap-x-5 p-2'>
-                                <CourseBoxLearn courseTitle={"English Intermediate"} courseHook={"Learn english in detail and fun"} progress={0} />
-                                <CourseBoxLearn courseTitle={"English Intermediate"} courseHook={"Learn english in detail and fun"} progress={0} />
+                            {myCourse.length===0 && (
+                                <>
+                                    <UserLog profile={userProfile} message={"You Have Enroll 2 couse" } time={"Just Now"} />
+                                    <div className='flex flex-row gap-x-5 p-2'>
+                                        <CourseBoxLearn courseTitle={"English Intermediate"} courseHook={"Learn english in detail and fun"} progress={0} />
+                                        <CourseBoxLearn courseTitle={"English Intermediate"} courseHook={"Learn english in detail and fun"} progress={0} />
+                                    </div>
+                                </>
+                            )}
+                            {myCourse.length!=0 && (
+                                <>
+                                   <p className="text-gray-600 text-center">You're all caught up! No new courses right now.</p>
+                                </>
+                            )}
 
-                            </div>
                         </div>
                         <div className='bg-gray-300 w-full h-[2px] mb-1'></div>
                         <div className='p-2'>
