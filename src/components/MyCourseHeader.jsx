@@ -9,16 +9,11 @@ export default function MyCourseHeader({ selectedOption, setSelectedOption,optio
 
     return (
         <>
-            <header className='bg-[#252641] h-[110px] flex justify-center '>
+            <header className='bg-[#252641] h-[130px] flex justify-center mb-5'>
                 <div className="max-w-[1280px] w-full flex flex-col justify-between h-full">
-                    <Link to='/'>
-                        <img
-                            className='hover:cursor-pointer'
-                            src={imgLogo}
-                            alt="Logo"
-                            style={{ width: '250px', height: '75px' }}
-                        />
-                    </Link>
+                <span className='text-5xl text-sky-50 font-bold pt-5'>
+                    My Learning
+                </span>
                     <div className="text-white font-bold flex flex-row gap-x-8 mt-auto">
                         {options.map((option) => (
                             <span

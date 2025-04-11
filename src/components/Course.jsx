@@ -6,15 +6,7 @@ import Nav from "./Nav";
 
 
 
-
-const dummyProfiles = [
-  "https://i.pravatar.cc/35?img=1",
-  "https://i.pravatar.cc/35?img=2",
-  "https://i.pravatar.cc/35?img=3",
-  "https://i.pravatar.cc/35?img=4",
-  "https://i.pravatar.cc/35?img=5",
-  "https://i.pravatar.cc/35?img=6",
-];
+import courseData from "../data/courseData";
 const exploreCourses = [
   {
     courseTitle: "Digital Marketing",

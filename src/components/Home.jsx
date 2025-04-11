@@ -224,10 +224,6 @@ const HeroContent = () => {
 export default function Home({ UserName, ProfilePath, isLogin }) {
   return (
     <div className="home">
-      
-      {/* <Nav UserName={UserName} ProfilePath={ProfilePath} isLogin={isLogin} /> */}
-
-     
       <div className="hero-container">
         <div className="Main">
 

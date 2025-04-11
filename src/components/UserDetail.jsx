@@ -1,14 +1,9 @@
 import userProfile from '../assets/profile.avif'
 import CourseBoxLearn from './CourseBoxLearn';
-import Nav from './Nav';
 export default function UserDetail() {
     const bio = 'I am a Front End developer that can use React JS';
     return (
         <div>
-            {/* <div className="back-button">
-                <button onClick={() => window.history.back()}>Back</button>
-            </div> */}
-            <Nav UserName={""} ProfilePath={userProfile} isLogin={true} />
             <div className="container max-w-[1280px] mx-auto mt-3" >
                 <div className='w-full max-w-[1280px]' >
                     <img src="https://my.alfred.edu/zoom/_images/foster-lake.jpg" alt="Banner"  style={{height:'250px', width:'100%',objectFit:'cover'}}  />

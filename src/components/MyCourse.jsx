@@ -34,14 +34,6 @@ export default function MyCourse({ usrname, usrProfilePath }) {
         options={optionsCourse}
       />
       <div className="container max-w-[1280px] mx-auto">
-        <nav className="flex justify-between items-center mx-auto">
-          <h2 className="text-black font-bold text-2xl">My Course</h2>
-          <UserProfile
-            UserName={usrname}
-            ProfilePath={usrProfilePath}
-            positionTop="50px" // Pass the dynamic top value
-          />
-        </nav>
         <h3 className="text-black font-bold text-xl pb-4 mb-5 border-b-[1px] border-black w-[67.5%]">Course Overview</h3>
         <div className="dashboard flex flex-row min-h-[660px] gap-x-[2%]">
           <div className="w-[70%] flex flex-col ">
@@ -102,9 +94,6 @@ export default function MyCourse({ usrname, usrProfilePath }) {
                 // Optionally return null in case none of the conditions are met
                 return null;
               })}
-            </div>
-            <div className="card">
-              1 2 3 4 5 6 7 8  9
             </div>
           </div>
           <div className="w-[30%] flex flex-col items-center justify-start p-0">

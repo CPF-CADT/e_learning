@@ -4,7 +4,7 @@ import UserProfile from './UserProfile';
 import { Link } from "react-router-dom";
 import CartCard from './Cart'
 
-export default function Nav({ UserName, ProfilePath, isLogin }) {
+export default function Nav({ UserName, ProfilePath, isLogin,myCart }) {
   return (
     <div className="navigation-bar">
       <div>
@@ -19,9 +19,9 @@ export default function Nav({ UserName, ProfilePath, isLogin }) {
       </div>
       <div className="middle-side px-5 text-[1.2rem]">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Courses</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><Link to ='/'>Home</Link></li>
+          <li><Link to ='/course'>Course</Link></li>
+          <li><Link to ='/blog'>Blog</Link></li>
           <li><Link to ='/about-us'>About US</Link></li>
           <li><Link to ='/mycourse'>My Learning</Link></li>
         </ul>
@@ -39,7 +39,9 @@ export default function Nav({ UserName, ProfilePath, isLogin }) {
             display: (!isLogin) ? 'none' : 'flex',
           }} 
           >
-          <CartCard itemCount={0} />
+          <Link to='/cart'>
+            <CartCard itemCount={myCart.length} />
+          </Link>
           <UserProfile 
             UserName={UserName} 
             ProfilePath={ProfilePath} 
