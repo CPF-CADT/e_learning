@@ -5,7 +5,7 @@ const dummyProfiles = [
     "https://i.pravatar.cc/35?img=4",
     "https://i.pravatar.cc/35?img=5",
     "https://i.pravatar.cc/35?img=6",
-  ];
+  ]
  const courseData = [
     {
       courseTitle: "Web Development",

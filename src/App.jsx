@@ -1,4 +1,4 @@
-import Blog from './components/Blog';
+// import Blog from './components/Blog';
 import AboutUs from './components/AboutUs';
 import userProfile from './assets/profile.avif'; 
 import CourseView from './components/CourseView';
@@ -25,11 +25,11 @@ export default function App() {
       <>  
         <Nav UserName={userName} ProfilePath={userProfile} isLogin={true} myCart={myCart} />
         <Routes>
-         <Route path="/" element={<Course  />} />
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
+           <Route path="/course" element={<Course  />} />
           <Route path='/about-us' element ={<AboutUs/>}/>
           <Route path='/result' element ={<QuizzREsult usrname={'Jonh Son'} result={9} maxQa={10} duration={'30min'} />}/>
-          <Route path='/blog' element={<Blog />}  />
+          {/* <Route path='/blog' element={<Blog />}  /> */}
           <Route path='/cart' element={< ShoppingCart myCart={myCart} />} />
           <Route path='/mycourse' element={<MyCourse usrname={'Panha'} usrProfilePath={userProfile}/>} />
           <Route path='/mycourse/selected' element={<CourseClick />} />          
