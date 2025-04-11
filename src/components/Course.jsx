@@ -136,33 +136,30 @@ export default function Course({ UserName, ProfilePath, isLogin }) {
   return (
     <>
       <div className="main-container">
-        <div className="welcome-section">
           <h2 className="title">Welcome back, ready for your next lesson?</h2>
-          <div className="search-cart-container">
-            <input
-              type="text"
-              placeholder="Search Courses Here..."
-              value={searchQuery}
-              onChange={handleSearch}
-              className="search-input"
-            />
-          </div>
+        <div className="welcome-section">
+        <div className="search-wrapper">
+    <input
+      type="text"
+      placeholder="Search Courses Here..."
+      value={searchQuery}
+      onChange={handleSearch}
+      className="search-input"
+    />
+    <span className="search-icon">
+      🔍
+    </span>
+  </div>
+           
         </div>
 
-        <div className="lesson-row">
-          {lessonData
-            .filter((lesson) =>
-              lesson.title.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-            .map((lesson, index) => (
-              <div key={index} className="lesson-card-container">
-                <LessonCard {...lesson} />
-                
-              </div>
-            ))}
-        </div>
+       
 
         {/* ===== New Category Section ===== */}
+        <div>
+        <CourseCarouselWithArrows courseData={courseData} />
+
+        </div>
         <h2 className="title">Choices favourite course from top category</h2>
         <div className="category-grid">
           {["ICT", "English", "English", "English", "ICT", "English", "English", "English" ,"ICT"].map((category, index) => (
@@ -307,3 +304,83 @@ function CourseCarousel({ courseData }) {
     </div>
   );
 }
+function CourseCarouselWithArrows({ courseData }) {
+  const [startIndex, setStartIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(5);
+
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 768) {
+        setVisibleCards(1);
+      } else if (screenWidth <= 1024) {
+        setVisibleCards(3);
+      } else {
+        setVisibleCards(5);
+      }
+    };
+
+    updateVisibleCards();
+    window.addEventListener("resize", updateVisibleCards);
+    return () => window.removeEventListener("resize", updateVisibleCards);
+  }, []);
+
+  const totalPages = Math.ceil(courseData.length / visibleCards);
+  const currentPage = Math.floor(startIndex / visibleCards);
+
+  const goToPage = (pageIndex) => {
+    // Loop to beginning if out of bounds
+    if (pageIndex >= totalPages) {
+      setStartIndex(0);
+    } else if (pageIndex < 0) {
+      setStartIndex((totalPages - 1) * visibleCards);
+    } else {
+      setStartIndex(pageIndex * visibleCards);
+    }
+  };
+
+  const nextPage = () => {
+    goToPage(currentPage + 1);
+  };
+
+  const prevPage = () => {
+    goToPage(currentPage - 1);
+  };
+
+  return (
+    <div className="carousel-container">
+      <div className="carousel-track">
+        {courseData.slice(startIndex, Math.min(startIndex + visibleCards, courseData.length)).map((course, index) => (
+          <CourseCard
+            key={index}
+            image={course.courseImage}
+            title={course.courseTitle}
+            description={course.courseDescription}
+            teacher_profile_path={course.teacherProfilePath}
+            duration={course.courseDuration}
+            category={course.category}
+            price={course.price}
+            discountPercent={course.discountPercent}
+          />
+        ))}
+      </div>
+      <div className="btn-control">
+        <span
+          className={`arrow-btn ${currentPage === 0 ? "disabled" : ""}`}
+          onClick={prevPage}
+        >
+          &#8592; {/* Left Arrow */}
+        </span>
+        <span
+          className={`arrow-btn ${currentPage === totalPages - 1 ? "disabled" : ""}`}
+          onClick={nextPage}
+        >
+          &#8594; {/* Right Arrow */}
+        </span>
+      </div>
+
+      {/* Arrow navigation */}
+    </div>
+  );
+}
+

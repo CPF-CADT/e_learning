@@ -18,6 +18,9 @@ import Course from './components/Course';
 import Nav from './components/Nav';
 import myCart from './data/myCart'
 import ShoppingCart from './components/ShoppingCart';
+import Login from './components/Login';
+import SignUp from './components/Signup';
+
 export default function App() { 
   let userName = "Cheng Nhajor"
   return (
@@ -25,6 +28,8 @@ export default function App() {
       <>  
         <Nav UserName={userName} ProfilePath={userProfile} isLogin={true} myCart={myCart} />
         <Routes>
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/' element={<Home UserName={userName} ProfilePath={userProfile} isLogin={true} />} />
            <Route path="/course" element={<Course  />} />
           <Route path='/about-us' element ={<AboutUs/>}/>
