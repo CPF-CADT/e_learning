@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import 'primeicons/primeicons.css';
 
 export default function CustomPanelMenu({ items }) {
-    const navigate = useNavigate(); // Initialize useNavigate for React Router v6
+    const navigate = useNavigate(); 
+
     const [model, setModel] = useState(() => {
         return items.map((item, moduleIndex) => ({
             ...item,
@@ -18,18 +19,18 @@ export default function CustomPanelMenu({ items }) {
             items: item.items?.map((sub, itemIndex) => ({
                 ...sub,
                 template: (itemData, options) => renderTemplate(itemData, options),
-                command: () => handleSubItemClick(moduleIndex, itemIndex, sub.route) // Pass route to handleSubItemClick
+                command: () => handleSubItemClick(moduleIndex, itemIndex, sub.link) // Pass link to handleSubItemClick
             }))
         }));
     });
 
-    // Toggle the 'completed' state for sub items (like quizzes)
-    const handleSubItemClick = (moduleIndex, itemIndex, route) => {
+    // Handle the click on a subitem (e.g., Document, Video, Quiz)
+    const handleSubItemClick = (moduleIndex, itemIndex, link) => {
         const updated = [...model];
         updated[moduleIndex].items[itemIndex].completed = !updated[moduleIndex].items[itemIndex].completed; // Toggle the completion state
         setModel(updated);
-        if (route) {
-            navigate(route); // Redirect to the specified route using navigate (for React Router v6)
+        if (link) {
+            navigate(link); // Redirect to the specified route using navigate (for React Router v6)
         }
     };
 

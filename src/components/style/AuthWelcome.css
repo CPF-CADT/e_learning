@@ -1,11 +1,16 @@
 .auth-container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 1200px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed; 
+  top: 80px; 
+  z-index: 1;
+}
   
   /* Desktop view */
   @media (min-width: 768px) {

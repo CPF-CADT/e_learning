@@ -5,6 +5,6 @@ const courses = [
       courseHook: "Learn basic sentence structure, nouns, and verbs for beginner English learners.",
       progress: 40,
       favourite: true,
-    },
+    },  
   ];
 export default courses;

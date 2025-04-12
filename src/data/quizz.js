@@ -1,104 +1,169 @@
-// Create an associative array for storing questions and answers in JavaScript
-
 export const quizData = {
+    // English - Present Simple
     1: {
-        question: "What is the full form of CPU?",
+        question: "Which sentence is in the Present Simple tense?",
         options: {
-            a: "Central Processing Unit",
-            b: "Central Processor Unit",
-            c: "Central Programming Unit",
-            d: "Computer Processing Unit"
+            a: "She will go to school.",
+            b: "She is going to school.",
+            c: "She goes to school.",
+            d: "She went to school."
         },
-        correctAnswer: 'a'
+        correctAnswer: 'c'
     },
     2: {
-        question: "What does HTML stand for?",
+        question: "He ___ to work by car every day.",
         options: {
-            a: "Hyper Text Markup Language",
-            b: "Hyper Text Management Language",
-            c: "Home Tool Markup Language",
-            d: "Hyperlink Text Markup Language"
-        },
-        correctAnswer: 'a'
-    },
-    3: {
-        question: "Which of the following is used to style a webpage?",
-        options: {
-            a: "HTML",
-            b: "CSS",
-            c: "JavaScript",
-            d: "PHP"
+            a: "go",
+            b: "goes",
+            c: "going",
+            d: "gone"
         },
         correctAnswer: 'b'
     },
-    4: {
-        question: "What is the default file extension for a Python file?",
+    3: {
+        question: "Which of the following time expressions is common with Present Simple?",
         options: {
-            a: ".py",
-            b: ".java",
-            c: ".html",
-            d: ".cpp"
+            a: "yesterday",
+            b: "next week",
+            c: "often",
+            d: "right now"
         },
-        correctAnswer: 'a'
+        correctAnswer: 'c'
     },
-    5: {
-        question: "What does HTTP stand for?",
+    4: {
+        question: "Do they ___ football on weekends?",
         options: {
-            a: "HyperText Transfer Protocol",
-            b: "HyperTool Transfer Protocol",
-            c: "HomeText Transfer Protocol",
-            d: "HyperText Transport Protocol"
+            a: "playing",
+            b: "plays",
+            c: "played",
+            d: "play"
         },
-        correctAnswer: 'a'
+        correctAnswer: 'd'
+    },
+
+    // English - Present Perfect
+    5: {
+        question: "Which sentence is in Present Perfect tense?",
+        options: {
+            a: "She finished her dinner.",
+            b: "She has finished her dinner.",
+            c: "She is finishing her dinner.",
+            d: "She was finishing her dinner."
+        },
+        correctAnswer: 'b'
     },
     6: {
-        question: "Which language is primarily used for web development?",
+        question: "We ___ seen that movie already.",
         options: {
-            a: "Java",
-            b: "C++",
-            c: "JavaScript",
-            d: "Python"
+            a: "has",
+            b: "had",
+            c: "have",
+            d: "are"
         },
         correctAnswer: 'c'
     },
     7: {
-        question: "Which one is an example of a relational database?",
+        question: "Which of these words is often used with Present Perfect?",
         options: {
-            a: "MongoDB",
-            b: "MySQL",
-            c: "Firebase",
-            d: "Redis"
+            a: "ago",
+            b: "yesterday",
+            c: "just",
+            d: "tomorrow"
+        },
+        correctAnswer: 'c'
+    },
+    8: {
+        question: "She ___ in this company for five years.",
+        options: {
+            a: "worked",
+            b: "has worked",
+            c: "is working",
+            d: "works"
         },
         correctAnswer: 'b'
     },
-    8: {
-        question: "What is the main function of an operating system?",
-        options: {
-            a: "To manage hardware and software resources",
-            b: "To browse the internet",
-            c: "To edit documents",
-            d: "To send emails"
-        },
-        correctAnswer: 'a'
-    },
+
+    // React.js - Intro to React
     9: {
-        question: "What is a primary key in a database?",
+        question: "What is React?",
         options: {
-            a: "A unique identifier for each record",
-            b: "A backup key for encryption",
-            c: "A field that links to another table",
-            d: "A special function in SQL"
+            a: "A CSS framework",
+            b: "A JavaScript library for building user interfaces",
+            c: "A web server",
+            d: "A browser extension"
         },
-        correctAnswer: 'a'
+        correctAnswer: 'b'
     },
     10: {
-        question: "What does SEO stand for in digital marketing?",
+        question: "What is JSX?",
         options: {
-            a: "Search Engine Optimization",
-            b: "Social Engine Optimization",
-            c: "Search Email Optimization",
-            d: "Social Email Optimization"
+            a: "Java Syntax eXtension",
+            b: "JavaScript XML",
+            c: "Java Source eXchange",
+            d: "JavaScript XAML"
+        },
+        correctAnswer: 'b'
+    },
+    11: {
+        question: "Which method is used to render a React element?",
+        options: {
+            a: "React.display()",
+            b: "ReactDOM.render()",
+            c: "React.create()",
+            d: "React.insert()"
+        },
+        correctAnswer: 'b'
+    },
+    12: {
+        question: "Which hook is used to manage state in a functional component?",
+        options: {
+            a: "useEffect",
+            b: "useState",
+            c: "useRef",
+            d: "useMemo"
+        },
+        correctAnswer: 'b'
+    },
+
+    // React.js - Components & Props
+    13: {
+        question: "What are props in React?",
+        options: {
+            a: "A way to manage state",
+            b: "Functions to handle events",
+            c: "Arguments passed to components",
+            d: "Hooks for lifecycle"
+        },
+        correctAnswer: 'c'
+    },
+    14: {
+        question: "Which is the correct way to define a functional component in React?",
+        options: {
+            a: "function MyComponent() {}",
+            b: "class MyComponent extends Component {}",
+            c: "var MyComponent = new Component()",
+            d: "React.createComponent(MyComponent)"
         },
         correctAnswer: 'a'
+    },
+    15: {
+        question: "How do you pass a prop named `title` with value 'Hello'?",
+        options: {
+            a: "<Component title='Hello' />",
+            b: "<Component title: 'Hello' />",
+            c: "<Component {title: 'Hello'} />",
+            d: "<Component->Hello</Component>"
+        },
+        correctAnswer: 'a'
+    },
+    16: {
+        question: "Props in React are:",
+        options: {
+            a: "Mutable",
+            b: "Read-only",
+            c: "Global variables",
+            d: "Used to handle events"
+        },
+        correctAnswer: 'b'
     }
 };

@@ -1,12 +1,12 @@
 // import './style/chart.css'
 import { Button } from "primereact/button";
 
-export default function QuizzREsult({usrname,result,maxQa,duration,review}){
+export default function QuizzREsult({result,maxQa,duration,review}){
     return(
         <div className="w-[450px]" >
             <div className="flex flex-row gap-x-20" >
                 <div  className="flex flex-col gap-y-2" >
-                    <h2 className="font-bold" >{usrname}</h2>
+                    <h2 className="font-bold" >{'You'}</h2>
                     <p> Points <span>{result}/{maxQa}</span> </p>
                     <p> Duration <span>{duration}</span> </p>
                 </div> 

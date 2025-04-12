@@ -1,18 +1,16 @@
-import UserProfile from "./UserProfile";
 import { ProgressBar } from "primereact/progressbar";
 import "primeicons/primeicons.css";
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from "primereact/button";
 import "./style/course.css";
-import { quizData } from "../data/quizz";
 import QuizzResult from "./QuizzResult";
 
-export default function Quizz({ usrname, usrProfilePath }) {
+export default function Quizz({ quizData }) {
   const [showResult, setResult] = useState(false);
   const [review, setReview] = useState(false);
   const [quiNo, setQuiNo] = useState(1);
   const [totalCorrect, setTotalCorrect] = useState(0);
-  
+
   const initialAnswers = Object.keys(quizData).reduce((acc, questionNo) => {
     acc[questionNo] = null;
     return acc;
@@ -43,16 +41,15 @@ export default function Quizz({ usrname, usrProfilePath }) {
         correctCount++;
       }
     }
-
     if (allAnswered) {
       setTotalCorrect(correctCount);
       setResult(true);
-      setReview(true);
+      setReview(false);
     }
   }
 
   function reviewResult() {
-    setReview(false);
+    setReview((prev)=>!prev);
   }
 
   return (
@@ -61,11 +58,6 @@ export default function Quizz({ usrname, usrProfilePath }) {
         <span className="flex flex-row items-center hover:cursor-pointer">
           <i className="pi pi-chevron-left"></i> Back
         </span>
-        <UserProfile
-          UserName={usrname}
-          ProfilePath={usrProfilePath}
-          positionTop="50px"
-        />
       </div>
       <div className="quizz-header flex flex-row justify-between mt-4 items-center">
         <div className="flex flex-col">
@@ -76,8 +68,7 @@ export default function Quizz({ usrname, usrProfilePath }) {
           <ProgressBar value={(quiNo / totalQuestions) * 100} />
         </div>
         <div>
-          <button>Review</button>
-          <button>Mark As Review</button>
+          <button className="bg-green-500 px-5 py-1 rounded-2xl font-bold text-white hover:cursor-pointer" onClick={reviewResult}>Review</button>
         </div>
         <div>
           <i className="pi pi-clock"></i>
@@ -85,20 +76,21 @@ export default function Quizz({ usrname, usrProfilePath }) {
         </div>
       </div>
       <div className="quizz-content w-[75%] mx-auto bg-gray-100 mt-10 px-5 py-2 rounded-2xl flex flex-col gap-y-3">
-        {!review ? (
+        {!showResult && !review ? (
           <>
             <QuestionContent
               quizz_data={quizData[quiNo]}
               selectedAnswers={selectedAnswers}
               setSelectedAnswers={setSelectedAnswers}
-              showResult={showResult}
+              showResult={false}
               questionNo={quiNo}
             />
+
             <div className="mx-auto">
               {quiNo === totalQuestions && (
                 <Button
                   style={{ width: "120px", height: "40px" }}
-                  label={showResult ? "Review" : "Submit"}
+                  label="Submit"
                   severity="success"
                   raised
                   onClick={checkAns}
@@ -122,12 +114,38 @@ export default function Quizz({ usrname, usrProfilePath }) {
               />
             </div>
           </>
+        ) : review ? (
+          <>
+            <QuestionContent
+              quizz_data={quizData[quiNo]}
+              selectedAnswers={selectedAnswers}
+              setSelectedAnswers={setSelectedAnswers}
+              showResult={showResult}
+              questionNo={quiNo}
+            />
+
+            <div className="ml-auto flex flex-row gap-x-5 mb-3">
+              <Button
+                style={{ width: "40px", height: "30px" }}
+                icon="pi pi-chevron-left"
+                rounded
+                aria-label="Previous"
+                onClick={goLeft}
+              />
+              <Button
+                style={{ width: "40px", height: "30px" }}
+                icon="pi pi-chevron-right"
+                rounded
+                aria-label="Next"
+                onClick={goRight}
+              />
+            </div>
+          </>
         ) : (
           <QuizzResult
-            usrname={usrname}
             result={totalCorrect}
             maxQa={totalQuestions}
-            duration={'30min'}
+            duration={"30min"}
             review={reviewResult}
           />
         )}
@@ -145,31 +163,60 @@ function Question({ questno, quest }) {
   );
 }
 
-function Answer({ ansNo, answer, isSelected, onClick, selectAns, correctAnswer, showResult }) {
+function Answer({
+  ansNo,
+  answer,
+  isSelected,
+  onClick,
+  selectAns,
+  correctAnswer,
+  showResult,
+}) {
+  const isCorrect = (ansNo === correctAnswer);
+  const isUserCorrect = ((selectAns === correctAnswer) && (ansNo === correctAnswer));
+  const isUserWrong = ((selectAns === ansNo) && (selectAns !== correctAnswer));
+
+  let bgColorClass = "";
+
+  if (showResult) {
+    if (isUserCorrect) bgColorClass = "correct-answer";
+    else if (isUserWrong) bgColorClass = "wrong-answer";
+    else if (isCorrect) bgColorClass = "correct-answer-unselected";
+  }
+
   return (
     <div
-      className={`bg-white py-4 px-3 rounded-xl border-1 border-black flex flex-row items-center justify-between hover:cursor-pointer ${
-        showResult && selectAns === ansNo
-          ? selectAns === correctAnswer
-            ? "correct-answer"
-            : "wrong-answer"
-          : ""
-      }`}
+      className={`bg-white py-4 px-3 rounded-xl border-1 border-black flex flex-row items-center justify-between hover:cursor-pointer ${bgColorClass}`}
       onClick={!showResult ? onClick : undefined}
-      style={{ borderLeft: isSelected ? "8px solid #0388fc" : "" }}
+      style={{
+        borderLeft: isSelected && !showResult ? "8px solid #0388fc" : "",
+      }}
     >
       <p>
         <span>{ansNo}</span> . {answer}
       </p>
-      <i className="pi pi-circle rounded-full" style={{ fontSize: "1.2rem", backgroundColor: isSelected ? "#0388fc" : "" }}></i>
+      <i
+        className="pi pi-circle rounded-full"
+        style={{
+          fontSize: "1.2rem",
+          backgroundColor: isSelected && !showResult ? "#0388fc" : "",
+        }}
+      ></i>
     </div>
   );
 }
 
-function QuestionContent({ quizz_data, selectedAnswers, setSelectedAnswers, showResult, questionNo }) {
+function QuestionContent({
+  quizz_data,
+  selectedAnswers,
+  setSelectedAnswers,
+  showResult,
+  questionNo,
+}) {
   const selectAnswer = (ans) => {
     setSelectedAnswers((prev) => ({ ...prev, [questionNo]: ans }));
   };
+
   return (
     <div className="quizz-content w-[75%] mx-auto bg-gray-100 mt-10 px-5 py-2 rounded-2xl flex flex-col gap-y-3">
       <Question questno={questionNo} quest={quizz_data.question} />
@@ -183,7 +230,7 @@ function QuestionContent({ quizz_data, selectedAnswers, setSelectedAnswers, show
             onClick={() => selectAnswer(ansNo)}
             selectAns={selectedAnswers[questionNo]}
             correctAnswer={quizz_data.correctAnswer}
-            showResult={showResult}
+            showResult={showResult} 
           />
         ))}
     </div>

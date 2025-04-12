@@ -42,7 +42,7 @@ export default function UserProfile({ UserName, ProfilePath, positionTop }) {
             </Link>
           </li>
           <li>
-            <Link to="/my-courses">
+            <Link to="/mycourse">
               Course <i className="pi pi-th-large"></i>
             </Link>
           </li>

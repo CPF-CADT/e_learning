@@ -5,10 +5,6 @@ import './style/AuthWelcome.css';
 const AuthWelcome = () => {
   return (
     <div className="auth-container">
-      {/* Left Section */}
-      
-
-      {/* Right Section */}
       <div className="auth-right">
         <h2 className="welcome-title">Welcome</h2>
         <p className="welcome-text">

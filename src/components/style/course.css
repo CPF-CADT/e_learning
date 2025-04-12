@@ -8,12 +8,17 @@
     background: #41BD55;
   }
   .correct-answer {
-    background-color: #d4edda;  
-    border-color: #28a745;      
-    color: #155724;            
+    background-color: #d4edda;
+    border-left: 8px solid #28a745;
   }
+  
+  .correct-answer-unselected {
+    background-color: #e6ffe6;
+    border-left: 8px solid #218838;
+  }
+  
   .wrong-answer {
-    background-color: #f8d7da;  
-    border-color: #dc3545;      
-    color: #721c24;           
+    background-color: #f8d7da;
+    border-left: 8px solid #dc3545;
   }
+  
