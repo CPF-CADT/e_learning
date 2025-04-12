@@ -26,6 +26,7 @@ import courses from './data/courseLeened'
 import AuthWelcome from './components/AuthWelcome';
 import CourseVideoRouter from './components/CourseVideoRouter';
 import CourseQuizzRouter from './components/CourseQuizzRouter';
+import AuthManager from './components/AuthManager';
 export default function App() { 
   let userName = "Cheng Nhajor"
   const[numCart,setNumCart] = useState(myCart.length);
@@ -57,7 +58,8 @@ export default function App() {
         <Nav UserName={userName} ProfilePath={userProfile} isLogin={isLogin} myCart={cart} />
         {(showPopup)&&<AuthWelcome />}
         <Routes>
-          {/* <Route path='/auth' element={} /> */}
+        <Route path="/login" element={<AuthManager />} />
+          <Route path='/auth' element={<AuthWelcome />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
           <Route path='/' element={<Home />} />
