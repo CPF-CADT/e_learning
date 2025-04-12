@@ -76,7 +76,7 @@ export default function App() {
           <Route path="/quiz/:courseId" element={<CourseQuizzRouter />} />
           <Route path='/mycourse/selected/quizz' element={<Quizz usrname={userName} usrProfilePath={userProfile} />} />
           <Route path='/user-detail' element = {<UserDetail myCourse={myCourse} />} />
-          <Route path='/course-de tail' element={<CourseDetail userName={userName} userProfile={userProfile} />} />
+          <Route path='/course-detail' element={<CourseDetail userName={userName} userProfile={userProfile} />} />
         </Routes>
       </>
     </PrimeReactProvider>
