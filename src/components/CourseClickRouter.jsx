@@ -7,7 +7,6 @@ export default function CourseClickRouter({myCourse}){
     const selectedcourse = myCourse.find(
       (item) => convertTitleToSlug(item.courseTitle) === courseSelect
     );
-    
     return (
         <>
             <CourseClick  course={selectedcourse} />

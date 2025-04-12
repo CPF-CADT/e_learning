@@ -24,11 +24,6 @@ const dummyProfiles = [
     "https://i.pravatar.cc/35?img=23",
     "https://i.pravatar.cc/35?img=24",
   ];
-  
-
-
-
-
 const feedbackList = [
     {
       image: dummyProfiles[0],
