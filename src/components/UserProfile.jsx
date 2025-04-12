@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-export default function UserProfile({ UserName, ProfilePath, positionTop }) {
+
+export default function UserProfile({ UserName, ProfilePath, positionTop, onLogout }) {
   const [toggle, setToggle] = useState(false);
 
   // Toggle dropdown visibility
@@ -32,7 +33,7 @@ export default function UserProfile({ UserName, ProfilePath, positionTop }) {
           top: positionTop,
           left: "0",
           display: toggle ? "block" : "none",
-          zIndex: 10, // E
+          zIndex: 10,
         }}
       >
         <ul>
@@ -42,7 +43,7 @@ export default function UserProfile({ UserName, ProfilePath, positionTop }) {
             </Link>
           </li>
           <li>
-            <Link to="/my-courses">
+            <Link to="/my-Courses">
               Course <i className="pi pi-th-large"></i>
             </Link>
           </li>
@@ -66,11 +67,11 @@ export default function UserProfile({ UserName, ProfilePath, positionTop }) {
               Help <i className="pi pi-info-circle"></i>
             </Link>
           </li>
-          <li>
-            <Link to="/logout">
-              Log out <i className="pi pi-sign-out"></i>
-            </Link>
+          <li onClick={onLogout} style={{ cursor: 'pointer' }}>
+            Log out <i className="pi pi-sign-out"></i>
           </li>
+
+
         </ul>
       </div>
     </div>

@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import './style/login.css';
-import SignUp from './Signup';
+import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
 
-const users = [
-  { email: 'user1@gmail.com', password: 'pass123' },
-  { email: 'user2@gmail.com', password: 'secret456' },
-  { email: 'username@gmail.com', password: 'mypassword' },
-  { email: 'admin@gmail.com', password: 'admin2024' }
-];
 
-export default function Login() {
+export default function Login({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Initialize the navigate function
 
   const handleLogin = () => {
     const user = users.find(
@@ -21,7 +16,8 @@ export default function Login() {
 
     if (user) {
       setMessage('✅ Login successful!');
-    } else {
+      onLogin(); 
+      navigate('/'); 
       setMessage('❌ Invalid email or password');
     }
   };

@@ -25,7 +25,7 @@ import CheckOut from './components/CheckOut';
 import PaymentSuccess from './components/PaymentSuccess';
 import courses from './data/courseLeened'
 import AuthWelcome from './components/AuthWelcome';
-
+import AuthManager from './components/AuthManager';
 export default function App() { 
   let userName = "Cheng Nhajor"
   const[numCart,setNumCart] = useState(myCart.length);
@@ -36,6 +36,7 @@ export default function App() {
       <>  
         <Nav UserName={userName} ProfilePath={userProfile} isLogin={true} myCart={cart} />
         <Routes>
+        <Route path="/login" element={<AuthManager />} />
           <Route path='/auth' element={<AuthWelcome />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
