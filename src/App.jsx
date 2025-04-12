@@ -27,6 +27,7 @@ import AuthWelcome from './components/AuthWelcome';
 import CourseVideoRouter from './components/CourseVideoRouter';
 import CourseQuizzRouter from './components/CourseQuizzRouter';
 import AuthManager from './components/AuthManager';
+import CourseDetailRoute from './components/CourseDetailRoute';
 export default function App() { 
   let userName = "Cheng Nhajor"
   const[numCart,setNumCart] = useState(myCart.length);
@@ -52,10 +53,13 @@ export default function App() {
       return () => clearTimeout(timer);
     }
   }, [isLogin]);
+  function setLogout(){
+    setIsLogin(false)
+  }
   return (
     <PrimeReactProvider>
       <>  
-        <Nav UserName={userName} ProfilePath={userProfile} isLogin={isLogin} myCart={cart} />
+        <Nav UserName={userName} ProfilePath={userProfile} isLogin={isLogin} myCart={cart}  setLogout={setLogout} />
         {(showPopup)&&<AuthWelcome />}
         <Routes>
         <Route path="/login" element={<AuthManager />} />
@@ -76,7 +80,7 @@ export default function App() {
           <Route path="/quiz/:courseId" element={<CourseQuizzRouter />} />
           <Route path='/mycourse/selected/quizz' element={<Quizz usrname={userName} usrProfilePath={userProfile} />} />
           <Route path='/user-detail' element = {<UserDetail myCourse={myCourse} />} />
-          <Route path='/course-detail' element={<CourseDetail userName={userName} userProfile={userProfile} />} />
+          <Route path='/course/:courseId/detail' element={<CourseDetailRoute />} />
         </Routes>
       </>
     </PrimeReactProvider>
