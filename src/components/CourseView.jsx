@@ -1,9 +1,8 @@
 import { useState } from "react";
 import MyCourseHeader from "./MyCourseHeader";
-import UserProfile from "./UserProfile";
 import VideoPlayer from "./VideoPlayer";
 import MarkdownRenderer from './MarkdownRenderer'
-export default function CourseView({ usrname, usrProfilePath }) {
+export default function CourseView({url}) {
   const options = ["Video", "Resource"];
   const [selectedOption, setSelectedOption] = useState(options[0]);
   let markdownText = `
@@ -33,14 +32,6 @@ export default function CourseView({ usrname, usrProfilePath }) {
         options={options}
       />
       <div className="course_view_container mx-auto container max-w-[1280px]">
-        <nav className="flex justify-between items-center mx-auto container max-w-[1280px]">
-          <i style={{fontSize:'1.7rem'}} className="pi pi-bars hover:cursor-pointer"></i>
-          <UserProfile
-            UserName={usrname} // Matching prop name to the one passed in the Route
-            ProfilePath={usrProfilePath} // Matching prop name to the one passed in the Route
-            positionTop="50px"
-          />
-        </nav>
         <div className="">
           <div className="flex flex-row justify-between px-20">
             <span className="hover:cursor-pointer">
@@ -54,7 +45,7 @@ export default function CourseView({ usrname, usrProfilePath }) {
           </div>
           <div className="justify-center items-center flex mt-5">
             <VideoPlayer
-              videoUrl={"https://www.youtube.com/watch?v=3B5CjuiViSc"}
+              videoUrl={url}
               setWidth={"1120"}
               setHeigh={"640"}
             />
