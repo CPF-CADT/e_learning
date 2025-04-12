@@ -4,7 +4,7 @@ import UserProfile from './UserProfile';
 import { Link } from "react-router-dom";
 import CartCard from './Cart'
 
-export default function Nav({ UserName, ProfilePath, isLogin,myCart }) {
+export default function Nav({ UserName, ProfilePath, isLogin,myCart,setLogout }) {
   return (
     <div className="navigation-bar">
       <div>
@@ -46,6 +46,7 @@ export default function Nav({ UserName, ProfilePath, isLogin,myCart }) {
             UserName={UserName} 
             ProfilePath={ProfilePath} 
             positionTop="50px"  
+            onLogout={setLogout}
           />
         </div>
       </div>
