@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './style/login.css';
 import { useNavigate } from 'react-router-dom'; 
-import users from '../data/LoginData';
+import {users} from '../data/LoginData';
 
 export default function Login({ onLogin }) {
   const [email, setEmail] = useState('');
